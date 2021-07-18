@@ -15,55 +15,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid() {
+export default function CenteredGrid({ data }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card 
-          img="https://static01.nyt.com/images/2020/12/24/obituaries/Menem-05a-esp-1/Menem-05a-superJumbo.jpg" 
-          tittle="el rey de reyes" 
-          description="unico e inigualable"
-          price={332}
-           />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
-        <Grid item xs={6} lg={3} md={4}>
-          <Card />
-        </Grid>
+        {data.map((d) => {
+          const { id, title, img, bath, price, m2, rooms, garage } = d;
+          return (
+            <Grid item xs={6} lg={3} md={4} key={id}>
+              <Card
+                img={img}
+                tittle={title}
+                m2={m2}
+                rooms={rooms}
+                baths={bath}
+                garage={garage}
+                description={title}
+                price={price}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
     </div>
   );

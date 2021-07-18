@@ -1,45 +1,53 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import PropTypes from "prop-types";
 import Icon from "../icon/icon";
+import {
+  StyledCard,
+  StyledCardMedia,
+  StyledCardActionArea,
+  Price,
+  description,
+  IconsContainer,
+  IconContainer,
+} from "./card.styles";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-    margin: "0 auto",
-  },
-  media: {
-    height: 140,
-  },
-});
-
-function MediaCard({ img, tittle, description, price }) {
-  const classes = useStyles();
-
+function MediaCard({ img, tittle, description, price, rooms, baths, m2, garage }) {
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia className={classes.media} image={img} title={tittle} data-testid='img' />
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="p" data-testid='price'>
-            ${price}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" data-testid='description'>
-            {description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Icon />
-      </CardActions>
-    </Card>
+    <>
+      <StyledCard>
+        <StyledCardActionArea>
+          <StyledCardMedia image={img} title={tittle} component="img" />
+          <CardContent>
+            <Price gutterBottom variant="h6" component="p">
+              ${price}
+            </Price>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {description}
+            </Typography>
+          </CardContent>
+        </StyledCardActionArea>
+        <IconsContainer>
+          <IconContainer>
+            <Icon name="bed" />
+            <span>{rooms}</span>
+          </IconContainer>
+          <IconContainer>
+            <Icon name="bath" />
+            <span>{baths}</span>
+          </IconContainer>
+          <IconContainer>
+            <Icon name="m2" />
+            <span>{m2}</span>
+          </IconContainer>
+          <IconContainer>
+            <Icon name="car" />
+            <span>{garage}</span>
+          </IconContainer>
+        </IconsContainer>
+      </StyledCard>
+    </>
   );
 }
 
@@ -48,6 +56,9 @@ MediaCard.propTypes = {
   img: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tittle: PropTypes.string.isRequired,
+  baths: PropTypes.string.isRequired,
+  rooms: PropTypes.string.isRequired,
+  m2: PropTypes.string.isRequired
 };
 
 export default MediaCard;

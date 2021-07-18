@@ -1,11 +1,22 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import { Link } from "react-router-dom";
 import {
-  Li, IconContainer, IconStyled, NavBarStyled, ToolbarStyled, SocialMediaAndlinks
+  Li,
+  IconContainer,
+  IconStyled,
+  NavBarStyled,
+  ToolbarStyled,
+  SocialMediaAndlinks,
+  Logo,
+  IconMobileContainer,
+  SocialMediaMobile,
+  LogoAndMediaContainer,
+  Links
 } from "./navbar.styles";
+import  logo  from "../../assets/logo.jpg"
 
 export default function Navbar() {
 
@@ -13,9 +24,37 @@ export default function Navbar() {
     <>
       <NavBarStyled position="fixed">
         <ToolbarStyled>
-          <Typography variant="h6">
-            KON Propiedades
-          </Typography>
+          <LogoAndMediaContainer>
+          <Logo src={logo}/>
+          <SocialMediaMobile>
+            <IconMobileContainer>
+            <IconStyled
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <InstagramIcon />
+            </IconStyled>
+            <IconStyled
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <FacebookIcon />
+            </IconStyled>
+            <IconStyled
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <WhatsAppIcon />
+            </IconStyled>
+          </IconMobileContainer>
+          </SocialMediaMobile>
+          </LogoAndMediaContainer>
           <SocialMediaAndlinks>
             <IconContainer>
               <IconStyled
@@ -43,11 +82,13 @@ export default function Navbar() {
                 <WhatsAppIcon />
               </IconStyled>
             </IconContainer>
+          <Links>
             <Li>Alquileres</Li>
             <Li>Ventas</Li>
             <Li>Tasaciones</Li>
             <Li>Novedades</Li>
-            <Li>Contacto</Li>
+            <Li to="/contact">Contacto</Li>
+          </Links>
           </SocialMediaAndlinks>
         </ToolbarStyled>
       </NavBarStyled>
