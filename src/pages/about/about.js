@@ -48,6 +48,9 @@ function About() {
           </Typography>
         </Stat>
       </StatsContainer>
+      <Typography variant='h3' gutterBottom>
+        Fundadores
+      </Typography>
       <FoundersContainer>
         <Founder>
           <Avatar alt='Remy Sharp' src='https://fotos.perfil.com/2019/06/19/trim/950/534/san-martin-738425.png' style={{ height: '200px', width: '200px' }} />
