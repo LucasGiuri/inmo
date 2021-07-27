@@ -86,7 +86,7 @@ export default function Navbar() {
             <Li>Alquileres</Li>
             <Li>Ventas</Li>
             <Li>Tasaciones</Li>
-            <Li>Novedades</Li>
+            <Li to="/novedades">Novedades</Li>
             <Li to="/contact">Contacto</Li>
           </Links>
           </SocialMediaAndlinks>
