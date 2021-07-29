@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 export const StyledCard = styled(Card)`
   display: flex;
   flex-direction: column;
+  background-color: #5D6673;
 `;
 
 export const StyledCardMedia = styled(CardMedia)`

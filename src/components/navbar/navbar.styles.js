@@ -8,91 +8,90 @@ export const ToolbarStyled = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
 
-  @media(max-width: 850px){
+  @media (max-width: 850px) {
     flex-direction: column;
   }
 `;
 
 export const SocialMediaAndlinks = styled.div`
   display: flex;
-  
-  @media(max-width: 850px){
+
+  @media (max-width: 850px) {
     width: 100%;
   }
 `;
 
 export const Li = styled(Link)`
-display: flex;
-align-items: center;
-color: white;
-border: none;
-padding: 0 10px;
-text-transform: uppercase;
-text-decoration: none;
-cursor: pointer;
-transition: 0.4s;
-&:hover {
-    color: red;
-}
+  display: flex;
+  align-items: center;
+  color: white;
+  border: none;
+  padding: 0 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.4s;
+  &:hover {
+    color: #A60321;
+  }
 `;
 
 export const IconContainer = styled.div`
-display: block;
-@media(max-width: 850px){
+  display: block;
+  @media (max-width: 850px) {
     display: none;
-}
+  }
 `;
 
 export const IconStyled = styled(IconButton)`
-color: white;
-border: none;
-margin: auto;
-cursor: pointer;
-transition: 0.4s;
-&:hover {
-  color: red;
-}
+  color: white;
+  border: none;
+  margin: auto;
+  cursor: pointer;
+  transition: 0.4s;
+  &:hover {
+    color: #A60321;
+  }
 `;
 
-export const NavBarStyled = styled(AppBar) `
-background-color: black;
-padding: 10px 0;
+export const NavBarStyled = styled(AppBar)`
+  background-color: black;
+  padding: 10px 0;
 `;
 
 export const Logo = styled.img`
-width: 200px;
-@media(max-width: 850px){
+  width: 200px;
+  @media (max-width: 850px) {
     width: 100px;
-}
-`
+  }
+`;
 export const SocialMediaMobile = styled.div`
-display: flex;
-`
+  display: flex;
+`;
 
 export const IconMobileContainer = styled.div`
-display: none;
-@media(max-width: 850px){
+  display: none;
+  @media (max-width: 850px) {
     display: block;
-}
+  }
 `;
 
 export const LogoAndMediaContainer = styled.div`
-display: flex;
-width: auto;
+  display: flex;
+  width: auto;
 
-
-@media(max-width: 850px){
-  justify-content: space-between;
-  width: 100%;
+  @media (max-width: 850px) {
+    justify-content: space-between;
+    width: 100%;
   }
-`
+`;
 
 export const Links = styled.div`
-display: flex;
-width: auto;
+  display: flex;
+  width: auto;
 
-@media(max-width: 850px){
-  width: 100%;
-  justify-content: space-between;
+  @media (max-width: 850px) {
+    width: 100%;
+    justify-content: space-between;
   }
-`
+`;

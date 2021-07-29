@@ -1,24 +1,20 @@
 import React, { useState } from "react";
-import { Data } from "./Data";
+import data from "./data.json";
 import styled from "styled-components";
 import Layout from "../../components/layout/layout";
-import { IconContext } from "react-icons";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 const NovedadesSection = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  height: 100vh;
-  background: #fff;
+  justify-content: space-between;
+  background: red;
+  width: 100%;
 `;
 
 const Container = styled.div`
-  position: absolute;
-  top: 30%;
   box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+  width: 50%;
 `;
 
 const Wrap = styled.div`
@@ -46,7 +42,7 @@ const Dropdown = styled.div`
   color: red;
   width: 100%;
   height: 100px;
-  display: flex;
+  display: ${(p) => (p.isShown ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -71,27 +67,24 @@ export const Novedades = () => {
   };
   return (
     <Layout>
-      <IconContext.Provider value={{ color: "red", size: "25px" }}>
-        <NovedadesSection>
-          <Container>
-            {Data.map((item, index) => {
-              return (
-                <>
-                  <Wrap onClick={() => toggle(index)} key={index}>
-                    <h1>{item.titulo}</h1>
-                    <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
-                  </Wrap>
-                  {clicked === index ? (
-                    <Dropdown>
-                      <p>{item.contenido}</p>
-                    </Dropdown>
-                  ) : null}
-                </>
-              );
-            })}
-          </Container>
-        </NovedadesSection>
-      </IconContext.Provider>
+      <NovedadesSection>
+        <Container>
+          {data.results.map((item, index) => {
+            return (
+              <>
+                <Wrap onClick={() => toggle(index)} key={index}>
+                  <h1>{item.titulo}</h1>
+                  <span>{clicked === index ? <FiMinus color='red' /> : <FiPlus color='red' />}</span>
+                </Wrap>
+                <Dropdown isShown={clicked === index}>
+                  <p>{item.contenido}</p>
+                </Dropdown>
+              </>
+            );
+          })}
+        </Container>
+        <div>Hola</div>
+      </NovedadesSection>
     </Layout>
   );
 };

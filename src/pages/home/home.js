@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 // import video from './caba.mp4';
-import Typography from '@material-ui/core/Typography';
-import { useStateContext } from '../../state';
-import Prismic from '@prismicio/client'
-import { Date, Link, RichText } from 'prismic-reactjs'
+import Typography from "@material-ui/core/Typography";
+import { useStateContext } from "../../state";
+import Prismic from "@prismicio/client";
+import { Date, Link, RichText } from "prismic-reactjs";
 import Grid from "../../components/grid/grid";
 import Layout from "../../components/layout/layout";
 import About from "../about/about";
+import { Section } from "../../components/section/section";
 
-const apiEndpoint = 'https://inmo.cdn.prismic.io/api/v2';
-const accessToken = '';
+const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
+const accessToken = "";
 
-const Client = Prismic.client(apiEndpoint, { accessToken })
+const Client = Prismic.client(apiEndpoint, { accessToken });
 
 function Home() {
   const [doc, setDocData] = useState(null);
@@ -21,14 +22,14 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await Client.query(
-        Prismic.Predicates.at('document.type', 'property')
-      )
+        Prismic.Predicates.at("document.type", "property")
+      );
       if (response) {
-        dispatch({ type: 'ADD', payload: response.results });
-        setDocData(response.results[0])
+        dispatch({ type: "ADD", payload: response.results });
+        setDocData(response.results[0]);
       }
-    }
-    fetchData()
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ function Home() {
           price,
           bath,
           m2,
-          garage: cochera ? 'Si' : 'No'
+          garage: cochera ? "Si" : "No",
         };
       });
       setData(filteredData);
@@ -51,14 +52,10 @@ function Home() {
 
   return (
     <Layout>
-      <Typography variant='h3' gutterBottom align='center'>
-        Propiedades en venta
-      </Typography>
-      <Grid data={data} />
-        {/* <video id="videoBG" autoplay muted loop width='100%'>
-          <source src={video} type="video/mp4" />
-        </video> */}
-        <About />
+      <Section title="Propiedades en venta">
+        <Grid data={data} />
+      </Section>
+      <About />
     </Layout>
   );
 }

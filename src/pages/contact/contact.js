@@ -8,7 +8,7 @@ import {
   ContactGrid,
   ContactCardContent,
 } from "./contact.styles";
-import {  } from "@material-ui/core";
+import {} from "@material-ui/core";
 
 function Contact() {
   return (
@@ -25,8 +25,8 @@ function Contact() {
               component="p"
               gutterBottom
             >
-              Fill up the form and our team will get back to you within 24
-              hours.
+              Complete el siguiente formulario y lo contactaremos en las
+              proximas 24 horas
             </ContactTypography>
             <form>
               <ContactGrid container spacing={1}>

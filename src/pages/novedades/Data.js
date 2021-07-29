@@ -1,4 +1,4 @@
-export const Data = [
+export const data = [
   {
     titulo: "Que necesito para tasar?",
     contenido:
