@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import data from "./data.json";
 import Layout from "../../components/layout/layout";
+import Grid from "../../components/grid/grid";
 import {
   NovedadesSection,
   IndexContainer,
@@ -9,9 +10,9 @@ import {
   Dropdown,
   PlusIcon,
   MinusIcon,
-} from "./novedades.styles";
+} from "./properties.styles";
 
-const Novedades = () => {
+const Properties = () => {
   const [clicked, setClicked] = useState(false);
 
   const toggle = (index) => {
@@ -30,25 +31,11 @@ const Novedades = () => {
           ))}
         </IndexContainer>
         <Container>
-          {data.results.map((item, index) => {
-            return (
-              <>
-                <Wrap onClick={() => toggle(index)} key={index}>
-                  <h3>{item.titulo}</h3>
-                  <span>
-                    {clicked === index ? <MinusIcon /> : <PlusIcon />}
-                  </span>
-                </Wrap>
-                <Dropdown isShown={clicked === index}>
-                  <p>{item.contenido}</p>
-                </Dropdown>
-              </>
-            );
-          })}
+          <Grid numRowsLg={4} data={data.results} />
         </Container>
       </NovedadesSection>
     </Layout>
   );
 };
 
-export default Novedades
+export default Properties;

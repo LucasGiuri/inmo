@@ -1,15 +1,15 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/navbar/navbar';
-import Home from './pages/home/home';
-import Contact from './pages/contact/contact';
-import { Novedades } from './pages/novedades/novedades';
-import Property from './pages/property/property';
-import { StateProvider } from './state';
-import Footer from './components/footer/footer';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { WhatsappLinked } from './App.styles';
-
+import React from "react";
+import "./App.css";
+import Navbar from "./components/navbar/navbar";
+import Home from "./pages/home/home";
+import Contact from "./pages/contact/contact";
+import  Novedades  from "./pages/novedades/novedades";
+import Property from "./pages/property/property";
+import Properties  from "./pages/properties/properties";
+import { StateProvider } from "./state";
+import Footer from "./components/footer/footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { WhatsappLinked } from "./App.styles";
 
 export default function App() {
   return (
@@ -19,19 +19,22 @@ export default function App() {
           <div>
             <Navbar />
             <Switch>
-              <Route path='/contact'>
+              <Route path="/contact">
                 <Contact />
               </Route>
-              <Route path='/novedades'>
+              <Route path="/novedades">
                 <Novedades />
               </Route>
-              <Route exact path='/property/:id'>
+              <Route exact path="/property/:id">
                 <Property />
               </Route>
-              <Route path='/home'>
+              <Route exact path="/properties">
+                <Properties />
+              </Route>
+              <Route path="/home">
                 <Home />
               </Route>
-              <Route path='/'>
+              <Route path="/">
                 <Home />
               </Route>
             </Switch>

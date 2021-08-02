@@ -1,0 +1,113 @@
+{
+  "results": [
+    { 
+      "id": 1,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 2,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 3,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 4,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 5,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 6,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 7,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 8,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 9,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 10,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 11,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    },
+    { 
+      "id": 12,
+      "img": "https://images.prismic.io/inmo/8efa9d0c-8758-4539-bea1-3a1f794e37cd_90.jpeg?auto=compress,format",
+      "title": "depto en palermo",
+      "price": "45000$",
+      "bath": "3",
+      "m2": "100",
+      "garage":  "Si" 
+    }
+  ]
+}
+

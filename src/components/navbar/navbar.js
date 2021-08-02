@@ -2,7 +2,7 @@ import React from "react";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-import { Link } from "react-router-dom";
+
 import {
   Li,
   IconContainer,
@@ -50,7 +50,6 @@ export default function Navbar() {
               aria-haspopup="true"
               color="inherit"
             >
-              <WhatsAppIcon />
             </IconStyled>
           </IconMobileContainer>
           </SocialMediaMobile>
@@ -72,14 +71,6 @@ export default function Navbar() {
                 color="inherit"
               >
                 <FacebookIcon />
-              </IconStyled>
-              <IconStyled
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <WhatsAppIcon />
               </IconStyled>
             </IconContainer>
           <Links>

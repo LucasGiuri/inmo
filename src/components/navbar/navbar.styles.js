@@ -24,7 +24,7 @@ export const SocialMediaAndlinks = styled.div`
 export const Li = styled(Link)`
   display: flex;
   align-items: center;
-  color: white;
+  color: #A60321;
   border: none;
   padding: 0 10px;
   text-transform: uppercase;
@@ -32,7 +32,7 @@ export const Li = styled(Link)`
   cursor: pointer;
   transition: 0.4s;
   &:hover {
-    color: #A60321;
+    color: #732727;
   }
 `;
 
@@ -44,18 +44,18 @@ export const IconContainer = styled.div`
 `;
 
 export const IconStyled = styled(IconButton)`
-  color: white;
+  color: #A60321;
   border: none;
   margin: auto;
   cursor: pointer;
   transition: 0.4s;
   &:hover {
-    color: #A60321;
+    color: #732727;
   }
 `;
 
 export const NavBarStyled = styled(AppBar)`
-  background-color: black;
+  background-color: #050D0A;
   padding: 10px 0;
 `;
 

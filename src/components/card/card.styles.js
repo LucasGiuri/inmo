@@ -7,7 +7,14 @@ import Typography from "@material-ui/core/Typography";
 export const StyledCard = styled(Card)`
   display: flex;
   flex-direction: column;
-  background-color: #5D6673;
+  background-color: #fff;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-radius: 12px;
+  &:hover {
+    transition: 1.5s;
+    background-color: #999;
+  }
 `;
 
 export const StyledCardMedia = styled(CardMedia)`
@@ -31,9 +38,8 @@ export const Description = styled(Typography)`
 
 export const IconsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
-  padding: 0 10px;
 `;
 
 export const IconContainer = styled.div`
@@ -41,4 +47,5 @@ export const IconContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 12px;
 `;

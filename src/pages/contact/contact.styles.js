@@ -21,7 +21,10 @@ export const StyledButton = styled(Button)`
 `;
 
 export const StyledTextField = styled(TextField)``;
-export const ContactTypography = styled(Typography)``;
+
+export const ContactTypography = styled(Typography)`
+  padding: 3px 0px;
+`;
 
 export const ContactCard = styled(Card)`
   max-width: 45rem;

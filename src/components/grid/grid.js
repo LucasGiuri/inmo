@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid({ data }) {
+export default function CenteredGrid({ data, numRowsLg, numRowsMd, numRowsXs }) {
   const classes = useStyles();
 
   return (
@@ -24,7 +24,7 @@ export default function CenteredGrid({ data }) {
         {data.map((d) => {
           const { id, title, img, bath, price, m2, rooms, garage } = d;
           return (
-            <Grid item xs={6} lg={3} md={4} key={id}>
+            <Grid item xs={6} lg={numRowsLg} md={4} key={id}>
               <Card
                 img={img}
                 tittle={title}

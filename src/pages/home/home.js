@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import video from './caba.mp4';
-import Typography from "@material-ui/core/Typography";
 import { useStateContext } from "../../state";
 import Prismic from "@prismicio/client";
-import { Date, Link, RichText } from "prismic-reactjs";
 import Grid from "../../components/grid/grid";
 import Layout from "../../components/layout/layout";
 import About from "../about/about";
@@ -53,7 +50,7 @@ function Home() {
   return (
     <Layout>
       <Section title="Propiedades en venta">
-        <Grid data={data} />
+        <Grid numRowsLg={3} data={data} />
       </Section>
       <About />
     </Layout>
