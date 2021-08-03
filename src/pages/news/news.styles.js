@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import styled, { keyframes } from 'styled-components';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 
 const fadeIn = keyframes`
   from {
@@ -85,7 +85,7 @@ export const Dropdown = styled.div`
   color: #a60321;
   width: 100%;
   height: auto;
-  display: ${(p) => (p.isShown ? "flex" : "none")};
+  display: ${(p) => (p.isShown ? 'flex' : 'none')};
   flex-direction: column;
   animation: ${(p) => (p.isShown ? fadeIn : fadeOut)} 0.5s linear;
   transition: visibility 0.5s linear;

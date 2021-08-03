@@ -17,16 +17,7 @@ function Contact() {
         <ContactCard>
           <ContactCardContent>
             <ContactTypography gutterBottom variant="h5">
-              Contact Us
-            </ContactTypography>
-            <ContactTypography
-              variant="body2"
-              color="textSecondary"
-              component="p"
-              gutterBottom
-            >
-              Complete el siguiente formulario y lo contactaremos en las
-              proximas 24 horas
+              Contacto
             </ContactTypography>
             <form>
               <ContactGrid container spacing={1}>

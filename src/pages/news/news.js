@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import data from "./data.json";
-import Layout from "../../components/layout/layout";
+import React, { useState } from 'react';
+import data from './data.json';
+import Layout from '../../components/layout/layout';
 import {
   NovedadesSection,
   IndexContainer,
@@ -9,7 +9,7 @@ import {
   Dropdown,
   PlusIcon,
   MinusIcon,
-} from "./novedades.styles";
+} from './news.styles';
 
 const Novedades = () => {
   const [clicked, setClicked] = useState(false);

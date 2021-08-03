@@ -1,44 +1,53 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import Card from '../card/card';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
-
-export default function CenteredGrid({ data, numRowsLg, numRowsMd, numRowsXs }) {
-  const classes = useStyles();
-
+export default function GridComponent({
+  data,
+  numRowsLg,
+  numRowsMd,
+  numRowsXs
+}) {
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        {data.map((d) => {
-          const { id, title, img, bath, price, m2, rooms, garage } = d;
-          return (
-            <Grid item xs={6} lg={numRowsLg} md={4} key={id}>
-              <Card
-                img={img}
-                tittle={title}
-                m2={m2}
-                rooms={rooms}
-                baths={bath}
-                garage={garage}
-                description={title}
-                price={price}
-              />
-            </Grid>
-          );
-        })}
-      </Grid>
-    </div>
+    <Grid container spacing={3}>
+      {data.map((d) => {
+        const {
+          id, title, img, bath, price, m2, rooms, garage
+        } = d;
+
+        return (
+          <Grid item
+            xs={numRowsXs}
+            md={numRowsMd}
+            lg={numRowsLg}
+            key={id}
+          >
+            <Card
+              img={img}
+              tittle={title}
+              m2={m2}
+              rooms={rooms}
+              baths={bath}
+              garage={garage}
+              description={title}
+              price={price}
+            />
+          </Grid>
+        );
+      })}
+    </Grid>
   );
 }
+
+GridComponent.propTypes = {
+  numRowsLg: PropTypes.number,
+  numRowsMd: PropTypes.number,
+  numRowsXs: PropTypes.number,
+};
+
+GridComponent.defaultProps = {
+  property: 3,
+  numRowsMd: 4,
+  numRowsXs: 6
+};
