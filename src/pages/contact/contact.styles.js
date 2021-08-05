@@ -10,7 +10,7 @@ import {
 
 export const StyledButton = styled(Button)`
   color: black;
-  background-color: #c43939;
+  background-color: #A60321;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
@@ -27,11 +27,17 @@ export const ContactTypography = styled(Typography)`
 `;
 
 export const ContactCard = styled(Card)`
-  max-width: 45rem;
-  padding: 20px 5px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContactGrid = styled(Grid)``;
 
 export const ContactCardContent = styled(CardContent)``;
+
+export const ContactSection = styled.div`
+  display: flex;
+  align-items: top;
+  flex-direction: row;
+  justify-content: space-between;
+`

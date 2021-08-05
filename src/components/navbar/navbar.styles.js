@@ -24,7 +24,7 @@ export const SocialMediaAndlinks = styled.div`
 export const Li = styled(Link)`
   display: flex;
   align-items: center;
-  color: #A60321;
+  color: #fff;
   border: none;
   padding: 0 10px;
   text-transform: uppercase;
@@ -44,7 +44,7 @@ export const IconContainer = styled.div`
 `;
 
 export const IconStyled = styled(IconButton)`
-  color: #A60321;
+  color: #fff;
   border: none;
   margin: auto;
   cursor: pointer;
@@ -55,7 +55,7 @@ export const IconStyled = styled(IconButton)`
 `;
 
 export const NavBarStyled = styled(AppBar)`
-  background-color: #050D0A;
+  background-color: black;
   padding: 10px 0;
 `;
 

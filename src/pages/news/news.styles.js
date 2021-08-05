@@ -29,6 +29,7 @@ export const NovedadesSection = styled.div`
 
 export const IndexContainer = styled.div`
   margin: 5px;
+  margin-right: 15px;
   background-color: #a60321;
   height: 100%;
   width: 25%;
@@ -42,7 +43,7 @@ export const IndexContainer = styled.div`
     color: black;
   }
   h4 {
-    color: green;
+    color: #050D0A;
   }
 `;
 

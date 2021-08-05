@@ -28,7 +28,8 @@ export const NovedadesSection = styled.div`
 `;
 
 export const IndexContainer = styled.div`
-  margin: 5px;
+  margin: 3px;
+  margin-right: 15px;
   background-color: #a60321;
   height: 100%;
   width: 25%;
