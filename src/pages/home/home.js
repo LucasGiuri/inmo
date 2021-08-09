@@ -53,11 +53,11 @@ function Home() {
     <>
       <Layout padding="0px">
         <Appraisals />
-        <Section title="Propiedades Destacadas" background="purple" padding="10px">
+        <Section title="Propiedades Destacadas" background="darkgrey" padding="10px">
           <Grid numRowsLg={3} data={data} />
         </Section>
       </Layout>
-      <Layout background={wantTosell}>
+      <Layout>
         <About />
       </Layout>
     </>

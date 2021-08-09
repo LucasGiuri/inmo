@@ -26,7 +26,10 @@ export default function App() {
             <Route exact path='/property/:id'>
               <Property />
             </Route>
-            <Route exact path='/properties'>
+            <Route exact path='/on-sale'>
+              <Properties />
+            </Route>
+            <Route exact path='/rentals'>
               <Properties />
             </Route>
             <Route path='/home'>

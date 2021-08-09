@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { Section } from "../../components/section/section";
+import infoBg from "../../assets/infoBg.jpg";
 import {
   InfoContainer,
   Container,
@@ -56,7 +57,7 @@ function About() {
           </StatsContainer>
         </>
       </Section>
-      <Section title="Dónde estamos?" background="blue">
+      <Section title="Dónde estamos?" background={infoBg}>
         <InfoContainer>
         <ContactContainer>
           <span>

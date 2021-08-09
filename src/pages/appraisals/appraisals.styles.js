@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
+import background from "../../assets/background.jpg";
 
 export const AppraisalsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-image: url(${background});
 `;
 
 export const Container = styled.div`
-  height: 650px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +19,9 @@ export const Container = styled.div`
 `;
 
 export const AppraisalsInfoContainer = styled.div`
+  background-color: #734429;
   color: #fff;
-  height: 600px;
+  height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
