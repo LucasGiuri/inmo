@@ -56,7 +56,7 @@ function About() {
           </StatsContainer>
         </>
       </Section>
-      <Section title="Dónde estamos?">
+      <Section title="Dónde estamos?" background="blue">
         <InfoContainer>
         <ContactContainer>
           <span>

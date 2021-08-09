@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
- padding: 40px 0px;
- background-color: #2E3940;
+export const Container = styled.div.attrs(() => ({}))`
+ padding: ${(props)=>props.padding || "40px 0px"};
  width: 100%;
+ background: ${(props) => `${props.background || "red"}`}
 `

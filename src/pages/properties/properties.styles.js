@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import Switch from '@material-ui/core/Switch';
 
 const fadeIn = keyframes`
   from {
@@ -21,7 +21,7 @@ const fadeOut = keyframes`
   }
 `;
 
-export const NovedadesSection = styled.div`
+export const PropertiesSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -51,31 +51,11 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const Wrap = styled.div`
-  margin: 5px;
-  padding: 15px;
-  background-color: #272727;
-  border-radius: 12px;
-  color: #fff;
+export const FilterSection = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
+  flex-direction: column;
+`
 
-  &:hover {
-    transition: 0.8s;
-    background-color: #1c1c1c;
-  }
-
-  h3 {
-    padding: 15px;
-    font-size: 25px;
-  }
-
-  span {
-    margin-right: 1.5rem;
-  }
-`;
-
+export const Switchers = styled(Switch)`
+font-size: 100px;
+`

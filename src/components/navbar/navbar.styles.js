@@ -32,7 +32,7 @@ export const Li = styled(Link)`
   cursor: pointer;
   transition: 0.4s;
   &:hover {
-    color: #732727;
+    color: #DA050D;
   }
 `;
 

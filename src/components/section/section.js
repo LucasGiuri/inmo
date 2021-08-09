@@ -2,9 +2,9 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import { Container } from "./section.styles";
 
-export const Section = ({ children, title, subtitle }) => {
+export const Section = ({ children, title, subtitle, background, padding }) => {
   return (
-    <Container>
+    <Container background={background} padding={padding}>
       {title && (
         <Typography variant="h3" gutterBottom align="center">
           {title}

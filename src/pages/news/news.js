@@ -21,7 +21,7 @@ const Novedades = () => {
     setClicked(index);
   };
   return (
-    <Layout>
+    <Layout marginTop="100px">
       <NovedadesSection>
         <IndexContainer>
           <h3>INDICE</h3>

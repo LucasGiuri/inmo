@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { LayoutContainer } from './layout.styles';
 
-function Layout({ children }) {
+function Layout({ children, ...restOfProps }) {
   return (
-    <LayoutContainer>
+    <LayoutContainer {...restOfProps}>
       {children}
     </LayoutContainer>
   );

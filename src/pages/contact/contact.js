@@ -14,7 +14,7 @@ import {} from "@material-ui/core";
 
 function Contact() {
   return (
-    <Layout>
+    <Layout height="90vh" marginTop="100px">
       <ContactSection>
         <ContactContainer>
           <span>

@@ -23,13 +23,15 @@ export const Stat = styled.div`
 `;
 
 export const InfoContainer = styled.div`
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-between;
 `;
 
 export const ContactContainer = styled.div`
-  width: 50%;
+  width: 25%;
   display: flex;
   justify-content: center;
   background-color: #a60321;
@@ -41,7 +43,7 @@ export const ContactContainer = styled.div`
 `;
 
 export const MapContainer = styled.iframe`
-  width: 50%;
+  width: 75%;
   height: 350px;
   display: flex;
   border-radius: 12px;

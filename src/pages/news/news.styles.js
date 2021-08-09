@@ -30,7 +30,7 @@ export const NovedadesSection = styled.div`
 export const IndexContainer = styled.div`
   margin: 5px;
   margin-right: 15px;
-  background-color: #a60321;
+  background-color: #DA050D;
   height: 100%;
   width: 25%;
   border-radius: 12px;
@@ -54,7 +54,7 @@ export const Container = styled.div`
 export const Wrap = styled.div`
   margin: 5px;
   padding: 15px;
-  background-color: #272727;
+  background-color: #3C4044;
   border-radius: 12px;
   color: #fff;
   display: flex;
@@ -83,7 +83,7 @@ export const Dropdown = styled.div`
   margin: 5px;
   border-radius: 12px;
   background: #1c1c1c;
-  color: #a60321;
+  color: #DA050D;
   width: 100%;
   height: auto;
   display: ${(p) => (p.isShown ? 'flex' : 'none')};
@@ -100,11 +100,11 @@ export const Dropdown = styled.div`
 `;
 
 export const PlusIcon = styled(FiPlus)`
-  color: #a60321;
+  color: #DA050D;
   font-size: 20px;
 `;
 
 export const MinusIcon = styled(FiMinus)`
-  color: #a60321;
+  color: #DA050D;
   font-size: 20px;
 `;

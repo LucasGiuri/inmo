@@ -5,6 +5,8 @@ import Grid from "../../components/grid/grid";
 import Layout from "../../components/layout/layout";
 import About from "../about/about";
 import { Section } from "../../components/section/section";
+import Appraisals from "../appraisals/appraisals";
+import wantTosell from "../../assets/wantTosell.jpg";
 
 const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
 const accessToken = "";
@@ -48,12 +50,17 @@ function Home() {
   }, [properties]);
 
   return (
-    <Layout>
-      <Section title="Propiedades en venta">
-        <Grid numRowsLg={3} data={data} />
-      </Section>
-      <About />
-    </Layout>
+    <>
+      <Layout padding="0px">
+        <Appraisals />
+        <Section title="Propiedades Destacadas" background="purple" padding="10px">
+          <Grid numRowsLg={3} data={data} />
+        </Section>
+      </Layout>
+      <Layout background={wantTosell}>
+        <About />
+      </Layout>
+    </>
   );
 }
 
