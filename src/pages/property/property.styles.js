@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 
 export const Aside = styled.div`
-  margin: 0 auto;
+margin: 0 auto;
+margin-top: 120px;
   max-width: 1200px;
   padding: 20px 0;
 `;

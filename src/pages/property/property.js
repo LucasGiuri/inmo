@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useCallback } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Gallery from "react-photo-gallery";
+import Gallery from 'react-photo-gallery';
+import Carousel, { Modal, ModalGateway } from 'react-images';
+
+import GalleryCmp from '../../components/gallery/gallery';
+
 import {
   Aside,
   Price,
@@ -11,57 +15,57 @@ import {
   DetailItem,
   DetailKey,
   DetailValue
-} from "./property.styles";
+} from './property.styles';
 import Space from '../../components/space/space';
 import Icon from '../../components/icon/icon';
 import {
   useParams,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 const photos = [
   {
-    src: "http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg",
-    width: 5,
-    height: 4
+    src: 'http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg',
+    width: 4,
+    height: 31
   },
   {
-    src: "https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg",
-    width: 1,
-    height: 1
+    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
+    width: 4,
+    height: 3
   },
 
   {
-    src: "https://pix10.agoda.net/hotelImages/103/1030438/1030438_15081214210034117680.png?s=1024x768",
+    src: 'https://pix10.agoda.net/hotelImages/103/1030438/1030438_15081214210034117680.png?s=1024x768',
     width: 4,
     height: 3
   },
   {
-    src: "http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg",
-    width: 1,
-    height: 1
-  },
-  {
-    src: "https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg",
+    src: 'http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg',
     width: 4,
     height: 3
   },
   {
-    src: "https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg",
+    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
+    width: 4,
+    height: 3
+  },
+  {
+    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
     width: 3,
     height: 4
   },
   {
-    src: "http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg",
+    src: 'http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg',
     width: 2,
     height: 1
   },
   {
-    src: "https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg",
+    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
     width: 2,
     height: 1
   },
   {
-    src: "https://pix10.agoda.net/hotelImages/103/1030438/1030438_15081214210034117680.png?s=1024x768",
+    src: 'https://pix10.agoda.net/hotelImages/103/1030438/1030438_15081214210034117680.png?s=1024x768',
     width: 4,
     height: 3
   }
@@ -85,14 +89,23 @@ const m2 = 120;
 
 function Property() {
   const { id } = useParams();
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+  const openLightbox = useCallback((_, { index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
   return (
     <>
-      <Gallery
-        photos={photos}
-        columns={3}
-      />
       <Aside>
-        <Typography variant='h3' color='textSecondary' component='p'>
+      <Typography variant='h3' color='textSecondary' component='p'>
           {title}
         </Typography>
         <Space vertical double />
@@ -100,6 +113,30 @@ function Property() {
         <Price gutterBottom variant='h6' component='p'>
           ${price}
         </Price>
+        <Space vertical double />
+        <Space vertical double />
+        <GalleryCmp photos={photos} onClick={openLightbox} />
+        {/* <Gallery
+          photos={photos}
+          columns={1}
+          onClick={openLightbox}
+        /> */}
+        <ModalGateway>
+          {viewerIsOpen ? (
+            <Modal onClose={closeLightbox}>
+              <Carousel
+                currentIndex={currentImage}
+                views={photos.map(x => ({
+                  ...x,
+                  srcset: x.srcSet,
+                  caption: x.title
+                }))}
+              />
+            </Modal>
+          ) : null}
+        </ModalGateway>
+        <Space vertical double />
+        <Space vertical double />
         <Space vertical double />
         <Space vertical double />
         <IconsContainer>
@@ -155,9 +192,9 @@ function Property() {
         <Space vertical double />
         <Space vertical double />
         <MapContainer
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar"
-            loading="lazy"
-          />
+          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar'
+          loading='lazy'
+        />
       </Aside>
     </>
 
