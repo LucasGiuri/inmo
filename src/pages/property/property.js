@@ -14,7 +14,8 @@ import {
   DetailsContainer,
   DetailItem,
   DetailKey,
-  DetailValue
+  DetailValue,
+  Caca
 } from './property.styles';
 import Space from '../../components/space/space';
 import Icon from '../../components/icon/icon';
@@ -103,7 +104,7 @@ function Property() {
   };
 
   return (
-    <>
+    <Caca>
       <Aside>
       <Typography variant='h3' color='textSecondary' component='p'>
           {title}
@@ -196,7 +197,7 @@ function Property() {
           loading='lazy'
         />
       </Aside>
-    </>
+    </Caca>
 
   );
 }

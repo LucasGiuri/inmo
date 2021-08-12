@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout/layout";
 import { ContactContainer } from "../about/about.styles";
+import { ContactMini } from "../../components/contactMini/contactMini";
 import {
   ContactSection,
   StyledButton,
@@ -101,6 +102,7 @@ function Contact() {
           </ContactCard>
         </ContactGrid>
       </ContactSection>
+      <ContactMini />
     </Layout>
   );
 }

@@ -5,7 +5,6 @@ export const GalleryContainer = styled.div`
     width: 100%;
     overflow: hidden;
     justify-content: space-between;
-    border-radius: 4px;
 `;
 
 export const FirstColumn = styled.div`
@@ -19,11 +18,12 @@ export const SecondColumn = styled.div`
 `;
 
 export const MainImg = styled.img`
+  overflow: hidden;
   width: 600px;
   height: 400px;
   display: block;
   object-fit: cover;
-  border: 1px solid red;
+  border: 2px solid black;
 `;
 
 export const SecondaryImg = styled.img`
@@ -31,5 +31,5 @@ export const SecondaryImg = styled.img`
   height: 200px;
   display: block;
   object-fit: cover;
-  border: 1px solid red;
+  border: 2px solid black;
 `;
