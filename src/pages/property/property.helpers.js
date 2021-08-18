@@ -31,7 +31,10 @@ export const convertData = (obj) => {
     rooms,
   } = obj;
 
+  console.log('b', obj)
+
   const newTitle = title[0].text;
+  const newImg = (img) => ({ ...img, src: img.url });
   return {
     title: newTitle,
     m2,
@@ -54,7 +57,7 @@ export const convertData = (obj) => {
       heating,
       garageType: tipo_de_cochera
     },
-    photos: [img1, img2, img3, img4, img5, img6, img7],
+    photos: [newImg(img1), newImg(img2), newImg(img3), newImg(img4), newImg(img5), newImg(img6), newImg(img7)],
     baths: bath,
     street,
     rooms,

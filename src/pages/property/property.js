@@ -104,19 +104,19 @@ function Property() {
           <IconsContainer>
             <IconContainer>
               <Icon name='bed' />
-              <span>{rooms}</span>
+              <span>{property.rooms}</span>
             </IconContainer>
             <IconContainer>
               <Icon name='bath' />
-              <span>{baths}</span>
+              <span>{property.baths}</span>
             </IconContainer>
             <IconContainer>
               <Icon name='m2' />
-              <span>{m2}</span>
+              <span>{property.m2}</span>
             </IconContainer>
             <IconContainer>
               <Icon name='car' />
-              <span>{garage}</span>
+              <span>{property.garage}</span>
             </IconContainer>
           </IconsContainer>
           <Space vertical double />
