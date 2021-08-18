@@ -8,13 +8,13 @@ const Gallery = ({ photos, onClick }) => {
     <>
       <GalleryContainer>
         <FirstColumn>
-          <MainImg src={newPhotosArr[0].url} alt='' onClick={() => onClick(0)} />
+          <MainImg onClick={() => onClick(0)} src={newPhotosArr[0].src} alt='' />
         </FirstColumn>
         <SecondColumn>
-          <SecondaryImg src={newPhotosArr[1].url} alt='' onClick={() => onClick(1)} />
-          <SecondaryImg src={newPhotosArr[2].url} alt='' onClick={() => onClick(2)} />
-          <SecondaryImg src={newPhotosArr[3].url} alt='' onClick={() => onClick(3)} />
-          <SecondaryImg src={newPhotosArr[4].url} alt='' onClick={() => onClick(4)} />
+          <SecondaryImg onClick={() => onClick(1)} src={newPhotosArr[1].src} alt='' />
+          <SecondaryImg onClick={() => onClick(2)} src={newPhotosArr[2].src} alt='' />
+          <SecondaryImg onClick={() => onClick(3)} src={newPhotosArr[3].src} alt='' />
+          <SecondaryImg onClick={() => onClick(4)}src={newPhotosArr[4].src} alt='' />
         </SecondColumn>
       </GalleryContainer>
     </>

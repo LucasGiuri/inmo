@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
+import styled from "styled-components";
+import Typography from "@material-ui/core/Typography";
 
 export const Aside = styled.div`
-margin: 0 auto;
-margin-top: 120px;
+  margin: 0 auto;
+  margin-top: 100px;
   max-width: 1200px;
   padding: 20px 0;
 `;
@@ -23,6 +23,7 @@ export const IconContainer = styled.div`
 `;
 
 export const Price = styled(Typography)`
+  font-weight: 900;
   font-size: 1rem;
 `;
 
@@ -45,13 +46,15 @@ export const DetailKey = styled.div`
 
 export const DetailValue = styled.div`
   padding-left: 1px;
-  `;
+`;
 
 export const MapContainer = styled.iframe`
   width: 75%;
   height: 350px;
-  display: flex;
   border-radius: 12px;
   border: none;
-  margin: 15px;
 `;
+
+export const Background = styled.div`
+  background-color: #E9F2F1;
+`

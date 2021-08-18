@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { FiPlus, FiMinus } from 'react-icons/fi';
+import styled, { keyframes } from "styled-components";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 const fadeIn = keyframes`
   from {
@@ -25,12 +25,19 @@ export const NovedadesSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const IndexContainer = styled.div`
   margin: 5px;
   margin-right: 15px;
-  background-color: #DA050D;
+  background-color: #da050d;
   height: 100%;
   width: 25%;
   border-radius: 12px;
@@ -38,12 +45,18 @@ export const IndexContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 
   h3 {
     color: black;
   }
   h4 {
-    color: #050D0A;
+    color: #050d0a;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -54,7 +67,7 @@ export const Container = styled.div`
 export const Wrap = styled.div`
   margin: 5px;
   padding: 15px;
-  background-color: #3C4044;
+  background-color: #3c4044;
   border-radius: 12px;
   color: #fff;
   display: flex;
@@ -77,16 +90,20 @@ export const Wrap = styled.div`
   span {
     margin-right: 1.5rem;
   }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 5px;
+  }
 `;
 
 export const Dropdown = styled.div`
   margin: 5px;
   border-radius: 12px;
   background: #1c1c1c;
-  color: #DA050D;
+  color: #da050d;
   width: 100%;
   height: auto;
-  display: ${(p) => (p.isShown ? 'flex' : 'none')};
+  display: ${(p) => (p.isShown ? "flex" : "none")};
   flex-direction: column;
   animation: ${(p) => (p.isShown ? fadeIn : fadeOut)} 0.5s linear;
   transition: visibility 0.5s linear;
@@ -100,11 +117,15 @@ export const Dropdown = styled.div`
 `;
 
 export const PlusIcon = styled(FiPlus)`
-  color: #DA050D;
+  color: #da050d;
   font-size: 20px;
 `;
 
 export const MinusIcon = styled(FiMinus)`
-  color: #DA050D;
+  color: #da050d;
   font-size: 20px;
+`;
+
+export const Link = styled.a`
+  text-decoration: none;
 `;

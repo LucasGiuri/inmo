@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1D1D1B;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M2.2,7.7l0,1.2C3.1,8,4.1,7.5,5.5,7.5C7,7.5,8,8.1,8.6,9.2C8.9,8.7,9.4,8.3,10,8c0.6-0.3,1.3-0.5,2-0.5
+			c2.4,0,3.6,1.3,3.6,3.8v7.2h-1.8v-7.1c0-0.8-0.2-1.3-0.5-1.7c-0.4-0.4-0.9-0.6-1.8-0.6c-0.7,0-1.3,0.2-1.7,0.6
+			c-0.5,0.4-0.7,1-0.8,1.7v7.2H7.1v-7.1c0-1.6-0.8-2.4-2.3-2.4c-1.2,0-2,0.5-2.5,1.5v7.9H0.5V7.7H2.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M19.5,6.8h-3.5V6.4l1.8-2c0.3-0.3,0.5-0.6,0.6-0.7c0.1-0.2,0.2-0.4,0.2-0.6c0-0.3-0.1-0.5-0.2-0.7
+			c-0.2-0.2-0.4-0.3-0.7-0.3c-0.3,0-0.6,0.1-0.8,0.3c-0.2,0.2-0.3,0.5-0.3,0.8H16c0-0.5,0.2-0.9,0.5-1.2c0.3-0.3,0.7-0.4,1.3-0.4
+			c0.5,0,0.9,0.1,1.2,0.4c0.3,0.3,0.4,0.6,0.4,1c0,0.5-0.3,1.1-1,1.9l-1.4,1.5h2.6V6.8z"/>
+	</g>
+</g>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></svg>

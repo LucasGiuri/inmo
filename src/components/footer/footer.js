@@ -1,13 +1,26 @@
-import React from 'react';
-import city from "../../assets/city.png"
-import { FooterContainer, ImgStyles } from './footer.styles';
+import React from "react";
+import {
+  FooterContainer,
+  FooterLogo,
+  FooterLink,
+  WebsiteRights,
+} from "./footer.styles";
 
-function Footer() {
-    return (
-        <FooterContainer>
-          <ImgStyles src={city} />
-        </FooterContainer>
-    );
-}
+export const Footer = () => {
+  return (
+    <>
+      <FooterContainer>
+        <FooterLogo>
+          <FooterLink href="/">
+            KON
+          </FooterLink>
+        </FooterLogo>
+        <WebsiteRights>
+          Web developed by Lucas Giuri & Manuel Salvadores
+        </WebsiteRights>
+      </FooterContainer>
+    </>
+  );
+};
 
 export default Footer;

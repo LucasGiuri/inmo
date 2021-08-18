@@ -1,36 +1,21 @@
 import React from "react";
-import Layout from "../../components/layout/layout";
+import { Container } from "../../pages/about/about.styles";
 import {
-  Container,
+  ContactContainer,
   ContactBox,
   LeftArea,
   RightArea,
-  TextArea,
   InputTextField,
-  SubmitButton,
-  MapContainer,
-  ContactInfoContainer,
-} from "./contact.styles";
+} from "./contactMini.styles";
 
-export const Contact = () => {
+export const ContactMini = () => {
   return (
     <>
       <Container>
         <ContactBox>
-          <LeftArea>
-            <ContactInfoContainer>
-              <h2>Caballito</h2>
-              <p>Av. San Martín 1802</p>
-              <h2>Llamanos</h2>
-              <p>+54 9 11 6299 1141</p>
-              <h2>Whatsapp</h2>
-              <p>+54 9 11 6588 2242</p>
-              <h2>Escribinos</h2>
-              <p>info@konpropiedades.com.ar</p>
-            </ContactInfoContainer>
-          </LeftArea>
+          <LeftArea></LeftArea>
           <RightArea>
-            <h2>¡Vamos a ponernos en contacto!</h2>
+            <h2>Contact Us</h2>
             <InputTextField
               type="text"
               class="field"
@@ -55,7 +40,7 @@ export const Contact = () => {
               placeholder="Numero de contacto"
               required
             />
-            <TextArea placeholder="Dejanos tu mensaje" />
+            <TextArea placeholder="Dejenos su mensaje"/>
             <SubmitButton>Enviar</SubmitButton>
           </RightArea>
         </ContactBox>
@@ -63,5 +48,3 @@ export const Contact = () => {
     </>
   );
 };
-
-export default Contact;

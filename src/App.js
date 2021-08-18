@@ -9,6 +9,7 @@ import Properties from './pages/properties/properties';
 import { StateProvider } from './state';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import WhatsappLink from './components/whatsappLink/whatsappLink';
+import Footer from './components/footer/footer'
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
           </Switch>
           <WhatsappLink link='https://wa.me/+5491162991141' />
         </Router>
+        <Footer />
       </StateProvider>
     </>
   );

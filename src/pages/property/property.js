@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useStateContext } from '../../state';
 import Typography from '@material-ui/core/Typography';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-
-import GalleryCmp from '../../components/gallery/gallery';
+import PropTypes from 'prop-types';
+import GalleryCmp from "../../components/gallery/gallery";
 
 import {
   Aside,
@@ -24,19 +24,20 @@ import {
 import { convertData } from './property.helpers';
 
 const details = [
-  { key: 'm2', value: '120m' },
-  { key: 'garaje', value: 'Si' },
-  { key: 'apto profesional', value: 'Si' }
+  { key: "m2", value: "120m" },
+  { key: "garaje", value: "Si" },
+  { key: "apto profesional", value: "Si" },
 ];
 
-const subtitle = 'Descripcion';
-const detailsTitle = 'Detalles';
-const description = 'Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have';
-const title = 'Duplex for sale in calle vila de lloret, 181';
+const subtitle = "Descripcion";
+const detailsTitle = "Detalles";
+const description =
+  "Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have";
+const title = "Duplex for sale in calle vila de lloret, 181";
 const rooms = 4;
 const price = 30000;
 const baths = 2;
-const garage = 'Si';
+const garage = "Si";
 const m2 = 120;
 
 function Property() {
@@ -163,6 +164,26 @@ function Property() {
   );
 }
 
+Property.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  detailsTitle: PropTypes.string.isRequired,
+  rooms: PropTypes.number.isRequired,
+  garage: PropTypes.bool.isRequired,
+  m2: PropTypes.number.isRequired,
+  bath: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  deteails: PropTypes.array,
+  photos: PropTypes.array
+};
 
+Property.defaultProps = {
+  double: false,
+  half: false,
+  height: "",
+  vertical: false,
+  width: "",
+};
 
 export default Property;

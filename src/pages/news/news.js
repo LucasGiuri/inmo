@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import data from './data.json';
-import Layout from '../../components/layout/layout';
+import React, { useState, useEffect } from "react";
+import Prismic from "@prismicio/client";
+
+import Layout from "../../components/layout/layout";
+
+import data from "./data.json";
 import {
   NovedadesSection,
   IndexContainer,
@@ -9,7 +12,13 @@ import {
   Dropdown,
   PlusIcon,
   MinusIcon,
-} from './news.styles';
+  Link
+} from "./news.styles";
+
+const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
+const accessToken = "";
+
+const Client = Prismic.client(apiEndpoint, { accessToken });
 
 const Novedades = () => {
   const [clicked, setClicked] = useState(false);
@@ -20,21 +29,40 @@ const Novedades = () => {
     }
     setClicked(index);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await Client.query(
+        Prismic.Predicates.at("document.type", "news")
+      );
+      if (response) {
+        console.log(response);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <Layout marginTop="100px">
       <NovedadesSection>
         <IndexContainer>
           <h3>INDICE</h3>
-          {data.results.map((item) => (
-            <h4 key={item.id}>{item.titulo}</h4>
+          {data.results.map((item, index) => (
+            <Link href={`#news-${index}`}>
+              <h4 key={item.id}>{item.titulo}</h4>
+            </Link>
           ))}
         </IndexContainer>
         <Container>
           {data.results.map((item, index) => {
             return (
               <>
-                <Wrap onClick={() => toggle(index)} key={index}>
-                  <h3>{item.titulo}</h3>
+                <Wrap
+                  onClick={() => toggle(index)}
+                  key={index}
+                  id={`news-${index}`}
+                >
+                  <h4>{item.titulo}</h4>
                   <span>
                     {clicked === index ? <MinusIcon /> : <PlusIcon />}
                   </span>
@@ -51,4 +79,4 @@ const Novedades = () => {
   );
 };
 
-export default Novedades
+export default Novedades;

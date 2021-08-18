@@ -39,6 +39,7 @@ export const ContactContainer = styled.div`
   border-radius: 12px;
   align-items: center;
   padding: 5px;
+  font-weight: bold;
 `;
 
 export const MapContainer = styled.iframe`
