@@ -3,7 +3,7 @@ import { useStateContext } from '../../state';
 import Typography from '@material-ui/core/Typography';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import PropTypes from 'prop-types';
-import GalleryCmp from "../../components/gallery/gallery";
+import GalleryCmp from '../../components/gallery/gallery';
 
 import {
   Aside,
@@ -24,25 +24,18 @@ import {
 import { convertData } from './property.helpers';
 
 const details = [
-  { key: "m2", value: "120m" },
-  { key: "garaje", value: "Si" },
-  { key: "apto profesional", value: "Si" },
+  { key: 'm2', value: '120m' },
+  { key: 'garaje', value: 'Si' },
+  { key: 'apto profesional', value: 'Si' },
 ];
 
-const subtitle = "Descripcion";
-const detailsTitle = "Detalles";
-const description =
-  "Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have";
-const title = "Duplex for sale in calle vila de lloret, 181";
-const rooms = 4;
-const price = 30000;
-const baths = 2;
-const garage = "Si";
-const m2 = 120;
+const subtitle = 'Descripcion';
+const detailsTitle = 'Detalles';
+const description = 'Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have';
 
 function Property() {
   const { id } = useParams();
-  const [{ properties }, dispatch] = useStateContext();
+  const [{ properties }] = useStateContext();
   const [property, setProperty] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
@@ -69,7 +62,6 @@ function Property() {
 
   return (
     <>
-    {console.log('property', property)}
       {property && (
         <Aside>
           <Typography variant='h3' color='textSecondary' component='p'>
@@ -88,13 +80,16 @@ function Property() {
               <Modal onClose={closeLightbox}>
                 <Carousel
                   currentIndex={currentImage}
-                  views={property.photos.map(x => ({
-                    ...x,
-                    srcset: x.srcSet,
-                    caption: x.title
-                  }))}
+                  views={property.photos.map((x) => {
+                    // console.log('x', x)
+                    return {
+                      ...x,
+                      srcset: x.srcSet,
+                      caption: x.title
+                    }
+                  })}
                 />
-              </Modal>
+                </Modal>
             ) : null}
           </ModalGateway>
           <Space vertical double />
@@ -136,7 +131,7 @@ function Property() {
           </Typography>
           <Space vertical double />
           <DetailsContainer>
-            {details.map((d) => {
+            {property.details.map((d) => {
               const { key, value } = d;
               return (
                 <DetailItem key={key}>
@@ -181,9 +176,9 @@ Property.propTypes = {
 Property.defaultProps = {
   double: false,
   half: false,
-  height: "",
+  height: '',
   vertical: false,
-  width: "",
+  width: '',
 };
 
 export default Property;
