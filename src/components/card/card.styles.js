@@ -15,9 +15,14 @@ export const StyledCard = styled(Card)`
     transition: 1.5s;
     background-color: #999;
   }
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const StyledCardMedia = styled(CardMedia)`
+  height: 180px;
   @media (max-width: 600px) {
     height: 140px;
   }

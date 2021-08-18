@@ -27,12 +27,16 @@ export const Li = styled(Link)`
   color: #fff;
   border: none;
   padding: 0 10px;
+  font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.5s;
+
   &:hover {
     color: #DA050D;
+    transform: scale(1.055);
+    border-bottom: 1px solid #DA050D;
   }
 `;
 

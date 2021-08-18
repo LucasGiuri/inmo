@@ -5,6 +5,7 @@ export const GalleryContainer = styled.div`
     width: 100%;
     overflow: hidden;
     justify-content: space-between;
+    cursor: pointer;
 `;
 
 export const FirstColumn = styled.div`

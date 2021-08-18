@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import Switch from '@material-ui/core/Switch';
+import Switch from "@material-ui/core/Switch";
 
 const fadeIn = keyframes`
   from {
@@ -54,8 +54,8 @@ export const Container = styled.div`
 export const FilterSection = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const Switchers = styled(Switch)`
-font-size: 100px;
-`
+  font-size: 100px;
+`;

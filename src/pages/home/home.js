@@ -6,7 +6,6 @@ import Layout from "../../components/layout/layout";
 import About from "../about/about";
 import { Section } from "../../components/section/section";
 import Appraisals from "../appraisals/appraisals";
-import wantTosell from "../../assets/wantTosell.jpg";
 
 const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
 const accessToken = "";
@@ -24,6 +23,7 @@ function Home() {
         Prismic.Predicates.at("document.type", "property")
       );
       if (response) {
+        console.log(response.results);
         dispatch({ type: "ADD", payload: response.results });
         setDocData(response.results[0]);
       }
@@ -53,7 +53,11 @@ function Home() {
     <>
       <Layout padding="0px">
         <Appraisals />
-        <Section title="Propiedades Destacadas" background="darkgrey" padding="10px">
+        <Section
+          title="Propiedades Destacadas"
+          background="darkgrey"
+          padding="10px"
+        >
           <Grid numRowsLg={3} data={data} />
         </Section>
       </Layout>

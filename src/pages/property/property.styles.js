@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 
 export const Aside = styled.div`
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 100px;
   max-width: 1200px;
   padding: 20px 0;
 `;
@@ -51,15 +51,10 @@ export const DetailValue = styled.div`
 export const MapContainer = styled.iframe`
   width: 75%;
   height: 350px;
-  display: flex;
   border-radius: 12px;
   border: none;
-  margin: 15px;
 `;
 
-export const Caca = styled.div`
-position: absolute;
-width: 100%;
-top: 0;
-background-color: brown;
+export const Background = styled.div`
+  background-color: #E9F2F1;
 `

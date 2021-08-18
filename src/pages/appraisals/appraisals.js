@@ -5,17 +5,19 @@ import {
   Container,
   UiButton,
   ChildContainer,
+  InternalLink,
 } from "./appraisals.styles";
 
 export const Appraisals = () => {
   return (
     <AppraisalsContainer>
       <Container>
-        <h1>Quieres vender tu propiedad?</h1>
-        <UiButton variant="contained">MAS INFORMACION!</UiButton>
+        <h1>¿Querés vender tu propiedad?</h1>
+        <h1>¡Te ayudamos!</h1>
+        <InternalLink href="#appraisals" ><UiButton variant="contained">MAS INFORMACION!</UiButton></InternalLink>
       </Container>
       <AppraisalsInfoContainer>
-        <ChildContainer>
+        <ChildContainer id="appraisals">
           <h1>TASA CON NOSOTROS</h1>
           <p>
             Vivi la experiencia de tasar con nosotros.
@@ -23,7 +25,7 @@ export const Appraisals = () => {
             tasacion junto a todas las explicaciones que mereces. Y nuestro plan
             de marketing a la medida de la comercializacion de tu casa.
           </p>
-          <UiButton>Quiero tasar!</UiButton>
+          <UiButton to="/contact">Quiero tasar!</UiButton>
         </ChildContainer>
       </AppraisalsInfoContainer>
     </AppraisalsContainer>

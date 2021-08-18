@@ -2,7 +2,14 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import { Container } from "./section.styles";
 
-export const Section = ({ children, title, subtitle, background, padding, height }) => {
+export const Section = ({
+  children,
+  title,
+  subtitle,
+  background,
+  padding,
+  height,
+}) => {
   return (
     <Container background={background} padding={padding} height={height}>
       {title && (

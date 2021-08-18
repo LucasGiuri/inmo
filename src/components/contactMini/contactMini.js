@@ -1,29 +1,50 @@
 import React from "react";
+import { Container } from "../../pages/about/about.styles";
 import {
-  ContactMiniContainer,
-  TextInput,
-  SubmitButton,
+  ContactContainer,
+  ContactBox,
+  LeftArea,
+  RightArea,
+  InputTextField,
 } from "./contactMini.styles";
 
 export const ContactMini = () => {
   return (
     <>
-      <ContactMiniContainer>
-        <TextInput label="Nombre" variant="outlined" />
-        <TextInput
-          label="Telefono"
-          variant="outlined"
-          placeholder="+5491199998888"
-        />
-        <TextInput label="Email" variant="outlined" placeholder="Ejemplo@ejemplo.com" />
-        <TextInput
-          placeholder="Estoy interesado en visitar esta propiedad."
-          variant="outlined"
-          multiline
-          rows={4}
-        />
-        <SubmitButton variant="contained" color="secondary">Enviar</SubmitButton>
-      </ContactMiniContainer>
+      <Container>
+        <ContactBox>
+          <LeftArea></LeftArea>
+          <RightArea>
+            <h2>Contact Us</h2>
+            <InputTextField
+              type="text"
+              class="field"
+              placeholder="Nombre"
+              required
+            />
+            <InputTextField
+              type="text"
+              class="field"
+              placeholder="Apellido"
+              required
+            />
+            <InputTextField
+              type="email"
+              class="field"
+              placeholder="Direccion de mail"
+              required
+            />
+            <InputTextField
+              type="text"
+              class="field"
+              placeholder="Numero de contacto"
+              required
+            />
+            <TextArea placeholder="Dejenos su mensaje"/>
+            <SubmitButton>Enviar</SubmitButton>
+          </RightArea>
+        </ContactBox>
+      </Container>
     </>
   );
 };
