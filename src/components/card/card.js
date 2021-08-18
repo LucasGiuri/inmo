@@ -13,7 +13,10 @@ import {
   IconContainer,
 } from './card.styles';
 
-function MediaCard({ img, tittle, description, price, rooms, baths, m2, garage }) {
+function MediaCard({
+  img, tittle, description, price, rooms, baths, m2, garage
+}) {
+
   return (
     <StyledCard>
       <StyledCardActionArea>

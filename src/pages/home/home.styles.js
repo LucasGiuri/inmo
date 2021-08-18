@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Button from "@material-ui/core/Button";
-import background from "../../assets/background.jpg";
+import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
+import background from '../../assets/background.jpg';
 
 export const AppraisalsContainer = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 export const AppraisalsInfoContainer = styled.div`
   background-color: #734429;
   color: #fff;
-  height: 100vh;
+  height: 40vh;
   width: 100%;
   display: flex;
   align-items: center;

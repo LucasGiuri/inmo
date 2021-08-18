@@ -1,13 +1,14 @@
-import styled from "styled-components";
-import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import Typography from "@material-ui/core/Typography";
+import styled from 'styled-components';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Typography from '@material-ui/core/Typography';
 
 export const StyledCard = styled(Card)`
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  width: 420px;
   cursor: pointer;
   padding-bottom: 10px;
   border-radius: 12px;
@@ -18,6 +19,7 @@ export const StyledCard = styled(Card)`
 `;
 
 export const StyledCardMedia = styled(CardMedia)`
+  height: 300px;
   @media (max-width: 600px) {
     height: 140px;
   }

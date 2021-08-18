@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useStateContext } from '../../state';
 import Typography from '@material-ui/core/Typography';
-import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
 import GalleryCmp from '../../components/gallery/gallery';
@@ -21,55 +21,7 @@ import Icon from '../../components/icon/icon';
 import {
   useParams,
 } from 'react-router-dom';
-
-const photos = [
-  {
-    src: 'http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg',
-    width: 4,
-    height: 31
-  },
-  {
-    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
-    width: 4,
-    height: 3
-  },
-
-  {
-    src: 'https://pix10.agoda.net/hotelImages/103/1030438/1030438_15081214210034117680.png?s=1024x768',
-    width: 4,
-    height: 3
-  },
-  {
-    src: 'http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg',
-    width: 4,
-    height: 3
-  },
-  {
-    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
-    width: 4,
-    height: 3
-  },
-  {
-    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
-    width: 3,
-    height: 4
-  },
-  {
-    src: 'http://www.sofia-rtd.com/blog/wp-content/uploads/2017/05/rascacielos-desde-una-vista-de-angulo-bajo_1359-159.jpg',
-    width: 2,
-    height: 1
-  },
-  {
-    src: 'https://cdn10.phillymag.com/wp-content/uploads/sites/3/2020/10/biggest-philly-apartments-station-at-willow-grove-model-apartment-petrucci-residential.jpg',
-    width: 2,
-    height: 1
-  },
-  {
-    src: 'https://pix10.agoda.net/hotelImages/103/1030438/1030438_15081214210034117680.png?s=1024x768',
-    width: 4,
-    height: 3
-  }
-];
+import { convertData } from './property.helpers';
 
 const details = [
   { key: 'm2', value: '120m' },
@@ -89,10 +41,22 @@ const m2 = 120;
 
 function Property() {
   const { id } = useParams();
+  const [{ properties }, dispatch] = useStateContext();
+  const [property, setProperty] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  const openLightbox = useCallback((_, { index }) => {
+  useEffect(() => {
+    setIsLoading(true);
+    if (properties.length) {
+      const p = properties[0].find((p) => p.id === id);
+      setProperty(convertData(p.data));
+    }
+    setIsLoading(false);
+  }, [properties])
+
+  const openLightbox = useCallback((index) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);
@@ -104,98 +68,96 @@ function Property() {
 
   return (
     <>
-      <Aside>
-      <Typography variant='h3' color='textSecondary' component='p'>
-          {title}
-        </Typography>
-        <Space vertical double />
-        <Space vertical double />
-        <Price gutterBottom variant='h6' component='p'>
-          ${price}
-        </Price>
-        <Space vertical double />
-        <Space vertical double />
-        <GalleryCmp photos={photos} onClick={openLightbox} />
-        {/* <Gallery
-          photos={photos}
-          columns={1}
-          onClick={openLightbox}
-        /> */}
-        <ModalGateway>
-          {viewerIsOpen ? (
-            <Modal onClose={closeLightbox}>
-              <Carousel
-                currentIndex={currentImage}
-                views={photos.map(x => ({
-                  ...x,
-                  srcset: x.srcSet,
-                  caption: x.title
-                }))}
-              />
-            </Modal>
-          ) : null}
-        </ModalGateway>
-        <Space vertical double />
-        <Space vertical double />
-        <Space vertical double />
-        <Space vertical double />
-        <IconsContainer>
-          <IconContainer>
-            <Icon name='bed' />
-            <span>{rooms}</span>
-          </IconContainer>
-          <IconContainer>
-            <Icon name='bath' />
-            <span>{baths}</span>
-          </IconContainer>
-          <IconContainer>
-            <Icon name='m2' />
-            <span>{m2}</span>
-          </IconContainer>
-          <IconContainer>
-            <Icon name='car' />
-            <span>{garage}</span>
-          </IconContainer>
-        </IconsContainer>
-        <Space vertical double />
-        <Space vertical double />
-        <Typography variant='h4' color='textSecondary' component='p'>
-          {subtitle}
-        </Typography>
-        <Space vertical double />
-        <Space vertical double />
-        <Typography variant='p' color='textSecondary' component='p'>
-          {description}
-        </Typography>
-        <Space vertical double />
-        <Space vertical double />
-        <Typography variant='h4' color='textSecondary' component='p'>
-          {detailsTitle}
-        </Typography>
-        <Space vertical double />
-        <DetailsContainer>
-          {details.map((d) => {
-            const { key, value } = d;
-            return (
-              <DetailItem key={key}>
-                <DetailKey>{key}:</DetailKey>
-                <DetailValue>{value}</DetailValue>
-              </DetailItem>
-            )
-          })}
-        </DetailsContainer>
-        <Space vertical double />
-        <Space vertical double />
-        <Typography variant='h4' color='textSecondary' component='p'>
-          {detailsTitle}
-        </Typography>
-        <Space vertical double />
-        <Space vertical double />
-        <MapContainer
-          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar'
-          loading='lazy'
-        />
-      </Aside>
+    {console.log('property', property)}
+      {property && (
+        <Aside>
+          <Typography variant='h3' color='textSecondary' component='p'>
+            {property.title}
+          </Typography>
+          <Space vertical double />
+          <Space vertical double />
+          <Price gutterBottom variant='h6' component='p'>
+            ${property.price}
+          </Price>
+          <Space vertical double />
+          <Space vertical double />
+          <GalleryCmp photos={property.photos} onClick={openLightbox} />
+          <ModalGateway>
+            {viewerIsOpen ? (
+              <Modal onClose={closeLightbox}>
+                <Carousel
+                  currentIndex={currentImage}
+                  views={property.photos.map(x => ({
+                    ...x,
+                    srcset: x.srcSet,
+                    caption: x.title
+                  }))}
+                />
+              </Modal>
+            ) : null}
+          </ModalGateway>
+          <Space vertical double />
+          <Space vertical double />
+          <Space vertical double />
+          <Space vertical double />
+          <IconsContainer>
+            <IconContainer>
+              <Icon name='bed' />
+              <span>{rooms}</span>
+            </IconContainer>
+            <IconContainer>
+              <Icon name='bath' />
+              <span>{baths}</span>
+            </IconContainer>
+            <IconContainer>
+              <Icon name='m2' />
+              <span>{m2}</span>
+            </IconContainer>
+            <IconContainer>
+              <Icon name='car' />
+              <span>{garage}</span>
+            </IconContainer>
+          </IconsContainer>
+          <Space vertical double />
+          <Space vertical double />
+          <Typography variant='h4' color='textSecondary' component='p'>
+            {subtitle}
+          </Typography>
+          <Space vertical double />
+          <Space vertical double />
+          <Typography variant='p' color='textSecondary' component='p'>
+            {description}
+          </Typography>
+          <Space vertical double />
+          <Space vertical double />
+          <Typography variant='h4' color='textSecondary' component='p'>
+            {detailsTitle}
+          </Typography>
+          <Space vertical double />
+          <DetailsContainer>
+            {details.map((d) => {
+              const { key, value } = d;
+              return (
+                <DetailItem key={key}>
+                  <DetailKey>{key}:</DetailKey>
+                  <DetailValue>{value}</DetailValue>
+                </DetailItem>
+              )
+            })}
+          </DetailsContainer>
+          <Space vertical double />
+          <Space vertical double />
+          <Typography variant='h4' color='textSecondary' component='p'>
+            {detailsTitle}
+          </Typography>
+          <Space vertical double />
+          <Space vertical double />
+          <MapContainer
+            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar'
+            loading='lazy'
+          />
+        </Aside>
+      )}
     </>
 
   );

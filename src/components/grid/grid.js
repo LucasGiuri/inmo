@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import Card from '../card/card';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +10,7 @@ export default function GridComponent({
   numRowsMd,
   numRowsXs
 }) {
+
   return (
     <Grid container spacing={3}>
       {data.map((d) => {
@@ -23,16 +25,18 @@ export default function GridComponent({
             lg={numRowsLg}
             key={id}
           >
-            <Card
-              img={img}
-              tittle={title}
-              m2={m2}
-              rooms={rooms}
-              baths={bath}
-              garage={garage}
-              description={title}
-              price={price}
-            />
+            <Link to={`/property/${id}`}>
+              <Card
+                img={img}
+                tittle={title}
+                m2={m2}
+                rooms={rooms}
+                baths={bath}
+                garage={garage}
+                description={title}
+                price={price}
+              />
+            </Link>
           </Grid>
         );
       })}
