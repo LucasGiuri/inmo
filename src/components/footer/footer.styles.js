@@ -2,22 +2,9 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  background-color: black;
-  width: 100%;
-`;
-
-export const FooterLogo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 2rem;
-  margin-left: 45px;
+  background-color: #3C4044;
 `;
 
 export const FooterLink = styled.a`
@@ -40,4 +27,37 @@ export const WebsiteRights = styled.p`
   align-items: center;
   justify-content: center;
   color: #fff;
+`;
+
+export const ContactContainer = styled.div`
+  color: #fff;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #a60321;
+  margin: 15px;
+  border-radius: 12px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 10px;
+`;
+
+export const InfoContainer = styled.div`
+  padding: 20px 100px 0px 100px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+`;
+
+export const MapContainer = styled.iframe`
+  height: 288px;
+  width: 100%;
+  border-radius: 12px;
+  border: none;
+  margin: 0 15px;
 `;

@@ -35,6 +35,8 @@ export const NovedadesSection = styled.div`
 `;
 
 export const IndexContainer = styled.div`
+  color: #fff;
+  font-weight: bold;
   margin: 5px;
   margin-right: 15px;
   background-color: #da050d;
@@ -48,10 +50,12 @@ export const IndexContainer = styled.div`
   text-decoration: none;
 
   h3 {
-    color: black;
+    color: #fff;
+    font-weight: bold;
   }
   h4 {
-    color: #050d0a;
+    color: #fff;
+    font-weight: bold;
   }
   @media screen and (max-width: 768px) {
     width: 100%;
