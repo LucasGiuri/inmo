@@ -42,6 +42,8 @@ export const ContactBox = styled.div`
 `;
 
 export const LeftArea = styled.div`
+  color: #fff;
+  font-weight: bold;
   margin: 40px;
   height: 100%;
   font-weight: bold;

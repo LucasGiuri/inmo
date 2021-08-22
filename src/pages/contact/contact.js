@@ -55,7 +55,7 @@ export const Contact = () => {
               placeholder="Numero de contacto"
               required
             />
-            <TextArea placeholder="Dejanos tu mensaje" />
+            <TextArea />
             <SubmitButton>Enviar</SubmitButton>
           </RightArea>
         </ContactBox>
