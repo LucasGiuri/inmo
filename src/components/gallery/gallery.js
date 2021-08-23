@@ -3,6 +3,7 @@ import { GalleryContainer, FirstColumn, SecondColumn, MainImg, SecondaryImg } fr
 
 const Gallery = ({ photos, onClick }) => {
   const newPhotosArr = photos.slice(0, 5);
+  console.log('newp', newPhotosArr)
 
   return (
     <>

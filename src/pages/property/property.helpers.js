@@ -1,3 +1,20 @@
+import React from 'react';
+import Prismic from '@prismicio/client';
+import NoPhoto from '../../assets/no-photo.jpeg';
+
+const apiEndpoint = 'https://inmo.cdn.prismic.io/api/v2';
+const Client = Prismic.client(apiEndpoint);
+
+export const fetchData = async (endpoint) => await Client.query(
+  Prismic.Predicates.at('document.type', endpoint)
+);
+
+export const photoConverter = (img) => {
+  if (!img) return;
+  const { url, alt } = img;
+  return { src: url || NoPhoto, alt };
+};
+
 export const convertData = (obj) => {
   const {
     ambients,
@@ -24,6 +41,7 @@ export const convertData = (obj) => {
     img8,
     img9,
     img10,
+    is_in_usd,
     m2,
     orientation,
     price,
@@ -35,24 +53,10 @@ export const convertData = (obj) => {
   } = obj;
 
   const newTitle = title[0].text;
-  const newImg = (img) => {
-    if (!img || Object.keys(obj).length === 0 && obj.constructor === Object) return { src: '' };
-    return { ...img, src: img.url };
-  };
 
   const allPhotos = [
-    newImg(img1),
-    newImg(img2),
-    newImg(img3),
-    newImg(img4),
-    newImg(img5),
-    newImg(img6),
-    newImg(img7),
-    newImg(img8),
-    newImg(img9),
-    newImg(img10)
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10
   ];
-  const filteredPhotos = allPhotos.filter((a) => a && a.src);
 
   return {
     title: newTitle,
@@ -62,19 +66,23 @@ export const convertData = (obj) => {
     between_streets,
     building_side,
     cochera,
-    price,
+    price: is_in_usd ? `U$S ${price.toLocaleString()}` : `$${price.toLocaleString()}`,
     professional,
     details: [
-      { key: 'Ambientes', value: ambients },
-      { key: 'Antiguedad', value: `${antiquity} años` },
-      { key: 'Departamentos por piso', value: apartments_per_floor },
-      { key: 'Expensas', value: `$${expenses}` },
-      { key: 'Ascensores', value: elevators },
-      { key: 'Piso', value: floor },
-      { key: 'Pisos', value: floors },
-      { key: 'Superficie descubierta', value: `${free_backyard}m2` },
-      { key: 'Tipo de calefacción', value: heating },
-      { key: 'Tipo de garaje', value: tipo_de_cochera }
+      [
+        { key: 'Ambientes', value: ambients },
+        { key: 'Antiguedad', value: `${antiquity} años` },
+        { key: 'Departamentos por piso', value: apartments_per_floor },
+        { key: 'Expensas', value: `$${expenses}` },
+        { key: 'Ascensores', value: elevators }
+      ],
+      [
+        { key: 'Piso', value: floor },
+        { key: 'Pisos', value: floors },
+        { key: 'Superficie descubierta', value: `${free_backyard}m2` },
+        { key: 'Tipo de calefacción', value: heating },
+        { key: 'Tipo de garaje', value: tipo_de_cochera }
+      ]
     ],
     photos: allPhotos,
     baths: bath,

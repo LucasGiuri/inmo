@@ -1,42 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useStateContext } from '../../state';
-import Prismic from '@prismicio/client';
 import Grid from '../../components/grid/grid';
 import About from '../about/about';
 import Section from '../../components/section/section';
-import {
-  AppraisalsContainer,
-  AppraisalsInfoContainer,
-  Container,
-  UiButton,
-  ChildContainer,
-} from './home.styles';
-
-const apiEndpoint = 'https://inmo.cdn.prismic.io/api/v2';
-const accessToken = '';
-
-const Client = Prismic.client(apiEndpoint, { accessToken });
+import { Container, UiButton } from './home.styles';
+import { fetchData } from '../property/property.helpers';
 
 function Home() {
   const [{ properties }, dispatch] = useStateContext();
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await Client.query(
-        Prismic.Predicates.at('document.type', 'property')
-      );
-      if (response) {
-        dispatch({ type: 'ADD', payload: response.results });
-      }
-    };
-    fetchData();
+  useEffect(async () => {
+    const response = await fetchData('property');
+    if (response) dispatch({ type: 'ADD', payload: response.results });
   }, []);
 
   useEffect(() => {
     if (properties && properties.length > 0) {
-      const filtered = properties[0].filter((p) => p.data.propiedad_destacada);
-      const filteredData = filtered.map((d) => {
+      const filtered = properties[0] && properties[0].filter((p) => p.data.propiedad_destacada);
+      const filteredData = filtered && filtered.map((d) => {
         const { title, hero_image, cochera } = d.data;
 
         return {
@@ -54,9 +36,9 @@ function Home() {
   return (
     <>
       <About />
-      <Section title='Propiedades Destacadas' background='darkgrey'>
+      {data && <Section title='Propiedades Destacadas' background='darkgrey'>
         <Grid numRowsLg={3} data={data} />
-      </Section>
+      </Section>}
       <Container>
         <h1>Quieres vender tu propiedad?</h1>
         <UiButton variant="contained">TASA CON NOSOTROS</UiButton>

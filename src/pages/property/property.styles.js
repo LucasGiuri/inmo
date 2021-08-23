@@ -22,9 +22,18 @@ export const IconContainer = styled.div`
   padding-top: 12px;
 `;
 
+export const TitleContainer = styled.div`
+  display: flex;
+align-items: center;
+  justify-content: space-between;
+`;
+
 export const Price = styled(Typography)`
   font-weight: 900;
-  font-size: 1rem;
+`;
+
+export const DetailsWrapper = styled.div`
+  display: flex;
 `;
 
 export const DetailsContainer = styled.div`
