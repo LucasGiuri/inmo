@@ -5,8 +5,6 @@ export const Aside = styled.div`
   margin: 0 auto;
   margin-top: 100px;
   max-width: 1200px;
-  padding: 20px 0;
-  background-color: #d8d4cf;
 `;
 
 export const IconsContainer = styled.div`

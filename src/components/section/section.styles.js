@@ -8,5 +8,5 @@ export const Container = styled.div.attrs(() => ({}))`
  height: ${(props) => (props.height || '')};
  display: flex;
  flex-direction: column;
- justify-content: center
+ justify-content: center;
 `;

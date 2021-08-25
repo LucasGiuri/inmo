@@ -40,14 +40,12 @@ function Home() {
 
   return (
     <>
-    <Container>
       <HomeSearch />
-    </Container>
       {data && (
         <Section
-        height="100vh"
-        title="Propiedades Destacadas"
-        background="darkgrey"
+          height="60vh"
+          title="Propiedades Destacadas"
+          background="darkgrey"
         >
           <Grid numRowsLg={3} data={data} />
         </Section>

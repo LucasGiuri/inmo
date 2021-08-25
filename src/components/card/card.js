@@ -10,49 +10,53 @@ import {
   Price,
   description,
   IconsContainer,
+  LinkContainer,
   IconContainer,
 } from './card.styles';
 
 function MediaCard({
-  img, tittle, description, price, rooms, baths, m2, garage
+  id, img, tittle, description, price, rooms, baths, m2, garage
 }) {
 
   return (
-    <StyledCard>
-      <StyledCardActionArea>
-        <StyledCardMedia image={img} title={tittle} component='img' />
-        <CardContent>
-          <Price gutterBottom variant='h6' component='p'>
-            ${price}
-          </Price>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            {description}
-          </Typography>
-        </CardContent>
-      </StyledCardActionArea>
-      <IconsContainer>
-        <IconContainer>
-          <Icon name='bed' />
-          <span>{rooms}</span>
-        </IconContainer>
-        <IconContainer>
-          <Icon name='bath' />
-          <span>{baths}</span>
-        </IconContainer>
-        <IconContainer>
-          <Icon name='m2' />
-          <span>{m2}</span>
-        </IconContainer>
-        <IconContainer>
-          <Icon name='car' />
-          <span>{garage}</span>
-        </IconContainer>
-      </IconsContainer>
-    </StyledCard>
+    <LinkContainer to={`/property/${id}`}>
+      <StyledCard>
+        <StyledCardActionArea>
+          <StyledCardMedia image={img} title={tittle} component='img' />
+          <CardContent>
+            <Price gutterBottom variant='h6' component='p'>
+              ${price}
+            </Price>
+            <Typography variant='body2' color='textSecondary' component='p'>
+              {description}
+            </Typography>
+          </CardContent>
+        </StyledCardActionArea>
+        <IconsContainer>
+          <IconContainer>
+            <Icon name='bed' />
+            <span>{rooms}</span>
+          </IconContainer>
+          <IconContainer>
+            <Icon name='bath' />
+            <span>{baths}</span>
+          </IconContainer>
+          <IconContainer>
+            <Icon name='m2' />
+            <span>{m2}</span>
+          </IconContainer>
+          <IconContainer>
+            <Icon name='car' />
+            <span>{garage}</span>
+          </IconContainer>
+        </IconsContainer>
+      </StyledCard>
+    </LinkContainer>
   );
 }
 
 MediaCard.propTypes = {
+  id: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

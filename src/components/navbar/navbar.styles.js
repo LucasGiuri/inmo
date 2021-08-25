@@ -64,7 +64,7 @@ export const NavBarStyled = styled(AppBar)`
 `;
 
 export const Logo = styled.img`
-  width: 200px;
+  width: 180px;
   @media (max-width: 850px) {
     width: 100px;
   }

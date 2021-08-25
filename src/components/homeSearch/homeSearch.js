@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  HomeSearchWrapper,
   HomeSearchContainer,
   HomeSearchHeader,
   HomeSearchSelector,
@@ -9,26 +10,28 @@ import {
 
 const HomeSearch = () => {
   return (
-    <HomeSearchContainer>
-      <HomeSearchHeader>
+    <HomeSearchWrapper>
+      <HomeSearchContainer>
+        <HomeSearchHeader>
           <h2>Queremos ayudarte a encontrar tu lugar</h2>
           <h3>Encontra lo que estas buscando</h3>
-      </HomeSearchHeader>
-      <HomeSearchSelector>
-        <Button>Comprar</Button>
-        <Button>Alquilar</Button>
-      </HomeSearchSelector>
-      <HomeSearchInputs>
+        </HomeSearchHeader>
+        <HomeSearchSelector>
+          <Button>Comprar</Button>
+          <Button>Alquilar</Button>
+        </HomeSearchSelector>
+        <HomeSearchInputs>
           <select>
-              <option value="value1">value 1</option>
-              <option value="value2">value 2</option>
-              <option value="value3">value 3</option>
-              <option value="value4">value 4</option>
+            <option value="value1">value 1</option>
+            <option value="value2">value 2</option>
+            <option value="value3">value 3</option>
+            <option value="value4">value 4</option>
           </select>
           <input type="text" placeholder="Barrio"></input>
           <Button>Buscar</Button>
-      </HomeSearchInputs>
-    </HomeSearchContainer>
+        </HomeSearchInputs>
+      </HomeSearchContainer>
+    </HomeSearchWrapper>
   );
 };
 

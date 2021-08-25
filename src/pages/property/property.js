@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import PropTypes from 'prop-types';
 import GalleryCmp from '../../components/gallery/gallery';
+import Layout from '../../components/layout/layout';
 
 import {
   Aside,
@@ -46,7 +47,7 @@ function Property() {
     }
     else {
       const response = await fetchData('property');
-    if (response) dispatch({ type: 'ADD', payload: response.results });
+      if (response) dispatch({ type: 'ADD', payload: response.results });
     }
     setIsLoading(false);
   }, [properties])
@@ -64,115 +65,117 @@ function Property() {
   return (
     <>
       {property && (
-        <Aside>
-          <Space vertical double />
-          <Space vertical double />
-          <GalleryCmp photos={property.photos} onClick={openLightbox} />
-          <ModalGateway>
-            {viewerIsOpen ? (
-              <Modal onClose={closeLightbox}>
-                <Carousel
-                  currentIndex={currentImage}
-                  views={property.photos.map((x) => {
-                    // console.log('x', x)
-                    return {
-                      ...x,
-                      srcset: x.srcSet,
-                      caption: x.title
-                    }
-                  })}
-                />
-              </Modal>
-            ) : null}
-          </ModalGateway>
-          <Space vertical double />
-          <Space vertical double />
-          <TitleContainer>
-            <Typography variant='h3' color='textSecondary' component='p'>
-              {property.title}
+        <Layout>
+          <Aside>
+            <Space vertical double />
+            <Space vertical double />
+            <GalleryCmp photos={property.photos} onClick={openLightbox} />
+            <ModalGateway>
+              {viewerIsOpen ? (
+                <Modal onClose={closeLightbox}>
+                  <Carousel
+                    currentIndex={currentImage}
+                    views={property.photos.map((x) => {
+                      // console.log('x', x)
+                      return {
+                        ...x,
+                        srcset: x.srcSet,
+                        caption: x.title
+                      }
+                    })}
+                  />
+                </Modal>
+              ) : null}
+            </ModalGateway>
+            <Space vertical double />
+            <Space vertical double />
+            <TitleContainer>
+              <Typography variant='h3' color='textSecondary' component='p'>
+                {property.title}
+              </Typography>
+              <Price variant='h4' component='h4'>
+                {property.price}
+              </Price>
+            </TitleContainer>
+            <Space vertical double />
+            <Space vertical double />
+            <Space vertical double />
+            <Space vertical double />
+            <IconsContainer>
+              <IconContainer>
+                <Icon name='bed' />
+                <span>{property.rooms}</span>
+              </IconContainer>
+              <IconContainer>
+                <Icon name='bath' />
+                <span>{property.baths}</span>
+              </IconContainer>
+              <IconContainer>
+                <Icon name='m2' />
+                <span>{property.m2}</span>
+              </IconContainer>
+              <IconContainer>
+                <Icon name='car' />
+                <span>{property.garage}</span>
+              </IconContainer>
+            </IconsContainer>
+            <Space vertical double />
+            <Space vertical double />
+            <Typography variant='h4' color='textSecondary' component='p'>
+              {subtitle}
             </Typography>
-            <Price variant='h4' component='h4'>
-              {property.price}
-            </Price>
-          </TitleContainer>
-          <Space vertical double />
-          <Space vertical double />
-          <Space vertical double />
-          <Space vertical double />
-          <IconsContainer>
-            <IconContainer>
-              <Icon name='bed' />
-              <span>{property.rooms}</span>
-            </IconContainer>
-            <IconContainer>
-              <Icon name='bath' />
-              <span>{property.baths}</span>
-            </IconContainer>
-            <IconContainer>
-              <Icon name='m2' />
-              <span>{property.m2}</span>
-            </IconContainer>
-            <IconContainer>
-              <Icon name='car' />
-              <span>{property.garage}</span>
-            </IconContainer>
-          </IconsContainer>
-          <Space vertical double />
-          <Space vertical double />
-          <Typography variant='h4' color='textSecondary' component='p'>
-            {subtitle}
-          </Typography>
-          <Space vertical double />
-          <Space vertical double />
-          <Typography variant='p' color='textSecondary' component='p'>
-            {description}
-          </Typography>
-          <Space vertical double />
-          <Space vertical double />
-          <Typography variant='h4' color='textSecondary' component='p'>
-            Detalles
-          </Typography>
-          <Space vertical double />
-          <DetailsWrapper>
-            <DetailsContainer>
-              {property.details[0].map((d) => {
-                const { key, value } = d;
-                return (
-                  <DetailItem key={key}>
-                    <DetailKey>{key}:</DetailKey>
-                    <DetailValue>{value}</DetailValue>
-                  </DetailItem>
-                )
-              })}
-            </DetailsContainer>
-            <DetailsContainer>
-              {property.details[1].map((d) => {
-                const { key, value } = d;
-                return (
-                  <DetailItem key={key}>
-                    <DetailKey>{key}:</DetailKey>
-                    <DetailValue>{value}</DetailValue>
-                  </DetailItem>
-                )
-              })}
-            </DetailsContainer>
-          </DetailsWrapper>
-          <Space vertical double />
-          <Space vertical double />
-          <Typography variant='h4' color='textSecondary' component='p'>
-            Ubicación
-          </Typography>
-          <Space vertical double />
-          <Space vertical double />
-          <MapContainer
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar'
-            loading='lazy'
-          />
-          <Space vertical double />
-          <Space vertical double />
-          <Space vertical double />
-          <Space vertical double />
-        </Aside>
+            <Space vertical double />
+            <Space vertical double />
+            <Typography variant='p' color='textSecondary' component='p'>
+              {description}
+            </Typography>
+            <Space vertical double />
+            <Space vertical double />
+            <Typography variant='h4' color='textSecondary' component='p'>
+              Detalles
+            </Typography>
+            <Space vertical double />
+            <DetailsWrapper>
+              <DetailsContainer>
+                {property.details[0].map((d) => {
+                  const { key, value } = d;
+                  return (
+                    <DetailItem key={key}>
+                      <DetailKey>{key}:</DetailKey>
+                      <DetailValue>{value}</DetailValue>
+                    </DetailItem>
+                  )
+                })}
+              </DetailsContainer>
+              <DetailsContainer>
+                {property.details[1].map((d) => {
+                  const { key, value } = d;
+                  return (
+                    <DetailItem key={key}>
+                      <DetailKey>{key}:</DetailKey>
+                      <DetailValue>{value}</DetailValue>
+                    </DetailItem>
+                  )
+                })}
+              </DetailsContainer>
+            </DetailsWrapper>
+            <Space vertical double />
+            <Space vertical double />
+            <Typography variant='h4' color='textSecondary' component='p'>
+              Ubicación
+            </Typography>
+            <Space vertical double />
+            <Space vertical double />
+            <MapContainer
+              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar'
+              loading='lazy'
+            />
+            <Space vertical double />
+            <Space vertical double />
+            <Space vertical double />
+            <Space vertical double />
+          </Aside>
+        </Layout>
       )}
     </>
 

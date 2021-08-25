@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import Card from '../card/card';
 import Grid from '@material-ui/core/Grid';
@@ -25,18 +24,17 @@ export default function GridComponent({
             lg={numRowsLg}
             key={id}
           >
-            <Link to={`/property/${id}`}>
-              <Card
-                img={img}
-                tittle={title}
-                m2={m2}
-                rooms={rooms}
-                baths={bath}
-                garage={garage}
-                description={title}
-                price={price}
-              />
-            </Link>
+            <Card
+              id={id}
+              img={img}
+              tittle={title}
+              m2={m2}
+              rooms={rooms}
+              baths={bath}
+              garage={garage}
+              description={title}
+              price={price}
+            />
           </Grid>
         );
       })}
