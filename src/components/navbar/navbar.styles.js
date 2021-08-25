@@ -99,3 +99,7 @@ export const Links = styled.div`
     justify-content: space-between;
   }
 `;
+
+export const LogoLink = styled.a`
+  text-decoration: none;
+`

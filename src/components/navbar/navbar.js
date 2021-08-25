@@ -13,45 +13,46 @@ import {
   IconMobileContainer,
   SocialMediaMobile,
   LogoAndMediaContainer,
-  Links
+  Links,
+  LogoLink,
 } from "./navbar.styles";
-import  logo  from "../../assets/logo.jpg"
+import logo from "../../assets/logo.jpg";
 
 export default function Navbar() {
-
   return (
     <>
       <NavBarStyled position="fixed">
         <ToolbarStyled>
           <LogoAndMediaContainer>
-          <Logo src={logo}/>
-          <SocialMediaMobile>
-            <IconMobileContainer>
-            <IconStyled
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <InstagramIcon />
-            </IconStyled>
-            <IconStyled
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <FacebookIcon />
-            </IconStyled>
-            <IconStyled
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-            </IconStyled>
-          </IconMobileContainer>
-          </SocialMediaMobile>
+            <LogoLink href="/home">
+              <Logo src={logo} />
+            </LogoLink>
+            <SocialMediaMobile>
+              <IconMobileContainer>
+                <IconStyled
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                >
+                  <InstagramIcon />
+                </IconStyled>
+                <IconStyled
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                >
+                  <FacebookIcon />
+                </IconStyled>
+                <IconStyled
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                ></IconStyled>
+              </IconMobileContainer>
+            </SocialMediaMobile>
           </LogoAndMediaContainer>
           <SocialMediaAndlinks>
             <IconContainer>
@@ -72,12 +73,12 @@ export default function Navbar() {
                 <FacebookIcon />
               </IconStyled>
             </IconContainer>
-          <Links>
-            <Li to="/rentals">Alquileres</Li>
-            <Li to="/on-sale">Ventas</Li>
-            <Li to="/news">Novedades</Li>
-            <Li to="/contact">Contacto</Li>
-          </Links>
+            <Links>
+              <Li to="/rentals">Alquileres</Li>
+              <Li to="/on-sale">Ventas</Li>
+              <Li to="/news">Novedades</Li>
+              <Li to="/contact">Contacto</Li>
+            </Links>
           </SocialMediaAndlinks>
         </ToolbarStyled>
       </NavBarStyled>

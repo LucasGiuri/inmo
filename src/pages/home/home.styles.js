@@ -11,11 +11,12 @@ export const AppraisalsContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: darkgrey;
 `;
 
 export const AppraisalsInfoContainer = styled.div`

@@ -56,6 +56,11 @@ export const IndexContainer = styled.div`
   h4 {
     color: #fff;
     font-weight: bold;
+    transition: 0.8s;
+
+    &:hover {
+      color: black;
+    }
   }
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -97,6 +102,7 @@ export const Wrap = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-top: 5px;
+    margin-left: 0px;
   }
 `;
 
@@ -104,7 +110,7 @@ export const Dropdown = styled.div`
   margin: 5px;
   border-radius: 12px;
   background: #1c1c1c;
-  color: #da050d;
+  color: #fff;
   width: 100%;
   height: auto;
   display: ${(p) => (p.isShown ? "flex" : "none")};
@@ -117,6 +123,11 @@ export const Dropdown = styled.div`
     font-size: 15px;
     display: flex;
     justify-content: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 5px;
+    margin-left: 0px;
   }
 `;
 

@@ -5,6 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 
 export const StyledCard = styled(Card)`
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   background-color: #fff;

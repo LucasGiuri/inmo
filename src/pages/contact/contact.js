@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../../components/layout/layout";
 import {
   Container,
   ContactBox,
@@ -8,9 +7,10 @@ import {
   TextArea,
   InputTextField,
   SubmitButton,
-  MapContainer,
   ContactInfoContainer,
 } from "./contact.styles";
+
+import HomeSearch from "../../components/homeSearch/homeSearch";
 
 export const Contact = () => {
   return (

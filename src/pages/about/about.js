@@ -1,23 +1,20 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Section from '../../components/section/section';
-import infoBg from '../../assets/infoBg.jpg';
 import Space from '../../components/space/space';
 import {
-  InfoContainer,
   Container,
-  ContactContainer,
   StatsContainer,
   Stat,
-  MapContainer,
 } from './about.styles.js';
+
 
 function About() {
   return (
     <Container>
       <Section
-        title='Sobre nosotros'
-        subtitle='Desde 1938 brindamos seguridad en sus operaciones inmobiliarias'
+        title='Desde 1938 brindamos seguridad en sus operaciones inmobiliarias'
+        background="darkgrey"
       >
         <Space vertical double />
         <Typography variant='p' gutterBottom>
