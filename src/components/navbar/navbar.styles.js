@@ -48,14 +48,6 @@ export const IconContainer = styled.div`
 `;
 
 export const IconStyled = styled(IconButton)`
-  color: #fff;
-  border: none;
-  margin: auto;
-  cursor: pointer;
-  transition: 0.4s;
-  &:hover {
-    color: #732727;
-  }
 `;
 
 export const NavBarStyled = styled(AppBar)`
@@ -101,5 +93,14 @@ export const Links = styled.div`
 `;
 
 export const LogoLink = styled.a`
+color: #fff;
+  border: none;
+  margin: auto;
+  cursor: pointer;
+  transition: 0.4s;
+  &:hover {
+    color: #732727;
+  }
   text-decoration: none;
+  
 `

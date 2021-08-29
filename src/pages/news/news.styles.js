@@ -144,3 +144,12 @@ export const MinusIcon = styled(FiMinus)`
 export const Link = styled.a`
   text-decoration: none;
 `;
+
+export const Contenedor = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 200px;
+  background-color: white;
+`

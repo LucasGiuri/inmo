@@ -12,8 +12,11 @@ import {
   Dropdown,
   PlusIcon,
   MinusIcon,
-  Link
+  Link,
+  Contenedor,
 } from "./news.styles";
+
+import Spinner from "../../components/loading/loading";
 
 const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
 const accessToken = "";
@@ -52,6 +55,9 @@ const Novedades = () => {
               <h4 key={item.id}>{item.titulo}</h4>
             </Link>
           ))}
+          <Contenedor>
+            <Spinner />
+          </Contenedor>
         </IndexContainer>
         <Container>
           {data.results.map((item, index) => {

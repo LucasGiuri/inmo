@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import Switch from "@material-ui/core/Switch";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
 
 const fadeIn = keyframes`
   from {
@@ -28,6 +30,7 @@ export const PropertiesSection = styled.div`
 `;
 
 export const IndexContainer = styled.div`
+  color: #fff;
   margin: 3px;
   margin-right: 15px;
   background-color: #a60321;
@@ -40,10 +43,7 @@ export const IndexContainer = styled.div`
   align-items: center;
 
   h3 {
-    color: black;
-  }
-  h4 {
-    color: green;
+    color: #fff;
   }
 `;
 
@@ -59,3 +59,11 @@ export const FilterSection = styled.div`
 export const Switchers = styled(Switch)`
   font-size: 100px;
 `;
+
+export const FilterInputLabel = styled(InputLabel)`
+color: #fff;
+`
+
+export const FilterSelect = styled(Select)`
+color: black;
+`
