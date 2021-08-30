@@ -29,35 +29,35 @@ export const Contact = () => {
               <p>info@konpropiedades.com.ar</p>
             </ContactInfoContainer>
           </LeftArea>
-          <RightArea>
-            <h2>¡Vamos a ponernos en contacto!</h2>
-            <InputTextField
-              type="text"
-              class="field"
-              placeholder="Nombre"
-              required
-            />
-            <InputTextField
-              type="text"
-              class="field"
-              placeholder="Apellido"
-              required
-            />
-            <InputTextField
-              type="email"
-              class="field"
-              placeholder="Direccion de mail"
-              required
-            />
-            <InputTextField
-              type="text"
-              class="field"
-              placeholder="Numero de contacto"
-              required
-            />
-            <TextArea />
-            <SubmitButton>Enviar</SubmitButton>
-          </RightArea>
+        <RightArea>
+          <h2>¡Vamos a ponernos en contacto!</h2>
+          <InputTextField
+            type="text"
+            class="field"
+            placeholder="Nombre"
+            required
+          />
+          <InputTextField
+            type="text"
+            class="field"
+            placeholder="Apellido"
+            required
+          />
+          <InputTextField
+            type="email"
+            class="field"
+            placeholder="Direccion de mail"
+            required
+          />
+          <InputTextField
+            type="text"
+            class="field"
+            placeholder="Numero de contacto"
+            required
+          />
+          <TextArea />
+          <SubmitButton>Enviar</SubmitButton>
+        </RightArea>
         </ContactBox>
       </Container>
     </>

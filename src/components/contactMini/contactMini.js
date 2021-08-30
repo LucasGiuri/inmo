@@ -1,50 +1,39 @@
 import React from "react";
-import { Container } from "../../pages/about/about.styles";
+
 import {
-  ContactContainer,
-  ContactBox,
-  LeftArea,
-  RightArea,
+  ContactMiniContainer,
+  TextArea,
   InputTextField,
+  SubmitButton,
 } from "./contactMini.styles";
 
-export const ContactMini = () => {
+const ContactMini = () => {
   return (
-    <>
-      <Container>
-        <ContactBox>
-          <LeftArea></LeftArea>
-          <RightArea>
-            <h2>Contact Us</h2>
-            <InputTextField
-              type="text"
-              class="field"
-              placeholder="Nombre"
-              required
-            />
-            <InputTextField
-              type="text"
-              class="field"
-              placeholder="Apellido"
-              required
-            />
-            <InputTextField
-              type="email"
-              class="field"
-              placeholder="Direccion de mail"
-              required
-            />
-            <InputTextField
-              type="text"
-              class="field"
-              placeholder="Numero de contacto"
-              required
-            />
-            <TextArea placeholder="Dejenos su mensaje"/>
-            <SubmitButton>Enviar</SubmitButton>
-          </RightArea>
-        </ContactBox>
-      </Container>
-    </>
+    <ContactMiniContainer>
+      <h2>¡Quiero informacion de esta propiedad!</h2>
+      <InputTextField type="text" class="field" placeholder="Nombre" required />
+      <InputTextField
+        type="text"
+        class="field"
+        placeholder="Apellido"
+        required
+      />
+      <InputTextField
+        type="email"
+        class="field"
+        placeholder="Direccion de mail"
+        required
+      />
+      <InputTextField
+        type="text"
+        class="field"
+        placeholder="Numero de contacto"
+        required
+      />
+      <TextArea />
+      <SubmitButton>Enviar</SubmitButton>
+    </ContactMiniContainer>
   );
 };
+
+export default ContactMini;

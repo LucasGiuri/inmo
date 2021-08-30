@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
+
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -13,6 +13,7 @@ import {
   HomeSearchInputs,
   SearchBarButton,
   HomeSearchTextField,
+  SearchBarTypography
 } from "./homeSearch.styles";
 
 const HomeSearch = () => {
@@ -20,10 +21,10 @@ const HomeSearch = () => {
     <HomeSearchWrapper>
       <HomeSearchContainer>
         <HomeSearchHeader>
-          <Typography variant="h3">
+          <SearchBarTypography variant="h3">
             Queremos ayudarte a encontrar tu lugar
-          </Typography>
-          <Typography variant="h4">Sabemos lo que estas buscando</Typography>
+          </SearchBarTypography>
+          <SearchBarTypography variant="h4">Sabemos lo que estas buscando</SearchBarTypography>
         </HomeSearchHeader>
         <HomeSearchSelector>
           <SearchBarButton variant="">Comprar</SearchBarButton>
@@ -50,7 +51,7 @@ const HomeSearch = () => {
             </Select>
           </FormControl>
           <HomeSearchTextField label="Barrio" variant="outlined" />
-          <SearchBarButton variant="contained">Buscar</SearchBarButton>
+          <SearchBarButton>Buscar</SearchBarButton>
         </HomeSearchInputs>
       </HomeSearchContainer>
     </HomeSearchWrapper>

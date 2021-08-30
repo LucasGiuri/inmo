@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import GalleryCmp from '../../components/gallery/gallery';
 import Layout from '../../components/layout/layout';
 
+import ContactMini from "../../components/ContactMini/contactMini"
+
 import {
   Aside,
   Price,
@@ -97,6 +99,7 @@ function Property() {
                 {property.price}
               </Price>
             </TitleContainer>
+              <ContactMini />
             <Space vertical double />
             <Space vertical double />
             <Space vertical double />
