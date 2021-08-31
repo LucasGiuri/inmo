@@ -13,10 +13,7 @@ import {
   PlusIcon,
   MinusIcon,
   Link,
-  Contenedor,
 } from "./news.styles";
-
-import Spinner from "../../components/loading/loading";
 
 const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
 const accessToken = "";
@@ -51,13 +48,13 @@ const Novedades = () => {
         <IndexContainer>
           <h3>INDICE</h3>
           {data.results.map((item, index) => (
-            <Link href={`#news-${index}`}>
+            <Link
+              href={`#news-${index}-span`}
+              onClick={() => setClicked(index)}
+            >
               <h4 key={item.id}>{item.titulo}</h4>
             </Link>
           ))}
-          <Contenedor>
-            <Spinner />
-          </Contenedor>
         </IndexContainer>
         <Container>
           {data.results.map((item, index) => {
@@ -69,6 +66,10 @@ const Novedades = () => {
                   id={`news-${index}`}
                 >
                   <h4>{item.titulo}</h4>
+                  <span
+                    style={{ visibility: "hidden", marginTop: "-150px" }}
+                    id={`news-${index}-span`}
+                  ></span>
                   <span>
                     {clicked === index ? <MinusIcon /> : <PlusIcon />}
                   </span>
