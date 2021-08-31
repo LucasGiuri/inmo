@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import data from "./data.json";
+import React, { useState, useEffect } from "react";
+import { fetchData } from "../property/property.helpers";
+import { useStateContext } from "../../state";
 import Layout from "../../components/layout/layout";
 import Grid from "../../components/grid/grid";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -15,7 +16,34 @@ import {
   FilterSelect,
 } from "./properties.styles";
 
-const Properties = () => {
+const Properties = ({ id }) => {
+  const [{ properties }, dispatch] = useStateContext();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(async () => {
+    setIsLoading(true);
+    if (!properties.length) {
+      const response = await fetchData('property');
+      if (response) dispatch({ type: 'ADD', payload: response.results });
+    }
+    setIsLoading(false);
+    if (properties && properties.length > 0) {
+      const filtered = properties[0] && properties[0].filter((p) => id === 'rentals' ? p.data.alquiler : p.data.venta);
+      const filteredData = filtered && filtered.map((d) => {
+        const { title, hero_image, cochera } = d.data;
+        return {
+          ...d.data,
+          id: d.id,
+          img: hero_image.url,
+          title: title[0].text,
+          garage: cochera ? 'Si' : 'No',
+        };
+      });
+      setData(filteredData);
+    }
+  }, [properties, id]);
+
   return (
     <Layout marginTop="100px">
       <PropertiesSection>
@@ -66,7 +94,7 @@ const Properties = () => {
           </FormControl>
         </IndexContainer>
         <Container>
-          <Grid numRowsLg={4} data={data.results} />
+          <Grid numRowsLg={4} data={data} />
         </Container>
       </PropertiesSection>
     </Layout>

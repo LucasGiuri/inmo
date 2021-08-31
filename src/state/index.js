@@ -6,6 +6,7 @@ const StateContext = createContext();
 const initialState = {
 	searchById: null,
 	properties: [],
+	news: [],
 	filters: {
 		country: null,
 		province: null,

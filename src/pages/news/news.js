@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Prismic from "@prismicio/client";
+import React, { useState, useEffect } from 'react';
+import { fetchData } from "../property/property.helpers";
+import { useStateContext } from "../../state";
 
-import Layout from "../../components/layout/layout";
+import Layout from '../../components/layout/layout';
 
-import data from "./data.json";
 import {
   NovedadesSection,
   IndexContainer,
@@ -13,15 +13,12 @@ import {
   PlusIcon,
   MinusIcon,
   Link,
-} from "./news.styles";
-
-const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
-const accessToken = "";
-
-const Client = Prismic.client(apiEndpoint, { accessToken });
+} from './news.styles';
 
 const Novedades = () => {
   const [clicked, setClicked] = useState(false);
+  const [{ news }, dispatch] = useStateContext();
+  const [data, setData] = useState([]);
 
   const toggle = (index) => {
     if (clicked === index) {
@@ -30,52 +27,61 @@ const Novedades = () => {
     setClicked(index);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await Client.query(
-        Prismic.Predicates.at("document.type", "news")
-      );
-      if (response) {
-        console.log(response);
-      }
-    };
-    fetchData();
+  useEffect(async () => {
+    const response = await fetchData('news');
+    if (response) dispatch({ type: "ADD_NEWS", payload: response.results });
   }, []);
 
+  useEffect(() => {
+    if (news && news.length > 0) {
+      const filtered = news[0] && news[0].map((d) => {
+        const { title, text_area } = d.data;
+
+          return {
+            ...d.data,
+            id: d.id,
+            title: title && title.length ? title[0].text : '',
+            content: text_area
+          };
+        });
+      setData(filtered);
+    }
+  }, [news]);
+
   return (
-    <Layout marginTop="100px">
+    <Layout marginTop='100px'>
       <NovedadesSection>
         <IndexContainer>
           <h3>INDICE</h3>
-          {data.results.map((item, index) => (
+          {data && data.map((item) => (
             <Link
-              href={`#news-${index}-span`}
-              onClick={() => setClicked(index)}
+              href={`#news-${item.id}-span`}
+              onClick={() => setClicked(item.id)}
             >
-              <h4 key={item.id}>{item.titulo}</h4>
+              <h4 key={item.id}>{item.title}</h4>
             </Link>
           ))}
         </IndexContainer>
         <Container>
-          {data.results.map((item, index) => {
+          {data && data.map((item) => {
             return (
               <>
                 <Wrap
-                  onClick={() => toggle(index)}
-                  key={index}
-                  id={`news-${index}`}
+                  onClick={() => toggle(item.id)}
+                  key={item.id}
+                  id={`news-${item.id}`}
                 >
-                  <h4>{item.titulo}</h4>
+                  <h4>{item.title}</h4>
                   <span
-                    style={{ visibility: "hidden", marginTop: "-150px" }}
-                    id={`news-${index}-span`}
+                    style={{ visibility: 'hidden', marginTop: '-150px' }}
+                    id={`news-${item.id}-span`}
                   ></span>
                   <span>
-                    {clicked === index ? <MinusIcon /> : <PlusIcon />}
+                    {clicked === item.id ? <MinusIcon /> : <PlusIcon />}
                   </span>
                 </Wrap>
-                <Dropdown isShown={clicked === index}>
-                  <p>{item.contenido}</p>
+                <Dropdown isShown={clicked === item.id}>
+                  <p>{item.content}</p>
                 </Dropdown>
               </>
             );
