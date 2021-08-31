@@ -17,7 +17,7 @@ function About() {
         background="darkgrey"
       >
         <Space vertical double />
-        <Typography variant='p' gutterBottom>
+        <Typography variant='h5' gutterBottom>
           Herramientas tecnológicas, trato personal y confiabilidad, dan
           debido marco a nuestras operaciones inmobiliarias. Acompañar a
           nuestros clientes en su desarrollo familiar, sus inversiones

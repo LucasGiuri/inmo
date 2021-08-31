@@ -62,7 +62,6 @@ const Properties = () => {
               <option value={4}>4 Ambientes</option>
               <option value={5}>5 Ambientes</option>
               <option value={6}>6 Ambientes</option>
-              <option value={7}>7 Ambientes</option>
             </FilterSelect>
           </FormControl>
         </IndexContainer>

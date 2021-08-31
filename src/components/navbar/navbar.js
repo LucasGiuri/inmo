@@ -35,7 +35,7 @@ export default function Navbar() {
                   aria-haspopup="true"
                   color="inherit"
                 >
-                  <LogoLink href="https://www.instagram.com/konpropiedades/">
+                  <LogoLink href="https://www.instagram.com/konpropiedades/" target="blank">
                     <InstagramIcon />
                   </LogoLink>
                 </IconStyled>
@@ -45,7 +45,7 @@ export default function Navbar() {
                   aria-haspopup="true"
                   color="inherit"
                 >
-                  <LogoLink href="facebook.com">
+                  <LogoLink href="facebook.com" target="blank">
                     <FacebookIcon />
                   </LogoLink>
                 </IconStyled>
@@ -66,7 +66,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <LogoLink href="https://www.instagram.com/konpropiedades/">
+                <LogoLink href="https://www.instagram.com/konpropiedades/" target="blank">
                   <InstagramIcon />
                 </LogoLink>
               </IconStyled>
@@ -76,7 +76,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <LogoLink href="https://www.facebook.com/Konpropiedades">
+                <LogoLink href="https://www.facebook.com/Konpropiedades" target="blank">
                   <FacebookIcon />
                 </LogoLink>
               </IconStyled>

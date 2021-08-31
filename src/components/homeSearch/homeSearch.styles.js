@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import Radio from "@material-ui/core/Radio";
+import Switch from "@material-ui/core/Switch";
 
 export const HomeSearchWrapper = styled.div`
   margin-top: 95px;
@@ -41,6 +44,7 @@ export const HomeSearchSelector = styled.div`
   flex-direction: row;
   padding: 10px;
   border-bottom: 1px solid;
+  justify-content: space-between;
 `;
 
 export const HomeSearchInputs = styled.div`
@@ -69,10 +73,23 @@ export const HomeSearchTextField = styled(TextField)`
   color: #fff;
   margin-left: 5px;
   width: 75%;
-
-
 `;
 
 export const SearchBarTypography = styled(Typography)`
-  color: white;
+  color: #fff;
+`;
+
+export const SearchBarRadioBtnGrp = styled(RadioGroup)`
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const StyledRadio = styled(Radio)`
+  color: #a60321;
+`;
+
+export const HomeSwitcher = styled(Switch)`
+  color: #a60321;
 `;
