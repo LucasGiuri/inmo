@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import Map from '../../components/map/map';
 import { useStateContext } from '../../state';
 import Typography from '@material-ui/core/Typography';
 import Carousel, { Modal, ModalGateway } from 'react-images';
@@ -12,7 +13,6 @@ import {
   TitleContainer,
   IconsContainer,
   IconContainer,
-  MapContainer,
   DetailsWrapper,
   DetailsContainer,
   DetailItem,
@@ -61,6 +61,9 @@ function Property() {
     setCurrentImage(0);
     setViewerIsOpen(false);
   };
+  const position = [51.505, -0.09];
+
+  console.log('property', property && property['map']);
 
   return (
     <>
@@ -76,7 +79,6 @@ function Property() {
                   <Carousel
                     currentIndex={currentImage}
                     views={property.photos.map((x) => {
-                      // console.log('x', x)
                       return {
                         ...x,
                         srcset: x.srcSet,
@@ -166,10 +168,7 @@ function Property() {
             </Typography>
             <Space vertical double />
             <Space vertical double />
-            <MapContainer
-              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.93895638281!2d-58.456548884770385!3d-34.60570508045904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca05a97be0c9%3A0x7627cc9ab0caa2e7!2sKON%20PROPIEDADES!5e0!3m2!1ses-419!2sar!4v1628037671833!5m2!1ses-419!2sar'
-              loading='lazy'
-            />
+            <Map mapPosition={[property['map'].latitude, property['map'].longitude]} />
             <Space vertical double />
             <Space vertical double />
             <Space vertical double />

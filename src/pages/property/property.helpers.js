@@ -42,6 +42,7 @@ export const convertData = (obj) => {
     img9,
     img10,
     is_in_usd,
+    map,
     m2,
     orientation,
     price,
@@ -85,6 +86,7 @@ export const convertData = (obj) => {
       ]
     ],
     photos: allPhotos,
+    map,
     baths: bath,
     street,
     rooms,
