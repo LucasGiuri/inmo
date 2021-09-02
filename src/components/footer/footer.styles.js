@@ -39,9 +39,11 @@ export const InfoContainer = styled.div`
   justify-content: center;
   flex-direction: row;
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0px;
   }
 `;
 
@@ -57,7 +59,8 @@ export const ContactContainer = styled.div`
   align-items: center;
   font-weight: bold;
   font-size: 10px;
-  @media (max-width: 600px) {
+
+  @media (max-width: 700px) {
     width: 100%;
     height: 75%;
   }
@@ -72,6 +75,7 @@ export const MapContainer = styled.iframe`
   margin: 0 15px;
 
   @media (max-width: 600px) {
+    width: 10=%;
     height: 144px;
     margin-bottom: 15px;
   }

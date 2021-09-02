@@ -46,6 +46,10 @@ export const IndexContainer = styled.div`
   h3 {
     color: #fff;
   }
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
