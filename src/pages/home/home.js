@@ -6,10 +6,13 @@ import Section from "../../components/section/section";
 import { Container, UiButton } from "./home.styles";
 import { fetchData } from "../property/property.helpers";
 import HomeSearch from "../../components/homeSearch/homeSearch";
+import { Typography } from "@material-ui/core";
+
 
 function Home() {
   const [{ properties }, dispatch] = useStateContext();
   const [data, setData] = useState([]);
+
 
   useEffect(async () => {
     const response = await fetchData("property");
@@ -51,7 +54,7 @@ function Home() {
         </Section>
       )}
       <Container>
-        <h1>Quieres vender tu propiedad?</h1>
+        <Typography variant="h3">¿Querés vender tu propiedad?</Typography>
         <UiButton variant="contained">TASA CON NOSOTROS</UiButton>
       </Container>
       <About />

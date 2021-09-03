@@ -51,10 +51,16 @@ export const HomeSearchInputs = styled.div`
   padding: 10px;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin: 5px;
 `;
+
+export const SearchSection = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`
 
 export const SearchBarButton = styled(Button)`
   margin: 5px;

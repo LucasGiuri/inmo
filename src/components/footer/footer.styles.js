@@ -5,6 +5,10 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #3c4044;
+
+  @media (max-width: 700px) {
+    padding: 20px;
+  }
 `;
 
 export const FooterLink = styled.a`
