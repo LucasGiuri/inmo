@@ -3,16 +3,14 @@ import { useStateContext } from "../../state";
 import Grid from "../../components/grid/grid";
 import About from "../about/about";
 import Section from "../../components/section/section";
-import { Container, UiButton } from "./home.styles";
 import { fetchData } from "../property/property.helpers";
 import HomeSearch from "../../components/homeSearch/homeSearch";
 import { Typography } from "@material-ui/core";
-
+import { Container, UiButton, BtnLink } from "./home.styles";
 
 function Home() {
   const [{ properties }, dispatch] = useStateContext();
   const [data, setData] = useState([]);
-
 
   useEffect(async () => {
     const response = await fetchData("property");
@@ -55,7 +53,9 @@ function Home() {
       )}
       <Container>
         <Typography variant="h3">¿Querés vender tu propiedad?</Typography>
-        <UiButton variant="contained">TASA CON NOSOTROS</UiButton>
+        <BtnLink href='/contact'>
+          <UiButton variant="contained">TASA CON NOSOTROS</UiButton>
+        </BtnLink>
       </Container>
       <About />
     </>

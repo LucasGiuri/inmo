@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import background from '../../assets/background.jpg';
-import { Link } from "react-router-dom";
+import styled from "styled-components";
+import background from "../../assets/background.jpg";
+import Button from '@material-ui/core/Button';
 
 export const AppraisalsContainer = styled.div`
   display: flex;
@@ -14,13 +14,13 @@ export const Container = styled.div`
   height: 30vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: darkgrey;
 `;
 
 export const AppraisalsInfoContainer = styled.div`
-  background-color: #806F65;
+  background-color: #806f65;
   color: #fff;
   height: 40vh;
   width: 100%;
@@ -30,18 +30,20 @@ export const AppraisalsInfoContainer = styled.div`
   text-align: center;
 `;
 
-export const UiButton = styled(Link)`
+export const UiButton = styled(Button)`
   text-decoration: none;
   cursor: pointer;
-  background-color: #BFA697;
+  background-color: #121212;;
   color: #fff;
   border-radius: 4px;
   transition: 0.8s;
-  padding: 4px;
+  padding: 10px;
   font-weight: bold;
+  transition: 0.5s;
 
   &:hover {
-    background-color: #DA050D;
+    background-color: #a60321;
+    transform: scale(1.055);
   }
 `;
 
@@ -60,3 +62,7 @@ export const ChildContainer = styled.div`
 export const InternalLink = styled.a`
   text-decoration: none;
 `;
+
+export const BtnLink = styled.a`
+  text-decoration: none;
+`

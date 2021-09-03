@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
+import CardContent from '@material-ui/core/CardContent';
 
 export const LinkContainer = styled(Link)`
   text-decoration: none;
@@ -19,8 +20,8 @@ export const StyledCard = styled(Card)`
   padding-bottom: 10px;
   border-radius: 12px;
   &:hover {
-    transition: 1.5s;
-    background-color: #999;
+    transition: 0.8s;
+  background-color: #d8d4cf;
   }
   @media (max-width: 600px) {
     display: flex;
@@ -61,3 +62,9 @@ export const IconContainer = styled.div`
   align-items: center;
   padding-top: 12px;
 `;
+
+export const PriceCardContent = styled(CardContent)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -17,13 +17,20 @@ import {
   StyledRadio,
   HomeSwitcher,
   SearchSection,
+  Container,
+  IconMagnifyingGlass,
+  SearchInput,
 } from "./homeSearch.styles";
-import SearchBox from "../searchBox/searchBox";
+
 
 const HomeSearch = () => {
   const history = useHistory();
   const [value, setValue] = useState("rentals");
   const [selected, setSelected] = useState("");
+  const targetRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const showSearchInput = isHovered || isFocused;
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -37,6 +44,10 @@ const HomeSearch = () => {
       },
     });
   };
+
+  useEffect(() => {
+    targetRef.current.value = "";
+  }, [showSearchInput]);
 
   return (
     <HomeSearchWrapper>
@@ -73,8 +84,18 @@ const HomeSearch = () => {
         <HomeSearchInputs>
           <DropdownSelector selected={selected} setSelected={setSelected} />
           <SearchSection>
-          <SearchBox />
-          <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton>
+            <Container
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              hover={showSearchInput}
+            >
+              <SearchInput ref={targetRef} showSearchInput={showSearchInput} />
+              {showSearchInput ? <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton> : <IconMagnifyingGlass />}
+            </Container>
+            {/* <SearchBox /> */}
+            
           </SearchSection>
         </HomeSearchInputs>
       </HomeSearchContainer>

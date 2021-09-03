@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import Switch from "@material-ui/core/Switch";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
+import { Typography } from "@material-ui/core";
 
 const fadeIn = keyframes`
   from {
@@ -71,4 +72,8 @@ color: #fff;
 
 export const FilterSelect = styled(Select)`
 color: black;
+`
+
+export const FilterTypography = styled(Typography)`
+  margin: 10px;
 `

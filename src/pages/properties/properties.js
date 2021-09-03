@@ -6,6 +6,7 @@ import Grid from "../../components/grid/grid";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 
+
 import {
   PropertiesSection,
   IndexContainer,
@@ -14,6 +15,7 @@ import {
   Switchers,
   FilterInputLabel,
   FilterSelect,
+  FilterTypography
 } from "./properties.styles";
 
 const Properties = ({ id }) => {
@@ -48,7 +50,7 @@ const Properties = ({ id }) => {
     <Layout marginTop="100px">
       <PropertiesSection>
         <IndexContainer>
-          <h3>INDICE</h3>
+          <FilterTypography varian='h4'>Filtros</FilterTypography>
           <FilterSection>
             <FormControl variant="outlined">
               <FilterInputLabel>Tipo</FilterInputLabel>

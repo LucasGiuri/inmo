@@ -98,6 +98,9 @@ function Property() {
               <Price variant='h4' component='h4'>
                 {property.price}
               </Price>
+              <Price variant='h4' component='h4'>
+                {property.price} 
+              </Price>
             </TitleContainer>
             <Space vertical double />
             <Space vertical double />

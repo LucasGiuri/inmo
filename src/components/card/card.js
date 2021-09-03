@@ -27,6 +27,9 @@ function MediaCard({
             <Price gutterBottom variant='h6' component='p'>
               ${price}
             </Price>
+            <Price gutterBottom variant='h6' component='p'>
+              ${price}
+            </Price>
             <Typography variant='body2' color='textSecondary' component='p'>
               {description}
             </Typography>
