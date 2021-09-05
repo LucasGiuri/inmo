@@ -50,6 +50,6 @@ GridComponent.propTypes = {
 
 GridComponent.defaultProps = {
   property: 3,
-  numRowsMd: 4,
+  numRowsMd: 6,
   numRowsXs: 6
 };

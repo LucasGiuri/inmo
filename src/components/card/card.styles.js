@@ -23,9 +23,8 @@ export const StyledCard = styled(Card)`
     transition: 0.8s;
   background-color: #d8d4cf;
   }
-  @media (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
+  @media (max-width: 800px) {
+    width: 300px;
   }
 `;
 

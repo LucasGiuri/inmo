@@ -48,7 +48,7 @@ export const IndexContainer = styled.div`
     color: #fff;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     display: none;
   }
 `;

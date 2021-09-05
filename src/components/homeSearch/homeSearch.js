@@ -1,8 +1,5 @@
 import { React, useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import DropdownSelector from "../../components/dropDownSelector/dropDownSelector";
 import {
@@ -25,23 +22,23 @@ import {
 
 const HomeSearch = () => {
   const history = useHistory();
-  const [value, setValue] = useState("rentals");
-  const [selected, setSelected] = useState("");
   const targetRef = useRef(null);
+  const [typeOfContract, setTypeOfContract] = useState("rentals");
+  const [type, setType] = useState('');
+  const [hasGarage, setHasGarage] = useState(false);
+  const [selected, setSelected] = useState({ id: 'TODOS', value: 'TODOS' });
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const showSearchInput = isHovered || isFocused;
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setTypeOfContract(event.target.value);
   };
 
   const onSearch = () => {
     return history.push({
-      pathname: `/${value}`,
-      state: {
-        barrio: "true",
-      },
+      pathname: `/${typeOfContract}`,
+      search: `?barrio=${selected.id}&tipo=${type}&garaje=${hasGarage}`
     });
   };
 
@@ -50,56 +47,57 @@ const HomeSearch = () => {
   }, [showSearchInput]);
 
   return (
-    <HomeSearchWrapper>
-      <HomeSearchContainer>
-        <HomeSearchHeader>
-          <SearchBarTypography variant="h3">
-            Queremos ayudarte a encontrar tu lugar
-          </SearchBarTypography>
-          <SearchBarTypography variant="h5">
-            Desde 1938 brindamos seguridad en sus operaciones inmobiliarias{" "}
-          </SearchBarTypography>
-        </HomeSearchHeader>
-        <HomeSearchSelector>
-          <SearchBarRadioBtnGrp onChange={handleChange}>
+    <Router>
+
+      <HomeSearchWrapper>
+        <HomeSearchContainer>
+          <HomeSearchHeader>
+            <SearchBarTypography variant="h3">
+              Queremos ayudarte a encontrar tu lugar
+            </SearchBarTypography>
+            <SearchBarTypography variant="h5">
+              Desde 1938 brindamos seguridad en sus operaciones inmobiliarias{" "}
+            </SearchBarTypography>
+          </HomeSearchHeader>
+          <HomeSearchSelector>
+            <SearchBarRadioBtnGrp onChange={handleChange}>
+              <FormControlLabel
+                value="on-sale"
+                checked={typeOfContract === "on-sale"}
+                control={<StyledRadio color="default" />}
+                label="Comprar"
+              />
+              <FormControlLabel
+                value="rentals"
+                checked={typeOfContract === "rentals"}
+                control={<StyledRadio color="default" />}
+                label="Alquilar"
+              />
+            </SearchBarRadioBtnGrp>
             <FormControlLabel
-              value="on-sale"
-              checked={value === "on-sale"}
-              control={<StyledRadio color="default" />}
-              label="Comprar"
+              value="cochera"
+              control={<HomeSwitcher color="secondary" />}
+              label="Cochera"
             />
-            <FormControlLabel
-              value="rentals"
-              checked={value === "rentals"}
-              control={<StyledRadio color="default" />}
-              label="Alquilar"
-            />
-          </SearchBarRadioBtnGrp>
-          <FormControlLabel
-            value="cochera"
-            control={<HomeSwitcher color="secondary" />}
-            label="Cochera"
-          />
-        </HomeSearchSelector>
-        <HomeSearchInputs>
-          <DropdownSelector selected={selected} setSelected={setSelected} />
-          <SearchSection>
-            <Container
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-              hover={showSearchInput}
-            >
-              <SearchInput ref={targetRef} showSearchInput={showSearchInput} />
-              {showSearchInput ? <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton> : <IconMagnifyingGlass />}
-            </Container>
-            {/* <SearchBox /> */}
-            
-          </SearchSection>
-        </HomeSearchInputs>
-      </HomeSearchContainer>
-    </HomeSearchWrapper>
+          </HomeSearchSelector>
+          <HomeSearchInputs>
+            <DropdownSelector selected={selected.value} setSelected={setSelected} />
+            <SearchSection>
+              <Container
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                hover={showSearchInput}
+              >
+                <SearchInput ref={targetRef} showSearchInput={showSearchInput} />
+                {showSearchInput ? <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton> : <IconMagnifyingGlass />}
+              </Container>
+            </SearchSection>
+          </HomeSearchInputs>
+        </HomeSearchContainer>
+      </HomeSearchWrapper>
+    </Router>
   );
 };
 

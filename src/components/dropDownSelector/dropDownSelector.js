@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { typeOfProperty } from '../../constants';
+
 import {
   Dropdown,
   DropdownBtn,
@@ -10,14 +12,6 @@ import {
 
 const DropdownSelector = ({ selected, setSelected }) => {
   const [isActive, setIsActive] = useState(false);
-  const options = [
-    "DEPARTAMENTO",
-    "TIPO CASA PH",
-    "LOCAL",
-    "OFICINA",
-    "TERRENO",
-    "COCHERA",
-  ];
   return (
     <Dropdown>
       <DropdownBtn onClick={(e) => setIsActive(!isActive)}>
@@ -26,14 +20,14 @@ const DropdownSelector = ({ selected, setSelected }) => {
       </DropdownBtn>
       {isActive && (
         <DropdownContent>
-          {options.map((option) => (
+          {typeOfProperty.map((option) => (
             <DropdownItem
               onClick={(e) => {
                 setSelected(option);
                 setIsActive(false);
               }}
             >
-              {option}
+              {option.value}
             </DropdownItem>
           ))}
         </DropdownContent>
