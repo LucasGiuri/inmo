@@ -177,106 +177,104 @@ const Properties = ({ id }) => {
   }, [properties, id, queryParams]);
 
   return (
-    <Router>
-      <Layout marginTop='100px'>
-        <PropertiesSection>
-          <IndexContainer>
-            <FilterTypography varian='h4'>Filtrar</FilterTypography>
-            <FilterSection>
-              <FilterTypography varian='h4'>Tipo de propiedad</FilterTypography>
-              <DropdownSelector
-                selected={filters.type}
-                setSelected={setTypeSelected}
-              />
-              <Space vertical double />
-              <FilterTypography varian='h4'>
-                Precio de la propiedad
-              </FilterTypography>
-              <PriceInput
-                type='number'
-                label='Precio Mínimo'
-                value={filters.minPrice || 0}
-                onChange={(e) => onChangePrice(e, 'min')}
-                placeholder='Precio Mínimo'
-              />
-              <PriceInput
-                type='number'
-                label='Precio Máximo'
-                value={filters.maxPrice || filters.minPrice || 0}
-                onChange={(e) => onChangePrice(e, 'max')}
-                placeholder='Precio Máximo'
-              />
-              <FilterTypography varian='h4'>
-                M2 de la propiedad
-              </FilterTypography>
-              <PriceInput
-                type='number'
-                label='M2 Mínimo'
-                value={filters.minM2 || 0}
-                onChange={(e) => onChangeM2(e, 'min')}
-                placeholder='M2 Mínimo'
-              />
-              <PriceInput
-                type='number'
-                label='M2 Máximo'
-                value={filters.maxM2 || filters.minM2 || 0}
-                onChange={(e) => onChangeM2(e, 'max')}
-                placeholder='M2 Máximo'
-              />
-              <Space vertical double />
-              <FilterTypography varian='h4'>
-                Cantidad de Ambientes
-              </FilterTypography>
-              <FormControlLabel
-                value='two-ambients'
-                checked='two-ambients'
-                control={<StyledRadio color='default' />}
-                label='1 Ambiente'
-              />
-              <FormControlLabel
-                value='one-ambient'
-                checked='two-ambient'
-                control={<StyledRadio color='default' />}
-                label='2 Ambientes'
-              />
-              <FormControlLabel
-                value='three-ambients'
-                checked='three-ambients'
-                control={<StyledRadio color='default' />}
-                label='3 Ambientes'
-              />
-              <FormControlLabel
-                value='four-ambients'
-                checked='four-ambients'
-                control={<StyledRadio color='default' />}
-                label='4 Ambientes'
-              />
-              <FormControlLabel
-                value='five-ambients'
-                checked='five-ambients'
-                control={<StyledRadio color='default' />}
-                label='5 Ambientes'
-              />
-              <FormControlLabel
-                value='six-ambients'
-                checked='six-ambients'
-                control={<StyledRadio color='default' />}
-                label='6 Ambientes'
-              />
-              <Space vertical double />
-              <FormControlLabel control={<Switchers />} label='Cochera' />
-              <FormControlLabel
-                control={<Switchers />}
-                label='Apto Profesional'
-              />
-            </FilterSection>
-          </IndexContainer>
-          <Container>
-            <Grid numRowsLg={4} data={data} />
-          </Container>
-        </PropertiesSection>
-      </Layout>
-    </Router>
+    <Layout marginTop='100px'>
+      <PropertiesSection>
+        <IndexContainer>
+          <FilterTypography varian='h4'>Filtrar</FilterTypography>
+          <FilterSection>
+            <FilterTypography varian='h4'>Tipo de propiedad</FilterTypography>
+            <DropdownSelector
+              selected={filters.type}
+              setSelected={setTypeSelected}
+            />
+            <Space vertical double />
+            <FilterTypography varian='h4'>
+              Precio de la propiedad
+            </FilterTypography>
+            <PriceInput
+              type='number'
+              label='Precio Mínimo'
+              value={filters.minPrice || 0}
+              onChange={(e) => onChangePrice(e, 'min')}
+              placeholder='Precio Mínimo'
+            />
+            <PriceInput
+              type='number'
+              label='Precio Máximo'
+              value={filters.maxPrice || filters.minPrice || 0}
+              onChange={(e) => onChangePrice(e, 'max')}
+              placeholder='Precio Máximo'
+            />
+            <FilterTypography varian='h4'>
+              M2 de la propiedad
+            </FilterTypography>
+            <PriceInput
+              type='number'
+              label='M2 Mínimo'
+              value={filters.minM2 || 0}
+              onChange={(e) => onChangeM2(e, 'min')}
+              placeholder='M2 Mínimo'
+            />
+            <PriceInput
+              type='number'
+              label='M2 Máximo'
+              value={filters.maxM2 || filters.minM2 || 0}
+              onChange={(e) => onChangeM2(e, 'max')}
+              placeholder='M2 Máximo'
+            />
+            <Space vertical double />
+            <FilterTypography varian='h4'>
+              Cantidad de Ambientes
+            </FilterTypography>
+            <FormControlLabel
+              value='two-ambients'
+              checked='two-ambients'
+              control={<StyledRadio color='default' />}
+              label='1 Ambiente'
+            />
+            <FormControlLabel
+              value='one-ambient'
+              checked='two-ambient'
+              control={<StyledRadio color='default' />}
+              label='2 Ambientes'
+            />
+            <FormControlLabel
+              value='three-ambients'
+              checked='three-ambients'
+              control={<StyledRadio color='default' />}
+              label='3 Ambientes'
+            />
+            <FormControlLabel
+              value='four-ambients'
+              checked='four-ambients'
+              control={<StyledRadio color='default' />}
+              label='4 Ambientes'
+            />
+            <FormControlLabel
+              value='five-ambients'
+              checked='five-ambients'
+              control={<StyledRadio color='default' />}
+              label='5 Ambientes'
+            />
+            <FormControlLabel
+              value='six-ambients'
+              checked='six-ambients'
+              control={<StyledRadio color='default' />}
+              label='6 Ambientes'
+            />
+            <Space vertical double />
+            <FormControlLabel control={<Switchers />} label='Cochera' />
+            <FormControlLabel
+              control={<Switchers />}
+              label='Apto Profesional'
+            />
+          </FilterSection>
+        </IndexContainer>
+        <Container>
+          <Grid numRowsLg={4} data={data} />
+        </Container>
+      </PropertiesSection>
+    </Layout>
   );
 };
 
