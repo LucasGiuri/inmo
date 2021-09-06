@@ -53,7 +53,6 @@ const HomeSearch = () => {
 
   return (
     <Router>
-
       <HomeSearchWrapper>
         <HomeSearchContainer>
           <HomeSearchHeader>

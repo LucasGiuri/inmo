@@ -6,13 +6,13 @@ export const buildUrl = (props) => {
   const neighborhoodSelected = `neighborhood=${neighborhood  || 'TODOS'}`;
   const typeSelected = `type=${type || 'TODOS'}`;
   const minPriceSelected = `minPrice=${minPrice || 0}`;
-  const maxPriceSelected = `maxPrice=${maxPrice || minPrice || 0}`;
+  const maxPriceSelected = `maxPrice=${!minPrice ? 0 : minPrice > maxPrice ? minPrice : maxPrice}`;
   const ambientsSelected = `ambients=${ambients || 'TODOS'}`;
-  const minM2Selected = `m2-minM2=${minM2 || 0}`;
+  const minM2Selected = `minM2=${minM2 || 0}`;
   const maxM2Selected = `maxM2=${maxM2 || minM2 || 0}`;
   const garageSelected = `garage=${garage || 'false'}`;
-  const isProfessionalSelected = `isProfessional=${isProfessional}`
-  return `?${neighborhoodSelected}&${typeSelected}&${minPriceSelected}&${maxPriceSelected}&${ambientsSelected}&${minM2Selected}&${maxM2Selected}&${garageSelected}`;
+  const isProfessionalSelected = `isProfessional=${isProfessional || 'false'}`
+  return `?${neighborhoodSelected}&${typeSelected}&${minPriceSelected}&${maxPriceSelected}&${ambientsSelected}&${minM2Selected}&${maxM2Selected}&${isProfessionalSelected}&${garageSelected}`;
 };
 
 export const typeOfProperty = [
