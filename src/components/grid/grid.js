@@ -14,7 +14,7 @@ export default function GridComponent({
     <Grid container spacing={3}>
       {data.map((d) => {
         const {
-          id, title, img, bath, price, m2, rooms, garage
+          id, title, img, bath, price, m2, rooms, garage, rent
         } = d;
 
         return (
@@ -34,6 +34,7 @@ export default function GridComponent({
               garage={garage}
               description={title}
               price={price}
+              rent={rent}
             />
           </Grid>
         );

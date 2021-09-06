@@ -15,7 +15,7 @@ import {
 } from './card.styles';
 
 function MediaCard({
-  id, img, tittle, description, price, rooms, baths, m2, garage
+  id, img, tittle, description, price, rooms, baths, m2, garage, rent
 }) {
 
   return (
@@ -25,9 +25,6 @@ function MediaCard({
           <StyledCardMedia image={img} title={tittle} component='img' />
           <CardContent>
             <PriceContainer>
-            <Price gutterBottom variant='h5' >
-              ${price}
-            </Price>
             <Price gutterBottom variant='h5' >
               ${price}
             </Price>

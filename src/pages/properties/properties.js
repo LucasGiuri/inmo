@@ -29,6 +29,11 @@ const Properties = ({ id }) => {
   const [data, setData] = useState([]);
   const [queryParams, setQueryParams] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [amountOfAmbients, setAmountOfAmbientes] = useState("TODOS");
+
+  const handleChange = (event) => {
+    setAmountOfAmbientes(event.target.value);
+  };
 
   const setTypeSelected = (opt) => {
     dispatch({ type: 'SET_TYPE', payload: opt.id });

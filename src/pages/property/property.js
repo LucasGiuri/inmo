@@ -99,7 +99,7 @@ function Property() {
                 {property.price}
               </Price>
               <Price variant='h4' component='h4'>
-                {property.price} 
+                {property.rent} 
               </Price>
             </TitleContainer>
             <Space vertical double />
