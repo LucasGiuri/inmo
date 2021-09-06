@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { typeOfProperty } from '../../constants';
+import { typeOfProperty, neighborhoods } from "../../constants";
 
 import {
   Dropdown,

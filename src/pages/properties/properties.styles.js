@@ -3,6 +3,7 @@ import Switch from "@material-ui/core/Switch";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import { Typography } from "@material-ui/core";
+import Radio from "@material-ui/core/Radio";
 
 const fadeIn = keyframes`
   from {
@@ -67,13 +68,28 @@ export const Switchers = styled(Switch)`
 `;
 
 export const FilterInputLabel = styled(InputLabel)`
-color: #fff;
-`
+  color: #fff;
+`;
 
 export const FilterSelect = styled(Select)`
-color: black;
-`
+  color: black;
+`;
 
 export const FilterTypography = styled(Typography)`
   margin: 10px;
-`
+`;
+
+export const StyledRadio = styled(Radio)``;
+
+export const PriceInput = styled.input`
+  width: 400px;
+  margin-bottom: 5px;
+  border: 4px solid #a60321;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: bold;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #121212;
+`;

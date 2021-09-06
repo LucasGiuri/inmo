@@ -8,10 +8,10 @@ import {
   StyledCardMedia,
   StyledCardActionArea,
   Price,
-  description,
   IconsContainer,
   LinkContainer,
   IconContainer,
+  PriceContainer
 } from './card.styles';
 
 function MediaCard({
@@ -24,12 +24,14 @@ function MediaCard({
         <StyledCardActionArea>
           <StyledCardMedia image={img} title={tittle} component='img' />
           <CardContent>
-            <Price gutterBottom variant='h6' component='p'>
+            <PriceContainer>
+            <Price gutterBottom variant='h5' >
               ${price}
             </Price>
-            <Price gutterBottom variant='h6' component='p'>
+            <Price gutterBottom variant='h5' >
               ${price}
             </Price>
+            </PriceContainer>
             <Typography variant='body2' color='textSecondary' component='p'>
               {description}
             </Typography>

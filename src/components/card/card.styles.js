@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
 
 export const LinkContainer = styled(Link)`
   text-decoration: none;
@@ -19,9 +19,12 @@ export const StyledCard = styled(Card)`
   cursor: pointer;
   padding-bottom: 10px;
   border-radius: 12px;
+
+  transition: 0.5s;
+
   &:hover {
-    transition: 0.8s;
-  background-color: #d8d4cf;
+    background-color: #d8d4cf;
+    transform: scale(1.025);
   }
   @media (max-width: 800px) {
     width: 300px;
@@ -41,7 +44,6 @@ export const StyledCardActionArea = styled(CardActionArea)`
 `;
 
 export const Price = styled(Typography)`
-  font-size: 1rem;
 `;
 
 export const Description = styled(Typography)`
@@ -66,4 +68,11 @@ export const PriceCardContent = styled(CardContent)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `
