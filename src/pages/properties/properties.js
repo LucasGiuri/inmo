@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import queryString from "query-string";
-import { fetchData } from "../property/property.helpers";
-import { useLocation } from "react-router";
-import { useStateContext } from "../../state";
-import Layout from "../../components/layout/layout";
-import Grid from "../../components/grid/grid";
-import Space from "../../components/space/space";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import React, { useState, useEffect } from 'react';
+import queryString from 'query-string';
+import { fetchData } from '../property/property.helpers';
+import { useLocation } from 'react-router';
+import { useStateContext } from '../../state';
+import Layout from '../../components/layout/layout';
+import Grid from '../../components/grid/grid';
+import Space from '../../components/space/space';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import {
   PropertiesSection,
@@ -17,25 +17,40 @@ import {
   FilterTypography,
   StyledRadio,
   PriceInput,
-} from "./properties.styles";
-import DropdownSelector from "../../components/dropDownSelector/dropDownSelector";
+} from './properties.styles';
+import DropdownSelector from '../../components/dropDownSelector/dropDownSelector';
 
 const Properties = ({ id }) => {
   const location = useLocation();
-  const [{ properties }, dispatch] = useStateContext();
+  const [{ properties, filters }, dispatch] = useStateContext();
   const [data, setData] = useState([]);
   const [queryParams, setQueryParams] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [selected, setSelected] = useState({ id: "TODOS", value: "TODOS" });
+
+  const setTypeSelected = (opt) => {
+    dispatch({ type: 'SET_TYPE', payload: opt.id });
+  };
+
+  const onChangePrice = (e, type) => {
+    const payload = e.target.value;
+    if (type === 'max') dispatch({ type: 'SET_MAX_PRICE', payload });
+    if (type === 'min') dispatch({ type: 'SET_MIN_PRICE', payload });
+  };
+
+  const onChangeM2 = (e, type) => {
+    const payload = e.target.value;
+    if (type === 'max') dispatch({ type: 'SET_MAX_M2', payload });
+    if (type === 'min') dispatch({ type: 'SET_MIN_M2', payload });
+  };
 
   useEffect(async () => {
     const qp = queryString.parse(location.search);
-    const hasGarage = qp.garaje === "true";
+    const hasGarage = qp.garage === 'true';
     setQueryParams(qp);
     setIsLoading(true);
     if (!properties.length) {
-      const response = await fetchData("property");
-      if (response) dispatch({ type: "ADD", payload: response.results });
+      const response = await fetchData('property');
+      if (response) dispatch({ type: 'ADD', payload: response.results });
     }
     setIsLoading(false);
     if (properties && properties.length > 0) {
@@ -52,18 +67,24 @@ const Properties = ({ id }) => {
             price,
           } = p.data;
 
-          if (
-            !qp.barrio ||
-            (Object.keys(qp).length === 0 && qp.constructor === Object)
-          ) {
-            return id === "rentals" ? alquiler : venta;
+          dispatch({ type: 'SET_AMBIENTS', payload: null });
+          dispatch({ type: 'SET_NEIGHBORHOOD', payload: qp.neighborhood });
+          dispatch({ type: 'SET_TYPE', payload: qp.type });
+          dispatch({ type: 'SET_IS_PROFESSIONAL', payload: qp.professional });
+          dispatch({ type: 'SET_HAS_GARAGE', payload: hasGarage });
+          dispatch({ type: 'SET_AMBIENTS', payload: qp.ambients });
+          dispatch({ type: 'SET_MAX_M2', payload: qp.maxM2 });
+          dispatch({ type: 'SET_MIN_M2', payload: qp.minM2 });
+          dispatch({ type: 'SET_MAX_PRICE', payload: qp.maxPrice });
+          dispatch({ type: 'SET_MIN_PRICE', payload: qp.minPrice });
+
+          if (!qp.neighborhood || (Object.keys(qp).length === 0 && qp.constructor === Object)) {
+            return id === 'rentals' ? alquiler : venta;
           }
           return (
-            (id === "rentals" ? alquiler : venta) &&
-            cochera === hasGarage &&
-            (qp.barrio !== "TODOS"
-              ? qp.barrio.toLowerCase().includes(neighborhoods.toLowerCase())
-              : neighborhood)
+            (id === 'rentals' ? alquiler : venta)
+            && (cochera === hasGarage)
+            && (qp.neighborhood !== 'TODOS' ? qp.neighborhood.toLowerCase().includes(neighborhoods.toLowerCase()) : neighborhood)
           );
         });
       const filteredData =
@@ -75,7 +96,7 @@ const Properties = ({ id }) => {
             id: d.id,
             img: hero_image.url,
             title: title[0].text,
-            garage: cochera ? "Si" : "No",
+            garage: cochera ? 'Si' : 'No',
           };
         });
       setData(filteredData);
@@ -83,75 +104,96 @@ const Properties = ({ id }) => {
   }, [properties, id]);
 
   return (
-    <Layout marginTop="100px">
+    <Layout marginTop='100px'>
       <PropertiesSection>
         <IndexContainer>
-          <FilterTypography varian="h4">Filtrar</FilterTypography>
+          <FilterTypography varian='h4'>Filtrar</FilterTypography>
           <FilterSection>
-            <FilterTypography varian="h4">Tipo de propiedad</FilterTypography>
+            <FilterTypography varian='h4'>Tipo de propiedad</FilterTypography>
             <DropdownSelector
-              selected={selected.value}
-              setSelected={setSelected}
+              selected={filters.type}
+              setTypeSelected={setTypeSelected}
             />
             <Space vertical double />
-            <FilterTypography varian="h4">
+            <FilterTypography varian='h4'>
               Precio de la propiedad
             </FilterTypography>
             <PriceInput
-              type="number"
-              label="Precio Mínimo"
-              placeholder="Precio Mínimo"
+              type='number'
+              label='Precio Mínimo'
+              value={filters.minPrice || 0}
+              onChange={(e) => onChangePrice(e, 'min')}
+              placeholder='Precio Mínimo'
             />
             <PriceInput
-              type="number"
-              label="Precio Máximo"
-              placeholder="Precio Máximo"
+              type='number'
+              label='Precio Máximo'
+              value={filters.maxPrice || filters.minPrice || 0}
+              onChange={(e) => onChangePrice(e, 'max')}
+              placeholder='Precio Máximo'
+            />
+            <FilterTypography varian='h4'>
+              M2 de la propiedad
+            </FilterTypography>
+            <PriceInput
+              type='number'
+              label='M2 Mínimo'
+              value={filters.minM2 || 0}
+              onChange={(e) => onChangeM2(e, 'min')}
+              placeholder='M2 Mínimo'
+            />
+            <PriceInput
+              type='number'
+              label='M2 Máximo'
+              value={filters.maxM2 || filters.minM2 || 0}
+              onChange={(e) => onChangeM2(e, 'max')}
+              placeholder='M2 Máximo'
             />
             <Space vertical double />
-            <FilterTypography varian="h4">
+            <FilterTypography varian='h4'>
               Cantidad de Ambientes
             </FilterTypography>
             <FormControlLabel
-              value="two-ambients"
-              checked="two-ambients"
-              control={<StyledRadio color="default" />}
-              label="1 Ambiente"
+              value='two-ambients'
+              checked='two-ambients'
+              control={<StyledRadio color='default' />}
+              label='1 Ambiente'
             />
             <FormControlLabel
-              value="one-ambient"
-              checked="two-ambient"
-              control={<StyledRadio color="default" />}
-              label="2 Ambientes"
+              value='one-ambient'
+              checked='two-ambient'
+              control={<StyledRadio color='default' />}
+              label='2 Ambientes'
             />
             <FormControlLabel
-              value="three-ambients"
-              checked="three-ambients"
-              control={<StyledRadio color="default" />}
-              label="3 Ambientes"
+              value='three-ambients'
+              checked='three-ambients'
+              control={<StyledRadio color='default' />}
+              label='3 Ambientes'
             />
             <FormControlLabel
-              value="four-ambients"
-              checked="four-ambients"
-              control={<StyledRadio color="default" />}
-              label="4 Ambientes"
+              value='four-ambients'
+              checked='four-ambients'
+              control={<StyledRadio color='default' />}
+              label='4 Ambientes'
             />
             <FormControlLabel
-              value="five-ambients"
-              checked="five-ambients"
-              control={<StyledRadio color="default" />}
-              label="5 Ambientes"
+              value='five-ambients'
+              checked='five-ambients'
+              control={<StyledRadio color='default' />}
+              label='5 Ambientes'
             />
             <FormControlLabel
-              value="six-ambients"
-              checked="six-ambients"
-              control={<StyledRadio color="default" />}
-              label="6 Ambientes"
+              value='six-ambients'
+              checked='six-ambients'
+              control={<StyledRadio color='default' />}
+              label='6 Ambientes'
             />
             <Space vertical double />
-            <FormControlLabel control={<Switchers />} label="Cochera" />
+            <FormControlLabel control={<Switchers />} label='Cochera' />
             <FormControlLabel
               control={<Switchers />}
-              label="Apto Profesional"
+              label='Apto Profesional'
             />
           </FilterSection>
         </IndexContainer>

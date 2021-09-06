@@ -2,6 +2,7 @@ import { React, useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import DropdownSelector from "../../components/dropDownSelector/dropDownSelector";
+import { buildUrl } from '../../constants';
 import {
   HomeSearchWrapper,
   HomeSearchContainer,
@@ -23,8 +24,8 @@ import {
 const HomeSearch = () => {
   const history = useHistory();
   const targetRef = useRef(null);
+  const [searchValue, setSearchValue] = useState('TODOS');
   const [typeOfContract, setTypeOfContract] = useState("rentals");
-  const [type, setType] = useState('');
   const [hasGarage, setHasGarage] = useState(false);
   const [selected, setSelected] = useState({ id: 'TODOS', value: 'TODOS' });
   const [isHovered, setIsHovered] = useState(false);
@@ -35,10 +36,14 @@ const HomeSearch = () => {
     setTypeOfContract(event.target.value);
   };
 
+  const onChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
   const onSearch = () => {
     return history.push({
       pathname: `/${typeOfContract}`,
-      search: `?barrio=${selected.id}&tipo=${type}&garaje=${hasGarage}`
+      search: buildUrl({ neighborhood: searchValue, type: selected.id, garage: hasGarage})
     });
   };
 
@@ -81,7 +86,7 @@ const HomeSearch = () => {
             />
           </HomeSearchSelector>
           <HomeSearchInputs>
-            <DropdownSelector selected={selected.value} setSelected={setSelected} />
+            <DropdownSelector selected={selected.id} setSelected={setSelected} />
             <SearchSection>
               <Container
                 onMouseEnter={() => setIsHovered(true)}
@@ -90,7 +95,7 @@ const HomeSearch = () => {
                 onBlur={() => setIsFocused(false)}
                 hover={showSearchInput}
               >
-                <SearchInput ref={targetRef} showSearchInput={showSearchInput} />
+                <SearchInput ref={targetRef} showSearchInput={showSearchInput} value={searchValue} onChange={onChange} />
                 {showSearchInput ? <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton> : <IconMagnifyingGlass />}
               </Container>
             </SearchSection>

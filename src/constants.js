@@ -1,3 +1,20 @@
+export const buildUrl = (props) => {
+  const {
+    neighborhood, type, minPrice, maxPrice, ambients, minM2, maxM2, garage, isProfessional
+  } = props;
+
+  const neighborhoodSelected = `neighborhood=${neighborhood  || 'TODOS'}`;
+  const typeSelected = `type=${type || 'TODOS'}`;
+  const minPriceSelected = `minPrice=${minPrice || 0}`;
+  const maxPriceSelected = `maxPrice=${maxPrice || minPrice || 0}`;
+  const ambientsSelected = `ambients=${ambients || 'TODOS'}`;
+  const minM2Selected = `m2-minM2=${minM2 || 0}`;
+  const maxM2Selected = `maxM2=${maxM2 || minM2 || 0}`;
+  const garageSelected = `garage=${garage || 'false'}`;
+  const isProfessionalSelected = `isProfessional=${isProfessional}`
+  return `?${neighborhoodSelected}&${typeSelected}&${minPriceSelected}&${maxPriceSelected}&${ambientsSelected}&${minM2Selected}&${maxM2Selected}&${garageSelected}`;
+};
+
 export const typeOfProperty = [
   { id: 'DEPARTAMENTO', value: 'DEPARTAMENTO' },
   { id: 'PH', value: 'TIPO CASA PH' },

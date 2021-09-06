@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import { typeOfProperty, neighborhoods } from "../../constants";
 
 import {
@@ -12,10 +11,17 @@ import {
 
 const DropdownSelector = ({ selected, setSelected }) => {
   const [isActive, setIsActive] = useState(false);
+  const [text, setText] = useState('TODOS');
+
+  useEffect(() => {
+  const filtered = typeOfProperty.find((obj) => obj.id === selected);
+    setText(filtered ? filtered.value : 'TODOS');
+  }, [selected]);
+
   return (
     <Dropdown>
       <DropdownBtn onClick={(e) => setIsActive(!isActive)}>
-        {selected}
+        {text}
         <CaretDown />
       </DropdownBtn>
       {isActive && (
