@@ -59,38 +59,15 @@ const Properties = ({ id }) => {
         search: url
       });
       const qp = queryString.parse(url);
-      setQueryParams(qp);
-      // history.go(0);
-    }, [filters])
-
-  useEffect(async () => {
-    setIsLoading(true);
-    if (!properties.length) {
-      const response = await fetchData('property');
-      if (response) dispatch({ type: 'ADD', payload: response.results });
-    }
-    setIsLoading(false);
-    const qp = queryString.parse(location.search);
-    const qpAmbients = qp.ambients === 'TODOS' ? 0 : parseInt(qp.ambients);
-    const hasGarage = qp.garage === 'true';
-    const qpIsProfessional = qp.professional === 'true';
-    const qpMaxPrice = parseInt(qp.maxPrice);
-    const qpMinPrice = parseInt(qp.minPrice);
-    const qpMaxM2 = parseInt(qp.maxM2);
-    const qpMinM2 = parseInt(qp.minM2);
+      const qpAmbients = qp.ambients === 'TODOS' ? 0 : parseInt(qp.ambients);
+      const hasGarage = qp.garage === 'true';
+      const qpIsProfessional = qp.professional === 'true';
+      const qpMaxPrice = parseInt(qp.maxPrice);
+      const qpMinPrice = parseInt(qp.minPrice);
+      const qpMaxM2 = parseInt(qp.maxM2);
+      const qpMinM2 = parseInt(qp.minM2);
     if (properties && properties.length > 0) {
       const filtered = properties[0] && properties[0].filter((p) => {
-        dispatch({ type: 'SET_AMBIENTS', payload: null });
-        dispatch({ type: 'SET_NEIGHBORHOOD', payload: qp.neighborhood });
-        dispatch({ type: 'SET_TYPE', payload: qp.type });
-        dispatch({ type: 'SET_IS_PROFESSIONAL', payload: qpIsProfessional });
-        dispatch({ type: 'SET_HAS_GARAGE', payload: hasGarage });
-        dispatch({ type: 'SET_AMBIENTS', payload: qpAmbients });
-        dispatch({ type: 'SET_MAX_M2', payload: qpMaxM2 });
-        dispatch({ type: 'SET_MIN_M2', payload: qpMinM2 });
-        dispatch({ type: 'SET_MAX_PRICE', payload: qpMaxPrice });
-        dispatch({ type: 'SET_MIN_PRICE', payload: qpMinPrice });
-
         const {
           alquiler,
           venta,
@@ -132,7 +109,77 @@ const Properties = ({ id }) => {
       });
       setData(filteredData);
     }
-  }, [properties, id]);
+    }, [filters])
+
+  useEffect(async () => {
+    setIsLoading(true);
+    if (!properties.length) {
+      const response = await fetchData('property');
+      if (response) dispatch({ type: 'ADD', payload: response.results });
+    }
+    setIsLoading(false);
+    const qp = queryString.parse(location.search);
+    const qpAmbients = qp.ambients === 'TODOS' ? 0 : parseInt(qp.ambients);
+    const hasGarage = qp.garage === 'true';
+    const qpIsProfessional = qp.professional === 'true';
+    const qpMaxPrice = parseInt(qp.maxPrice);
+    const qpMinPrice = parseInt(qp.minPrice);
+    const qpMaxM2 = parseInt(qp.maxM2);
+    const qpMinM2 = parseInt(qp.minM2);
+    dispatch({ type: 'SET_AMBIENTS', payload: null });
+    dispatch({ type: 'SET_NEIGHBORHOOD', payload: qp.neighborhood });
+    dispatch({ type: 'SET_TYPE', payload: qp.type });
+    dispatch({ type: 'SET_IS_PROFESSIONAL', payload: qpIsProfessional });
+    dispatch({ type: 'SET_HAS_GARAGE', payload: hasGarage });
+    dispatch({ type: 'SET_AMBIENTS', payload: qpAmbients });
+    dispatch({ type: 'SET_MAX_M2', payload: qpMaxM2 });
+    dispatch({ type: 'SET_MIN_M2', payload: qpMinM2 });
+    dispatch({ type: 'SET_MAX_PRICE', payload: qpMaxPrice });
+    dispatch({ type: 'SET_MIN_PRICE', payload: qpMinPrice });
+    if (properties && properties.length > 0) {
+      const filtered = properties[0] && properties[0].filter((p) => {
+        const {
+          alquiler,
+          venta,
+          m2,
+          cochera,
+          neighborhood,
+          professional,
+          type_of_property,
+          ambients,
+          price,
+        } = p.data;
+
+        if (!qp.neighborhood || (Object.keys(qp).length === 0 && qp.constructor === Object)) {
+          return id === 'rentals' ? alquiler : venta;
+        }
+
+        const propertyType = typeOfProperty.find((obj) => obj.value === type_of_property);
+
+        return (
+          (id === 'rentals' ? alquiler : venta)
+          && (cochera === hasGarage)
+          // && (professional === qpIsProfessional)
+          && (qp.neighborhood !== 'TODOS' ? qp.neighborhood.toLowerCase().includes(neighborhoods.toLowerCase()) : neighborhood)
+          && (qp.type !== 'TODOS' ? qp.type === propertyType.id : propertyType.id)
+          && (qpMinPrice === 0 || qpMinPrice === qpMaxPrice ? price : price < qpMaxPrice && price > qpMinPrice)
+          && (qpMinM2 === 0 || qpMinM2 === qpMaxM2 ? m2 : m2 < qpMaxM2 && m2 > qpMinM2)
+          && (qpAmbients !== 0 ? qpAmbients === ambients : ambients)
+        );
+      });
+      const filteredData = filtered && filtered.map((d) => {
+        const { title, hero_image, cochera } = d.data;
+        return {
+          ...d.data,
+          id: d.id,
+          img: hero_image.url,
+          title: title[0].text,
+          garage: cochera ? 'Si' : 'No',
+        };
+      });
+      setData(filteredData);
+    }
+  }, [properties, id, queryParams]);
 
   return (
     <Router>
