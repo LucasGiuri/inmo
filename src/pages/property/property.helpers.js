@@ -46,6 +46,7 @@ export const convertData = (obj) => {
     m2,
     orientation,
     price,
+    rent,
     professional,
     title,
     tipo_de_cochera,
@@ -68,9 +69,11 @@ export const convertData = (obj) => {
     building_side,
     cochera,
     price: is_in_usd ? `U$S ${price.toLocaleString()}` : `$${price.toLocaleString()}`,
+    rent: `$${rent.toLocaleString()}`,
     professional,
     details: [
       [
+        { key: 'Alquiler mensual', value: `$${rent.toLocaleString()}` },
         { key: 'Ambientes', value: ambients },
         { key: 'Antiguedad', value: `${antiquity} años` },
         { key: 'Departamentos por piso', value: apartments_per_floor },
@@ -82,7 +85,8 @@ export const convertData = (obj) => {
         { key: 'Pisos', value: floors },
         { key: 'Superficie descubierta', value: `${free_backyard}m2` },
         { key: 'Tipo de calefacción', value: heating },
-        { key: 'Tipo de garaje', value: tipo_de_cochera }
+        { key: 'Tipo de garaje', value: tipo_de_cochera },
+        { key: 'Apto profesional', value: professional }
       ]
     ],
     photos: allPhotos,

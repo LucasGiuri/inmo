@@ -120,7 +120,7 @@ export const Container = styled.div`
   border-radius: 50px;
   border: 4px solid #a60321;
   background: #121212;
-  transition: all 1.2s ease-out;
+  transition: all 0.8s ease-out;
 
   display: flex;
   justify-content: center;

@@ -29,6 +29,11 @@ const Properties = ({ id }) => {
   const [data, setData] = useState([]);
   const [queryParams, setQueryParams] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [amountOfAmbients, setAmountOfAmbientes] = useState("TODOS");
+
+  const handleChange = (event) => {
+    setAmountOfAmbientes(event.target.value);
+  };
 
   const setTypeSelected = (opt) => {
     dispatch({ type: 'SET_TYPE', payload: opt.id });
@@ -180,41 +185,47 @@ const Properties = ({ id }) => {
               <FilterTypography varian='h4'>
                 Cantidad de Ambientes
               </FilterTypography>
-              <FormControlLabel
-                value='two-ambients'
-                checked='two-ambients'
+              <FormControlLabel onChange={handleChange}
+                value='one-ambient'
+                checked={amountOfAmbients === "one-ambient"}
                 control={<StyledRadio color='default' />}
                 label='1 Ambiente'
               />
-              <FormControlLabel
-                value='one-ambient'
-                checked='two-ambient'
+              <FormControlLabel onChange={handleChange}
+                value='two-ambients'
+                checked={amountOfAmbients === "two-ambients"}
                 control={<StyledRadio color='default' />}
                 label='2 Ambientes'
               />
-              <FormControlLabel
+              <FormControlLabel onChange={handleChange}
                 value='three-ambients'
-                checked='three-ambients'
+                checked={amountOfAmbients === "three-ambients"}
                 control={<StyledRadio color='default' />}
                 label='3 Ambientes'
               />
-              <FormControlLabel
+              <FormControlLabel onChange={handleChange}
                 value='four-ambients'
-                checked='four-ambients'
+                checked={amountOfAmbients === "four-ambients"}
                 control={<StyledRadio color='default' />}
                 label='4 Ambientes'
               />
-              <FormControlLabel
+              <FormControlLabel onChange={handleChange}
                 value='five-ambients'
-                checked='five-ambients'
+                checked={amountOfAmbients === "five-ambients"}
                 control={<StyledRadio color='default' />}
                 label='5 Ambientes'
               />
-              <FormControlLabel
+              <FormControlLabel onChange={handleChange}
                 value='six-ambients'
-                checked='six-ambients'
+                checked={amountOfAmbients === "six-ambients"}
                 control={<StyledRadio color='default' />}
                 label='6 Ambientes'
+              />
+              <FormControlLabel onChange={handleChange}
+                value='TODOS'
+                checked={amountOfAmbients === "TODOS"}
+                control={<StyledRadio color='default' />}
+                label='Todos'
               />
               <Space vertical double />
               <FormControlLabel control={<Switchers />} label='Cochera' />
