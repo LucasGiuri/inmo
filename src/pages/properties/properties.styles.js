@@ -59,6 +59,7 @@ export const Container = styled.div`
 `;
 
 export const FilterSection = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -82,10 +83,9 @@ export const FilterTypography = styled(Typography)`
 export const StyledRadio = styled(Radio)``;
 
 export const PriceInput = styled.input`
-  width: 400px;
+  width: 100%;
   margin-bottom: 5px;
   border: 4px solid #a60321;
-  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
   font-weight: bold;
   color: #fff;
   border-radius: 4px;

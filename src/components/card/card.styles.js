@@ -11,14 +11,15 @@ export const LinkContainer = styled(Link)`
 `;
 
 export const StyledCard = styled(Card)`
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  width: 420px;
+  width: auto;
   cursor: pointer;
   padding-bottom: 10px;
   border-radius: 12px;
+  overflow: hidden;
+
 
   transition: 0.5s;
 
@@ -27,27 +28,29 @@ export const StyledCard = styled(Card)`
     transform: scale(1.025);
   }
   @media (max-width: 800px) {
-    width: 300px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
 export const StyledCardMedia = styled(CardMedia)`
   height: 300px;
-  @media (max-width: 600px) {
-    height: 140px;
+
+  @media (max-width: 450px) {
+    height: auto;
   }
 `;
 
 export const StyledCardActionArea = styled(CardActionArea)`
-  max-width: 345;
   margin: 0 auto;
+  
 `;
 
-export const Price = styled(Typography)`
+export const CardTitle = styled(Typography)`
+  font-size: 1.1rem;
 `;
 
 export const Description = styled(Typography)`
-  font-size: 1rem;
 `;
 
 export const IconsContainer = styled.div`
@@ -75,4 +78,5 @@ export const PriceContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  
 `

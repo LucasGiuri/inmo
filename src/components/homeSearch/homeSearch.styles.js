@@ -24,6 +24,7 @@ export const HomeSearchWrapper = styled.div`
   justify-content: flex-end;
   background-image: url(https://frtassets.fotocasa.es/statics/img/home_search_bg_v2_full.webp);
   height: 45vh;
+  width: 100%;
 `;
 
 export const HomeSearchContainer = styled.div`
@@ -37,12 +38,23 @@ export const HomeSearchContainer = styled.div`
   width: 1200px;
   border-radius: 12px;
 
-  @media (max-width) {
-    width: 600px;
+  @media (max-width: 1200px) {
+    overflow: hidden;
+    width: 75%;
+    padding: 0 100px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 850px) {
+    overflow: hidden;
+    width: 75%;
+    padding: 0 100px;
+    margin: 0 auto;
   }
 `;
 
 export const HomeSearchHeader = styled.div`
+
   padding: 15px;
   width: 100%;
   display: flex;
@@ -87,7 +99,6 @@ export const SearchBarButton = styled(Button)`
   transition: 1.2s;
   border-radius: 50px;
 
-
   &:hover {
     background-color: red;
   }
@@ -95,6 +106,11 @@ export const SearchBarButton = styled(Button)`
 
 export const SearchBarTypography = styled(Typography)`
   color: #fff;
+
+  @media (max-width: 850px) {
+    display: flex;
+    font-size: 0.9rem;
+  }
 `;
 
 export const SearchBarRadioBtnGrp = styled(RadioGroup)`
@@ -156,6 +172,10 @@ export const SearchInput = styled.input`
   background: #121212;
 
   display: ${(props) => (props.showSearchInput ? "block" : "none")};
+
+  @media (max-width: 850px) {
+    display: flex;
+  }
 `;
 
 export const IconMagnifyingGlass = styled(FaSearchLocation)`
@@ -164,4 +184,6 @@ export const IconMagnifyingGlass = styled(FaSearchLocation)`
   fill: #a60321;
   z-index: 10;
   animation: ${fadeIn} 1s linear;
+
+
 `;

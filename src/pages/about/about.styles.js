@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  height: 70vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   text-align: center;
   background-color: darkgray;
+
+  @media (max-width: 850px) {
+    height: 100%;
+  }
 `;
 
 export const StatsContainer = styled.div`

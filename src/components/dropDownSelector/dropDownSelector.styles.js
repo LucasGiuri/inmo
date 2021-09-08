@@ -2,12 +2,14 @@ import styled from "styled-components";
 import { FaCaretDown } from "react-icons/fa";
 
 export const Dropdown = styled.div`
-  width: 400px;
+  width: 100%;
   margin-left: 0;
   margin-right: 10px;
   position: relative;
+
 `;
 export const DropdownBtn = styled.div`
+  width: 100%;
   cursor: pointer;
   padding: 10px 20px;
   background: #121212;

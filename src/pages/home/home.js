@@ -5,8 +5,8 @@ import About from "../about/about";
 import Section from "../../components/section/section";
 import { fetchData } from "../property/property.helpers";
 import HomeSearch from "../../components/homeSearch/homeSearch";
-import { Typography } from "@material-ui/core";
-import { Container, UiButton, BtnLink } from "./home.styles";
+import { Container, UiButton, BtnLink, HomeTypography } from "./home.styles";
+// import Layout from "../../components/layout/layout";
 
 function Home() {
   const [{ properties }, dispatch] = useStateContext();
@@ -44,15 +44,14 @@ function Home() {
       <HomeSearch />
       {data && (
         <Section
-          height="60vh"
           title="Propiedades Destacadas"
           background="darkgrey"
         >
-          <Grid numRowsLg={3} data={data} />
+          <Grid numRowsXs={12} numRowsLg={3} data={data} />
         </Section>
       )}
       <Container>
-        <Typography variant="h3">¿Querés vender tu propiedad?</Typography>
+        <HomeTypography variant="h3">¿Querés vender tu propiedad?</HomeTypography>
         <BtnLink href='/contact'>
           <UiButton variant="contained">TASA CON NOSOTROS</UiButton>
         </BtnLink>

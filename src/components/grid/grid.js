@@ -1,29 +1,21 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
-import Card from '../card/card';
-import Grid from '@material-ui/core/Grid';
+import Card from "../card/card";
+import Grid from "@material-ui/core/Grid";
 
 export default function GridComponent({
   data,
   numRowsLg,
   numRowsMd,
-  numRowsXs
+  numRowsXs,
 }) {
-
   return (
     <Grid container spacing={3}>
       {data.map((d) => {
-        const {
-          id, title, img, bath, price, m2, rooms, garage, rent
-        } = d;
+        const { id, title, img, bath, price, m2, rooms, garage, rent } = d;
 
         return (
-          <Grid item
-            xs={numRowsXs}
-            md={numRowsMd}
-            lg={numRowsLg}
-            key={id}
-          >
+          <Grid item xs={numRowsXs} md={numRowsMd} lg={numRowsLg} key={id}>
             <Card
               id={id}
               img={img}
@@ -33,7 +25,7 @@ export default function GridComponent({
               baths={bath}
               garage={garage}
               description={title}
-              price={price}
+              price={`${price.toLocaleString()}`}
               rent={rent}
             />
           </Grid>
@@ -52,5 +44,5 @@ GridComponent.propTypes = {
 GridComponent.defaultProps = {
   property: 3,
   numRowsMd: 6,
-  numRowsXs: 6
+  numRowsXs: 6,
 };

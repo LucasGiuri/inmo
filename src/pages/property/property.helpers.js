@@ -69,11 +69,11 @@ export const convertData = (obj) => {
     building_side,
     cochera,
     price: is_in_usd ? `U$S ${price.toLocaleString()}` : `$${price.toLocaleString()}`,
-    rent: `$${rent.toLocaleString()}`,
+    rent,
     professional,
     details: [
       [
-        { key: 'Alquiler mensual', value: `$${rent.toLocaleString()}` },
+        { key: 'Alquiler mensual', value: rent },
         { key: 'Ambientes', value: ambients },
         { key: 'Antiguedad', value: `${antiquity} años` },
         { key: 'Departamentos por piso', value: apartments_per_floor },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { typeOfProperty, neighborhoods } from "../../constants";
+import { typeOfProperty } from "../../constants";
 
 import {
   Dropdown,

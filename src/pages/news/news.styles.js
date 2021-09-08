@@ -135,8 +135,8 @@ export const Dropdown = styled.div`
   visibility: hidden;
 }
 
-  }
-  @media screen and (max-width: 768px) {
+  
+  @media  (max-width: 768px) {
     margin-top: 5px;
     margin-left: 0px;
   }

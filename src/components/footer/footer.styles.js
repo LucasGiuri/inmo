@@ -79,7 +79,7 @@ export const MapContainer = styled.iframe`
   margin: 0 15px;
 
   @media (max-width: 600px) {
-    width: 10=%;
+    width: 100%;
     height: 144px;
     margin-bottom: 15px;
   }

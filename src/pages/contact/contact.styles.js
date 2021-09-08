@@ -35,7 +35,7 @@ export const ContactBox = styled.div`
   margin-bottom: 45px;
   border-radius: 4px;
 
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 850px) {
     grid-template-columns: 1fr;
     width: 90%;
   }
@@ -52,7 +52,7 @@ export const LeftArea = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 850px) {
     display: none;
   }
 `;
