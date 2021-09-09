@@ -9,7 +9,7 @@ import {
   DropdownItem,
 } from "./dropDownSelector.styles";
 
-const DropdownSelector = ({ selected, setSelected }) => {
+const DropdownSelector = ({ selected, setSelected, width }) => {
   const [isActive, setIsActive] = useState(false);
   const [text, setText] = useState('TODOS');
 
@@ -19,7 +19,7 @@ const DropdownSelector = ({ selected, setSelected }) => {
   }, [selected]);
 
   return (
-    <Dropdown>
+    <Dropdown width={width}>
       <DropdownBtn onClick={(e) => setIsActive(!isActive)}>
         {text}
         <CaretDown />

@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { FaCaretDown } from "react-icons/fa";
 
-export const Dropdown = styled.div`
-  width: 100%;
+export const Dropdown = styled.div.attrs(() => ({}))`
+  width: ${(props) => props.width || "100%"};
   margin-left: 0;
-  margin-right: 10px;
   position: relative;
 
 `;
@@ -44,6 +43,7 @@ export const DropdownContent = styled.div`
 
 `;
 export const DropdownItem = styled.div`
+  z-index: 9;
   padding: 10px;
   &:hover {
       background: #222831;

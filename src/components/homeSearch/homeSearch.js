@@ -11,6 +11,7 @@ import {
   HomeSearchInputs,
   SearchBarButton,
   SearchBarTypography,
+  SearchBarSubtitleTypography,
   SearchBarRadioBtnGrp,
   StyledRadio,
   HomeSwitcher,
@@ -18,6 +19,7 @@ import {
   Container,
   IconMagnifyingGlass,
   SearchInput,
+  MobileSearchInput
 } from "./homeSearch.styles";
 
 
@@ -59,9 +61,9 @@ const HomeSearch = () => {
             <SearchBarTypography variant="h3">
               Queremos ayudarte a encontrar tu lugar
             </SearchBarTypography>
-            <SearchBarTypography variant="h5">
+            <SearchBarSubtitleTypography variant="h5">
               Desde 1938 brindamos seguridad en sus operaciones inmobiliarias{" "}
-            </SearchBarTypography>
+            </SearchBarSubtitleTypography>
           </HomeSearchHeader>
           <HomeSearchSelector>
             <SearchBarRadioBtnGrp onChange={handleChange}>
@@ -85,8 +87,8 @@ const HomeSearch = () => {
             />
           </HomeSearchSelector>
           <HomeSearchInputs>
-            <DropdownSelector selected={selected.id} setSelected={setSelected} />
             <SearchSection>
+            <DropdownSelector width="75%" selected={selected.id} setSelected={setSelected} />
               <Container
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -97,6 +99,7 @@ const HomeSearch = () => {
                 <SearchInput ref={targetRef} showSearchInput={showSearchInput} value={searchValue} onChange={onChange} />
                 {showSearchInput ? <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton> : <IconMagnifyingGlass />}
               </Container>
+                <MobileSearchInput ref={targetRef} value={searchValue} onChange={onChange}></MobileSearchInput>
             </SearchSection>
           </HomeSearchInputs>
         </HomeSearchContainer>

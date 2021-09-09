@@ -23,8 +23,8 @@ export const HomeSearchWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   background-image: url(https://frtassets.fotocasa.es/statics/img/home_search_bg_v2_full.webp);
-  height: 45vh;
   width: 100%;
+  height: 400px;
 `;
 
 export const HomeSearchContainer = styled.div`
@@ -40,21 +40,17 @@ export const HomeSearchContainer = styled.div`
 
   @media (max-width: 1200px) {
     overflow: hidden;
-    width: 75%;
-    padding: 0 100px;
+    width: 80%;
     margin: 0 auto;
   }
 
   @media (max-width: 850px) {
-    overflow: hidden;
-    width: 75%;
-    padding: 0 100px;
-    margin: 0 auto;
+    width: 80%;
+    height: auto;
   }
 `;
 
 export const HomeSearchHeader = styled.div`
-
   padding: 15px;
   width: 100%;
   display: flex;
@@ -71,21 +67,34 @@ export const HomeSearchSelector = styled.div`
   padding: 10px;
   border-bottom: 1px solid;
   justify-content: space-between;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
 `;
 
 export const HomeSearchInputs = styled.div`
   padding: 10px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  margin: 5px;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
 `;
 
 export const SearchSection = styled.div`
   position: relative;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  width: 100%;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const SearchBarButton = styled(Button)`
@@ -109,7 +118,15 @@ export const SearchBarTypography = styled(Typography)`
 
   @media (max-width: 850px) {
     display: flex;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
+  }
+`;
+
+export const SearchBarSubtitleTypography = styled(Typography)`
+  color: #fff;
+
+  @media (max-width: 850px) {
+    display: none;
   }
 `;
 
@@ -132,6 +149,7 @@ export const Container = styled.div`
   position: relative;
   width: 50px;
   height: 50px;
+  margin-left: 5px;
   box-sizing: border-box;
   border-radius: 50px;
   border: 4px solid #a60321;
@@ -150,6 +168,10 @@ export const Container = styled.div`
       border: 4px solid #a60321;
       background: #121212;
     `}
+    @media (max-width: 1100px) {
+    display: none;
+  }
+
 `;
 
 export const SearchInput = styled.input`
@@ -172,9 +194,17 @@ export const SearchInput = styled.input`
   background: #121212;
 
   display: ${(props) => (props.showSearchInput ? "block" : "none")};
+`;
 
-  @media (max-width: 850px) {
-    display: flex;
+export const MobileSearchInput = styled.input`
+  display: none;
+  width: 75%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  @media (max-width: 1100px) {
+    display: block;
   }
 `;
 
@@ -184,6 +214,4 @@ export const IconMagnifyingGlass = styled(FaSearchLocation)`
   fill: #a60321;
   z-index: 10;
   animation: ${fadeIn} 1s linear;
-
-
 `;
