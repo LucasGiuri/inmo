@@ -12,12 +12,6 @@ import WhatsappLink from './components/whatsappLink/whatsappLink';
 import Footer from './components/footer/footer';
 
 export default function App() {
-  const rentalsRoutes = [
-    '/rentals',
-    '/rentals/:barrio/:cochera',
-    '/rentals/:barrio/:cochera/:min/:max/:tipo/:ambientes/:apto-profesional',
-  ];
-
   const onSaleRoutes = [
     '/on-sale',
     '/on-sale/:barrio/:cochera',

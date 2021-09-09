@@ -22,6 +22,7 @@ export const typeOfProperty = [
   { id: 'OFICINA', value: 'OFICINA' },
   { id: 'TERRENO', value: 'TERRENO' },
   { id: 'COCHERA', value: 'COCHERA' },
+  { id: 'TODOS', value: 'TODOS'}
 ];
 
 export const neighborhoods = [
@@ -72,4 +73,5 @@ export const neighborhoods = [
   { id: 'VILLA RIACHUELO', value: 'VILLA RIACHUELO' },
   { id: 'VILLA SANTA RITA', value: 'VILLA SANTA RITA' },
   { id: 'VILLA URQUIZA', value: 'VILLA URQUIZA' },
+  { id: 'TODOS', value: 'TODOS'}
 ];
