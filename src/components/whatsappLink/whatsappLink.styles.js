@@ -19,5 +19,6 @@ export const WhatsAppIcon = styled.div`
     bottom: 0;
     border-radius: 0;
     right: 0;
+    z-index: 9999;
   }
 `;

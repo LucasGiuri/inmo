@@ -9,9 +9,30 @@ export const Aside = styled.div`
 
 export const IconsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
+
+export const Icons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+`
 
 export const IconContainer = styled.div`
   display: flex;
@@ -23,7 +44,7 @@ export const IconContainer = styled.div`
 
 export const TitleContainer = styled.div`
   display: flex;
-align-items: center;
+  align-items: center;
   justify-content: space-between;
 `;
 
@@ -64,5 +85,5 @@ export const MapContainer = styled.iframe`
 `;
 
 export const Background = styled.div`
-  background-color: #E9F2F1;
-`
+  background-color: #e9f2f1;
+`;

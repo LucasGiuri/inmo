@@ -1,33 +1,34 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Map from '../../components/map/map';
-import { useStateContext } from '../../state';
-import Typography from '@material-ui/core/Typography';
-import Carousel, { Modal, ModalGateway } from 'react-images';
-import PropTypes from 'prop-types';
-import GalleryCmp from '../../components/gallery/gallery';
-import Layout from '../../components/layout/layout';
-
+import React, { useState, useEffect, useCallback } from "react";
+import Map from "../../components/map/map";
+import { useStateContext } from "../../state";
+import Typography from "@material-ui/core/Typography";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import PropTypes from "prop-types";
+import GalleryCmp from "../../components/gallery/gallery";
+import Layout from "../../components/layout/layout";
+import { ContactXs } from "../../components/contactXs/contactXs";
 import {
   Aside,
   Price,
   TitleContainer,
+  IconsAndFormContainer,
   IconsContainer,
+  Icons,
   IconContainer,
   DetailsWrapper,
   DetailsContainer,
   DetailItem,
   DetailKey,
-  DetailValue
-} from './property.styles';
-import Space from '../../components/space/space';
-import Icon from '../../components/icon/icon';
-import {
-  useParams,
-} from 'react-router-dom';
-import { convertData, photoConverter, fetchData } from './property.helpers';
+  DetailValue,
+} from "./property.styles";
+import Space from "../../components/space/space";
+import Icon from "../../components/icon/icon";
+import { useParams } from "react-router-dom";
+import { convertData, photoConverter, fetchData } from "./property.helpers";
 
-const subtitle = 'Descripcion';
-const description = 'Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have';
+const subtitle = "Descripcion";
+const description =
+  "Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have";
 
 function Property() {
   const { id } = useParams();
@@ -42,15 +43,16 @@ function Property() {
     if (properties.length) {
       const p = properties[0].find((p) => p.id === id);
       const newData = convertData(p.data);
-      const photos = newData.photos.map((ph) => photoConverter(ph)).filter((ph) => ph !== undefined);
+      const photos = newData.photos
+        .map((ph) => photoConverter(ph))
+        .filter((ph) => ph !== undefined);
       setProperty({ ...newData, photos });
-    }
-    else {
-      const response = await fetchData('property');
-      if (response) dispatch({ type: 'ADD', payload: response.results });
+    } else {
+      const response = await fetchData("property");
+      if (response) dispatch({ type: "ADD", payload: response.results });
     }
     setIsLoading(false);
-  }, [properties])
+  }, [properties]);
 
   const openLightbox = useCallback((index) => {
     setCurrentImage(index);
@@ -63,7 +65,7 @@ function Property() {
   };
   const position = [51.505, -0.09];
 
-  console.log('property', property && property['map']);
+  console.log("property", property && property["map"]);
 
   return (
     <>
@@ -82,8 +84,8 @@ function Property() {
                       return {
                         ...x,
                         srcset: x.srcSet,
-                        caption: x.title
-                      }
+                        caption: x.title,
+                      };
                     })}
                   />
                 </Modal>
@@ -92,14 +94,14 @@ function Property() {
             <Space vertical double />
             <Space vertical double />
             <TitleContainer>
-              <Typography variant='h3' color='textSecondary' component='p'>
+              <Typography variant="h3" color="textSecondary" component="p">
                 {property.title}
               </Typography>
-              <Price variant='h4' component='h4'>
+              <Price variant="h4" component="h4">
                 {property.price}
               </Price>
-              <Price variant='h4' component='h4'>
-                {property.rent} 
+              <Price variant="h4" component="h4">
+                {property.rent}
               </Price>
             </TitleContainer>
             <Space vertical double />
@@ -107,36 +109,39 @@ function Property() {
             <Space vertical double />
             <Space vertical double />
             <IconsContainer>
+              <Icons>
               <IconContainer>
-                <Icon name='bed' />
+                <Icon name="bed" />
                 <span>{property.rooms}</span>
               </IconContainer>
               <IconContainer>
-                <Icon name='bath' />
+                <Icon name="bath" />
                 <span>{property.baths}</span>
               </IconContainer>
               <IconContainer>
-                <Icon name='m2' />
+                <Icon name="m2" />
                 <span>{property.m2}</span>
               </IconContainer>
               <IconContainer>
-                <Icon name='car' />
+                <Icon name="car" />
                 <span>{property.garage}</span>
               </IconContainer>
+              </Icons>
+              <ContactXs />
             </IconsContainer>
             <Space vertical double />
             <Space vertical double />
-            <Typography variant='h4' color='textSecondary' component='p'>
+            <Typography variant="h4" color="textSecondary" component="p">
               {subtitle}
             </Typography>
             <Space vertical double />
             <Space vertical double />
-            <Typography variant='p' color='textSecondary' component='p'>
+            <Typography variant="p" color="textSecondary" component="p">
               {description}
             </Typography>
             <Space vertical double />
             <Space vertical double />
-            <Typography variant='h4' color='textSecondary' component='p'>
+            <Typography variant="h4" color="textSecondary" component="p">
               Detalles
             </Typography>
             <Space vertical double />
@@ -149,7 +154,7 @@ function Property() {
                       <DetailKey>{key}:</DetailKey>
                       <DetailValue>{value}</DetailValue>
                     </DetailItem>
-                  )
+                  );
                 })}
               </DetailsContainer>
               <DetailsContainer>
@@ -160,18 +165,23 @@ function Property() {
                       <DetailKey>{key}:</DetailKey>
                       <DetailValue>{value}</DetailValue>
                     </DetailItem>
-                  )
+                  );
                 })}
               </DetailsContainer>
             </DetailsWrapper>
             <Space vertical double />
             <Space vertical double />
-            <Typography variant='h4' color='textSecondary' component='p'>
+            <Typography variant="h4" color="textSecondary" component="p">
               Ubicación
             </Typography>
             <Space vertical double />
             <Space vertical double />
-            <Map mapPosition={[property['map'].latitude, property['map'].longitude]} />
+            <Map
+              mapPosition={[
+                property["map"].latitude,
+                property["map"].longitude,
+              ]}
+            />
             <Space vertical double />
             <Space vertical double />
             <Space vertical double />
@@ -180,7 +190,6 @@ function Property() {
         </Layout>
       )}
     </>
-
   );
 }
 
@@ -195,15 +204,15 @@ Property.propTypes = {
   bath: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   deteails: PropTypes.array,
-  photos: PropTypes.array
+  photos: PropTypes.array,
 };
 
 Property.defaultProps = {
   double: false,
   half: false,
-  height: '',
+  height: "",
   vertical: false,
-  width: '',
+  width: "",
 };
 
 export default Property;

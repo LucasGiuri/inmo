@@ -6,6 +6,7 @@ import Section from "../../components/section/section";
 import { fetchData } from "../property/property.helpers";
 import HomeSearch from "../../components/homeSearch/homeSearch";
 import { Container, UiButton, BtnLink, HomeTypography } from "./home.styles";
+
 // import Layout from "../../components/layout/layout";
 
 function Home() {
