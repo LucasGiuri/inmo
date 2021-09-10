@@ -1,6 +1,6 @@
 export const buildUrl = (props) => {
   const {
-    neighborhood, type, minPrice, maxPrice, ambients, minM2, maxM2, garage, isProfessional
+    neighborhood, type, minPrice, maxPrice, ambients, minM2, maxM2, hasGarage, isProfessional
   } = props;
 
   const neighborhoodSelected = `neighborhood=${neighborhood  || 'TODOS'}`;
@@ -10,7 +10,7 @@ export const buildUrl = (props) => {
   const ambientsSelected = `ambients=${ambients || 'TODOS'}`;
   const minM2Selected = `minM2=${minM2 || 0}`;
   const maxM2Selected = `maxM2=${maxM2 || minM2 || 0}`;
-  const garageSelected = `garage=${garage || 'false'}`;
+  const garageSelected = `hasGarage=${hasGarage || 'false'}`;
   const isProfessionalSelected = `isProfessional=${isProfessional || 'false'}`
   return `?${neighborhoodSelected}&${typeSelected}&${minPriceSelected}&${maxPriceSelected}&${ambientsSelected}&${minM2Selected}&${maxM2Selected}&${isProfessionalSelected}&${garageSelected}`;
 };

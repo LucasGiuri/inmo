@@ -21,7 +21,7 @@ const Filters = ({
   hasGarageProp,
   isProfessionalProp
 }) => {
-  const [{ properties, filters }, dispatch] = useStateContext();
+  const [{ }, dispatch] = useStateContext();
   const [neighborhoodField, setNeighborhoodField] = useState(neighborhoodProp)
   const [typeField, setTypeField] = useState(typeOfPropertyProp);
   const [maxPriceField, setMaxPriceField] = useState(maxPriceProp);
@@ -40,15 +40,36 @@ const Filters = ({
     dispatch({ type: 'SET_MIN_M2', payload: minM2Field });
     dispatch({ type: 'SET_MAX_M2', payload: maxM2Field });
     dispatch({ type: 'SET_HAS_GARAGE', payload: hasGarageField });
+    dispatch({ type: 'SET_AMBIENTS', payload: ambientsField });
     dispatch({ type: 'SET_IS_PROFESSIONAL', payload: isProfessionalField });
   };
 
   const setNeigborhoodSelected = (n) => {
-    setNeighborhoodField(n);
+    setNeighborhoodField(n.id);
   };
 
-  const setTypeSelected = (id) => {
-    setTypeField(id);
+  const onChangeAmbients = (num) => {
+    setAmbientsField(num);
+  };
+
+  const setTypeSelected = (item) => {
+    setTypeField(item.id);
+  };
+
+  const onChangeIsProfessional = () => {
+    setIsProfessional(!isProfessionalField);
+  };
+
+  const onChangeGarage = () => {
+    setHasGarageField(!hasGarageField);
+  };
+
+  const handleChange = (event) => {
+    setAmountOfAmbientes(event.target.value);
+  };
+
+  const clearAll = () => {
+    dispatch({ type: 'CLEAR_ALL' });
   };
 
   const onChangePrice = (e, type) => {
@@ -63,37 +84,19 @@ const Filters = ({
     if (type === 'max') setMaxM2Field(payload);
   };
 
-  const onChangeIsProfessional = (e) => {
-    const value = e.target.value;
-    setIsProfessional(value);
-  };
-
-  const onChangeGarage = (e) => {
-    const value = e.target.value;
-    setHasGarageField(value);
-  };
-
-  const handleChange = (event) => {
-    setAmountOfAmbientes(event.target.value);
-  };
-
-  const clearAll = () => {
-    dispatch({ type: 'CLEAR_ALL' });
-  };
-
   return (
     <FilterSection>
       <FilterTypography varian='h4'>Barrio</FilterTypography>
       <DropdownSelector
         items={neighborhoods}
-        selected={typeField}
-        setSelected={setTypeSelected}
+        selected={neighborhoodField}
+        setSelected={setNeigborhoodSelected}
       />
       <FilterTypography varian='h4'>Tipo de propiedad</FilterTypography>
       <DropdownSelector
         items={typeOfProperty}
-        selected={neighborhoodField}
-        setSelected={setNeigborhoodSelected}
+        selected={typeField}
+        setSelected={setTypeSelected}
       />
       <Space vertical double />
       <FilterTypography varian='h4'>
@@ -135,40 +138,46 @@ const Filters = ({
         Cantidad de Ambientes
       </FilterTypography>
       <FormControlLabel
-        value='two-ambients'
-        checked='two-ambients'
+        value={0}
+        onChange={() => onChangeAmbients(0)}
+        checked={ambientsField === 0}
+        control={<StyledRadio color='default' />}
+        label='TODOS'
+      />
+      <FormControlLabel
+        value={1}
+        onChange={() => onChangeAmbients(1)}
+        checked={ambientsField === 1}
         control={<StyledRadio color='default' />}
         label='1 Ambiente'
       />
       <FormControlLabel
-        value='one-ambient'
-        checked='two-ambient'
+        value={2}
+        onChange={() => onChangeAmbients(2)}
+        checked={ambientsField === 2}
         control={<StyledRadio color='default' />}
         label='2 Ambientes'
       />
       <FormControlLabel
-        value='three-ambients'
-        checked='three-ambients'
+        value={3}
+        onChange={() => onChangeAmbients(3)}
+        checked={ambientsField === 3}
         control={<StyledRadio color='default' />}
         label='3 Ambientes'
       />
       <FormControlLabel
-        value='four-ambients'
-        checked='four-ambients'
+        value={4}
+        onChange={() => onChangeAmbients(4)}
+        checked={ambientsField === 4}
         control={<StyledRadio color='default' />}
         label='4 Ambientes'
       />
       <FormControlLabel
-        value='five-ambients'
-        checked='five-ambients'
+        value={5}
+        onChange={() => onChangeAmbients(5)}
+        checked={ambientsField === 5}
         control={<StyledRadio color='default' />}
-        label='5 Ambientes'
-      />
-      <FormControlLabel
-        value='six-ambients'
-        checked='six-ambients'
-        control={<StyledRadio color='default' />}
-        label='6 Ambientes'
+        label='Más de 4 ambientes'
       />
       <Space vertical double />
       <FormControlLabel control={

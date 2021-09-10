@@ -38,6 +38,9 @@ const propertiesReducer = (state, action) => {
       delete allProperties.find(action.id);
       return allProperties;
     }
+    case 'ERASE': {
+      return [];
+    }
     default:
       return state;
   }
