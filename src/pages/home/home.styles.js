@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: darkgrey;
+  background-color: black;
 `;
 
 export const UiButton = styled(Button)`
@@ -41,5 +41,7 @@ export const BtnLink = styled.a`
 `
 
 export const HomeTypography = styled(Typography)`
+  color: #fff;
   padding: 50px;
+  font-weight: bold;
 `

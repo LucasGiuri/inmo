@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Typography } from "@material-ui/core";
 
 
 export const Container = styled.div`
@@ -19,7 +20,7 @@ export const StatsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 100%;
+  width: 75%;
 `;
 
 export const Stat = styled.div`
@@ -27,3 +28,8 @@ export const Stat = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const AboutTypography = styled(Typography)`
+  color: #fff;
+  font-weight: bold;
+`

@@ -29,7 +29,7 @@ export const HomeSearchWrapper = styled.div`
 
 export const HomeSearchContainer = styled.div`
   color: #fff;
-  background-color: #121212;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,6 +115,7 @@ export const SearchBarButton = styled(Button)`
 
 export const SearchBarTypography = styled(Typography)`
   color: #fff;
+  font-weight: bold;
 
   @media (max-width: 850px) {
     display: flex;

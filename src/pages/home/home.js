@@ -46,7 +46,7 @@ function Home() {
       {data && (
         <Section
           title="Propiedades Destacadas"
-          background="darkgrey"
+          background="black"
         >
           <Grid numRowsXs={12} numRowsLg={3} data={data} />
         </Section>

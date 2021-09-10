@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 
 export const Aside = styled.div`
+  color: #fff;
   margin: 0 auto;
   margin-top: 100px;
   max-width: 1200px;
@@ -26,6 +27,7 @@ export const Icons = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
+  background: #fff;
 
   @media (max-width: 900px) {
     display: flex;
@@ -46,6 +48,7 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #fff;
 `;
 
 export const Price = styled(Typography)`
@@ -90,5 +93,11 @@ export const Background = styled.div`
 
 export const DescriptionTypography = styled(Typography)`
   font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+`
+
+export const TitleTypography = styled(Typography)`
   font-weight: bold;
+  color: #fff;
 `

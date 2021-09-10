@@ -54,7 +54,7 @@ export const IndexContainer = styled.div`
     color: #fff;
     font-weight: bold;
   }
-  h4 {
+  h3 {
     color: #fff;
     font-weight: bold;
     transition: 0.3s;
@@ -95,7 +95,7 @@ export const Wrap = styled.div`
 
   h3 {
     padding: 15px;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   span {
@@ -122,7 +122,7 @@ export const Dropdown = styled.div`
 
   p {
     padding: 15px;
-    font-size: 15px;
+    font-size: 16px;
     display: flex;
     justify-content: center;
   }

@@ -6,6 +6,7 @@ import {
   Container,
   StatsContainer,
   Stat,
+  AboutTypography
 } from './about.styles.js';
 
 
@@ -14,10 +15,10 @@ function About() {
     <Container>
       <Section
         title='Desde 1938 brindamos seguridad en sus operaciones inmobiliarias'
-        background="darkgrey"
+        background="black"
       >
         <Space vertical double />
-        <Typography variant='h5' gutterBottom>
+        <AboutTypography variant='h5' gutterBottom>
           Herramientas tecnológicas, trato personal y confiabilidad, dan
           debido marco a nuestras operaciones inmobiliarias. Acompañar a
           nuestros clientes en su desarrollo familiar, sus inversiones
@@ -26,33 +27,33 @@ function About() {
           cuatro generaciones en el mismo sitio, cincuenta y tres edificios
           construídos y miles de clientes satisfechos respaldan esta
           trayectoria.
-        </Typography>
+        </AboutTypography>
         <Space vertical double />
         <Space vertical double />
         <StatsContainer>
           <Stat>
-            <Typography variant='h3' gutterBottom>
+            <AboutTypography variant='h3' gutterBottom>
               53
-            </Typography>
-            <Typography variant='h5' gutterBottom>
+            </AboutTypography>
+            <AboutTypography variant='h5' gutterBottom>
               Edificios construídos
-            </Typography>
+            </AboutTypography>
           </Stat>
           <Stat>
-            <Typography variant='h3' gutterBottom>
+            <AboutTypography variant='h3' gutterBottom>
               80
-            </Typography>
-            <Typography variant='h5' gutterBottom>
+            </AboutTypography>
+            <AboutTypography variant='h5' gutterBottom>
               Años de trayectoria
-            </Typography>
+            </AboutTypography>
           </Stat>
           <Stat>
-            <Typography variant='h3' gutterBottom>
+            <AboutTypography variant='h3' gutterBottom>
               +1000
-            </Typography>
-            <Typography variant='h5' gutterBottom>
+            </AboutTypography>
+            <AboutTypography variant='h5' gutterBottom>
               Clientes satisfechos
-            </Typography>
+            </AboutTypography>
           </Stat>
         </StatsContainer>
       </Section>

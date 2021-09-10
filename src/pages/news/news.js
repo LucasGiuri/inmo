@@ -49,7 +49,7 @@ const Novedades = () => {
   }, [news]);
 
   return (
-    <Layout marginTop='100px'>
+    <Layout marginTop='93px'>
       <NovedadesSection>
         <IndexContainer>
           <h3>INDICE</h3>
@@ -58,7 +58,7 @@ const Novedades = () => {
               href={`#news-${item.id}-span`}
               onClick={() => setClicked(item.id)}
             >
-              <h4 key={item.id}>{item.title}</h4>
+              <h3 key={item.id}>{item.title}</h3>
             </Link>
           ))}
         </IndexContainer>
@@ -71,7 +71,7 @@ const Novedades = () => {
                   key={item.id}
                   id={`news-${item.id}`}
                 >
-                  <h4>{item.title}</h4>
+                  <h3>{item.title}</h3>
                   <span
                     style={{ visibility: 'hidden', marginTop: '-150px' }}
                     id={`news-${item.id}-span`}

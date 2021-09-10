@@ -9,7 +9,7 @@ export const ContactXsContainer = styled.div`
   width: 25%;
   height: 100%;
   flex-wrap: nowrap;
-  background-color: rgba(0,0,0,0.8);
+  background-color: #a60321;
   color: #fff;
   position: relative;
   border-radius: 30px;
@@ -46,7 +46,7 @@ export const InputTextField = styled.input`
   padding: 10px;
   margin: 5px;
   border-radius: 4px;
-  background: transparent;
+  background: #121212;
   outline: none;
   color: #fff;
 `;
@@ -56,14 +56,14 @@ export const Submit = styled.button`
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #a60321;
+  background-color: #121212;
   color: #fff;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.7s;
 
   &:hover {
-    background-color: #a61921;
+    background-color: black;
     transform: scale(1.155);
     font-weight: bold;
   }

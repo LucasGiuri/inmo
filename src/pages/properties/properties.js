@@ -117,7 +117,7 @@ const Properties = ({ id }) => {
   }, [properties, id]);
 
   return (
-    <Layout marginTop='100px'>
+    <Layout marginTop='93px'>
       <PropertiesSection>
         <IndexContainer>
           {queryParams && (

@@ -20,7 +20,8 @@ import {
   DetailItem,
   DetailKey,
   DetailValue,
-  DescriptionTypography
+  DescriptionTypography,
+  TitleTypography
 } from "./property.styles";
 import Space from "../../components/space/space";
 import Icon from "../../components/icon/icon";
@@ -95,9 +96,9 @@ function Property() {
             <Space vertical double />
             <Space vertical double />
             <TitleContainer>
-              <Typography variant="h3" color="textSecondary" component="p">
+              <TitleTypography variant="h3" color="textSecondary" component="p">
                 {property.title}
-              </Typography>
+              </TitleTypography>
               <Price variant="h4" component="h4">
                 {property.price}
               </Price>
@@ -129,9 +130,9 @@ function Property() {
             </IconsContainer>
             <Space vertical double />
             <Space vertical double />
-            <Typography variant="h4" color="textSecondary" component="p">
+            <TitleTypography variant="h4" color="textSecondary" component="p">
               {subtitle}
-            </Typography>
+            </TitleTypography>
             <Space vertical double />
             <Space vertical double />
             <DescriptionTypography variant="p" color="textSecondary" component="p">

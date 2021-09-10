@@ -63,7 +63,7 @@ export const ContactContainer = styled.div`
   border-radius: 12px;
   align-items: center;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 13px;
 
   @media (max-width: 700px) {
     width: 100%;
