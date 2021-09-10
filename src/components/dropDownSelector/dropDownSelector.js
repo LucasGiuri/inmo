@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { typeOfProperty } from "../../constants";
-
 import {
   Dropdown,
   DropdownBtn,
@@ -9,12 +7,12 @@ import {
   DropdownItem,
 } from "./dropDownSelector.styles";
 
-const DropdownSelector = ({ selected, setSelected, width }) => {
+const DropdownSelector = ({ items = [], selected, setSelected, width }) => {
   const [isActive, setIsActive] = useState(false);
   const [text, setText] = useState('TODOS');
 
   useEffect(() => {
-  const filtered = typeOfProperty.find((obj) => obj.id === selected);
+  const filtered = items.find((obj) => obj.id === selected);
     setText(filtered ? filtered.value : 'TODOS');
   }, [selected]);
 
@@ -26,7 +24,7 @@ const DropdownSelector = ({ selected, setSelected, width }) => {
       </DropdownBtn>
       {isActive && (
         <DropdownContent>
-          {typeOfProperty.map((option) => (
+          {items.map((option) => (
             <DropdownItem
               onClick={(e) => {
                 setSelected(option);

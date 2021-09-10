@@ -6,21 +6,12 @@ import { useLocation } from 'react-router';
 import { useStateContext } from '../../state';
 import Layout from '../../components/layout/layout';
 import Grid from '../../components/grid/grid';
-import Space from '../../components/space/space';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { buildUrl, typeOfProperty } from '../../constants';
+import Filters from '../../components/filters/filters';
 
 import {
-  PropertiesSection,
-  IndexContainer,
-  Container,
-  FilterSection,
-  Switchers,
-  FilterTypography,
-  StyledRadio,
-  PriceInput,
+  PropertiesSection, IndexContainer, Container, FilterTypography
 } from './properties.styles';
-import DropdownSelector from '../../components/dropDownSelector/dropDownSelector';
 
 const Properties = ({ id }) => {
   const history = useHistory();
@@ -28,6 +19,7 @@ const Properties = ({ id }) => {
   const [{ properties, filters }, dispatch] = useStateContext();
   const [data, setData] = useState([]);
   const [queryParams, setQueryParams] = useState(null);
+  const [applyiongFIlters, setApplyingFiltering] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [amountOfAmbients, setAmountOfAmbients] = useState("TODOS");
 
@@ -35,25 +27,32 @@ const Properties = ({ id }) => {
     setAmountOfAmbients(event.target.value);
   };
 
-  const setTypeSelected = (opt) => {
-    dispatch({ type: 'SET_TYPE', payload: opt.id });
+  const clearAll = () => {
+    dispatch({ type: 'CLEAR_ALL' });
   };
 
-  const onChangePrice = (e, type) => {
-    const payload = e.target.value;
-    if (type === 'max') dispatch({ type: 'SET_MAX_PRICE', payload });
-    if (type === 'min') dispatch({ type: 'SET_MIN_PRICE', payload });
-  };
 
-  const onChangeM2 = (e, type) => {
-    const payload = e.target.value;
-    if (type === 'max') dispatch({ type: 'SET_MAX_M2', payload });
-    if (type === 'min') dispatch({ type: 'SET_MIN_M2', payload });
-  };
+  useEffect(() => {
+    setApplyingFiltering(false);
+    clearAll();
+  }, []);
 
+  useEffect(() => {
+    console.log('filters', filters)
+  }, [filters]);
+
+  useEffect(() => {
+    if (applyiongFIlters) {
+      const url = buildUrl(filters);
+      history.push({
+        pathname: `/${id}`,
+        search: url
+      });
+    }
+  }, [applyiongFIlters]);
   
     useEffect(() => {
-      const url = buildUrl(filters);
+      const url = !filters.neighborhood || !applyiongFIlters ? location.search : buildUrl(filters);
       history.push({
         pathname: `/${id}`,
         search: url
@@ -186,100 +185,7 @@ const Properties = ({ id }) => {
       <PropertiesSection>
         <IndexContainer>
           <FilterTypography varian='h4'>Filtrar</FilterTypography>
-          <FilterSection>
-            <FilterTypography varian='h4'>Tipo de propiedad</FilterTypography>
-            <DropdownSelector
-              selected={filters.type}
-              setSelected={setTypeSelected}
-            />
-            <Space vertical double />
-            <FilterTypography varian='h4'>
-              Precio de la propiedad
-            </FilterTypography>
-            <PriceInput
-              type='number'
-              label='Precio Mínimo'
-              value={filters.minPrice || 0}
-              onChange={(e) => onChangePrice(e, 'min')}
-              placeholder='Precio Mínimo'
-            />
-            <PriceInput
-              type='number'
-              label='Precio Máximo'
-              value={filters.maxPrice || filters.minPrice || 0}
-              onChange={(e) => onChangePrice(e, 'max')}
-              placeholder='Precio Máximo'
-            />
-            <FilterTypography varian='h4'>
-              M2 de la propiedad
-            </FilterTypography>
-            <PriceInput
-              type='number'
-              label='M2 Mínimo'
-              value={filters.minM2 || 0}
-              onChange={(e) => onChangeM2(e, 'min')}
-              placeholder='M2 Mínimo'
-            />
-            <PriceInput
-              type='number'
-              label='M2 Máximo'
-              value={filters.maxM2 || filters.minM2 || 0}
-              onChange={(e) => onChangeM2(e, 'max')}
-              placeholder='M2 Máximo'
-            />
-            <Space vertical double />
-            <FilterTypography varian='h4'>
-              Cantidad de Ambientes
-            </FilterTypography>
-            <FormControlLabel
-              value='one-ambient'
-              checked={amountOfAmbients === "one-ambients"}
-              control={<StyledRadio color='default' />}
-              label='1 Ambiente'
-            />
-            <FormControlLabel
-              value='one-ambient'
-              checked={amountOfAmbients === "two-ambients"}
-              control={<StyledRadio color='default' />}
-              label='2 Ambientes'
-            />
-            <FormControlLabel
-              value='three-ambients'
-              checked={amountOfAmbients === "three-ambients"}
-              control={<StyledRadio color='default' />}
-              label='3 Ambientes'
-            />
-            <FormControlLabel
-              value='four-ambients'
-              checked={amountOfAmbients === "four-ambients"}
-              control={<StyledRadio color='default' />}
-              label='4 Ambientes'
-            />
-            <FormControlLabel
-              value='five-ambients'
-              checked={amountOfAmbients === "five-ambients"}
-              control={<StyledRadio color='default' />}
-              label='5 Ambientes'
-            />
-            <FormControlLabel
-              value='six-ambients'
-              checked={amountOfAmbients === "six-ambients"}
-              control={<StyledRadio color='default' />}
-              label='6 Ambientes'
-            />
-            <FormControlLabel
-              value='TODOS'
-              checked={amountOfAmbients === "TODOS"}
-              control={<StyledRadio color='default' />}
-              label='TODOS'
-            />
-            <Space vertical double />
-            <FormControlLabel control={<Switchers />} label='Cochera' />
-            <FormControlLabel
-              control={<Switchers />}
-              label='Apto Profesional'
-            />
-          </FilterSection>
+          <Filters />
         </IndexContainer>
         <Container>
           <Grid numRowsLg={4} data={data} />
