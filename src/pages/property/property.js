@@ -20,6 +20,7 @@ import {
   DetailItem,
   DetailKey,
   DetailValue,
+  DescriptionTypography
 } from "./property.styles";
 import Space from "../../components/space/space";
 import Icon from "../../components/icon/icon";
@@ -100,9 +101,6 @@ function Property() {
               <Price variant="h4" component="h4">
                 {property.price}
               </Price>
-              <Price variant="h4" component="h4">
-                {property.rent}
-              </Price>
             </TitleContainer>
             <Space vertical double />
             <Space vertical double />
@@ -124,7 +122,7 @@ function Property() {
               </IconContainer>
               <IconContainer>
                 <Icon name="car" />
-                <span>{property.garage}</span>
+                <span>{property.cochera}</span>
               </IconContainer>
               </Icons>
               <ContactXs />
@@ -136,9 +134,9 @@ function Property() {
             </Typography>
             <Space vertical double />
             <Space vertical double />
-            <Typography variant="p" color="textSecondary" component="p">
+            <DescriptionTypography variant="p" color="textSecondary" component="p">
               {description}
-            </Typography>
+            </DescriptionTypography>
             <Space vertical double />
             <Space vertical double />
             <Typography variant="h4" color="textSecondary" component="p">
@@ -199,7 +197,7 @@ Property.propTypes = {
   description: PropTypes.string.isRequired,
   detailsTitle: PropTypes.string.isRequired,
   rooms: PropTypes.number.isRequired,
-  garage: PropTypes.bool.isRequired,
+  garage: PropTypes.string.isRequired,
   m2: PropTypes.number.isRequired,
   bath: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,

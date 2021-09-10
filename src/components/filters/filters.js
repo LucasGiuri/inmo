@@ -7,7 +7,7 @@ import { useStateContext } from '../../state';
 import { typeOfProperty, neighborhoods } from '../../constants';
 
 import {
-  FilterSection, Switchers, FilterTypography, StyledRadio, PriceInput
+  FilterSection, Switchers, FilterTypography, StyledRadio, PriceInput, Button
 } from './filters.styles';
 
 const Filters = ({
@@ -200,8 +200,8 @@ const Filters = ({
       />
       <Space vertical double />
       <Space vertical double />
-      <button onClick={clearAll}>Remover filtros</button>
-      <button type='submit' onClick={onSubmit}>Aplicar</button>
+      <Button onClick={clearAll}>Remover filtros</Button>
+      <Button type='submit' onClick={onSubmit}>Aplicar</Button>
     </FilterSection>
   );
 }

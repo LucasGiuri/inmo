@@ -29,6 +29,7 @@ export const PropertiesSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 100%;
 `;
 
 export const IndexContainer = styled.div`

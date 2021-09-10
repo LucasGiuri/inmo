@@ -93,3 +93,18 @@ export const PriceInput = styled.input`
   padding: 10px 20px;
   background: #121212;
 `;
+
+export const Button = styled.button`
+  color: #fff;
+  margin: 2.5px;
+  padding: 10px;
+  background: #121212;
+  border: none;
+  cursor: pointer;
+  transition: 0.8s all;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: darkgray;
+  }
+`

@@ -87,3 +87,8 @@ export const MapContainer = styled.iframe`
 export const Background = styled.div`
   background-color: #e9f2f1;
 `;
+
+export const DescriptionTypography = styled(Typography)`
+  font-size: 1rem;
+  font-weight: bold;
+`

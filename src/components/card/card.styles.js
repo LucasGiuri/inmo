@@ -47,10 +47,12 @@ export const StyledCardActionArea = styled(CardActionArea)`
 `;
 
 export const CardTitle = styled(Typography)`
+  font-weight: bold;
   font-size: 1.1rem;
 `;
 
 export const Description = styled(Typography)`
+font-weight: bold;
 `;
 
 export const IconsContainer = styled.div`
@@ -78,5 +80,8 @@ export const PriceContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
 `
+
+export const PriceTypography = styled(Typography)`
+font-weight: bold;
+`;

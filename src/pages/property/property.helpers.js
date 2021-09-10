@@ -67,10 +67,10 @@ export const convertData = (obj) => {
     orientation,
     between_streets,
     building_side,
-    cochera,
+    cochera: cochera ? "SI" : "NO",
     price: is_in_usd ? `U$S ${price.toLocaleString()}` : `$${price.toLocaleString()}`,
     rent,
-    professional,
+    professional: professional ? "SI" : "NO",
     details: [
       [
         { key: 'Alquiler mensual', value: rent },

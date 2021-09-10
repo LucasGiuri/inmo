@@ -11,7 +11,8 @@ import {
   IconsContainer,
   LinkContainer,
   IconContainer,
-  PriceContainer
+  PriceContainer,
+  PriceTypography
 } from './card.styles';
 
 function MediaCard({
@@ -29,9 +30,9 @@ function MediaCard({
               {description}
           </CardTitle>
             </PriceContainer>
-            <Typography variant='body2' color='textSecondary' component='p'>
+            <PriceTypography variant='body2' color='textSecondary' component='p'>
               US$ {price}
-            </Typography>
+            </PriceTypography>
           </CardContent>
         </StyledCardActionArea>
         <IconsContainer>
