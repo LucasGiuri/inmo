@@ -16,7 +16,7 @@ import {
 } from './card.styles';
 
 function MediaCard({
-  id, img, tittle, description, price, rooms, baths, m2, garage, rent
+  id, img, tittle, description, onSalePrice, rentPrice, rooms, baths, m2, garage, rent
 }) {
 
   return (
@@ -26,13 +26,20 @@ function MediaCard({
           <StyledCardMedia image={img} title={tittle} component='img' />
           <CardContent>
             <PriceContainer>
-            <CardTitle gutterBottom variant='h5' >
-              {description}
-          </CardTitle>
+              <CardTitle gutterBottom variant='h5' >
+                {description}
+              </CardTitle>
             </PriceContainer>
-            <PriceTypography variant='body2' color='textSecondary' component='p'>
-              US$ {price}
-            </PriceTypography>
+            {onSalePrice && (
+              <PriceTypography variant='body2' color='textSecondary' component='p'>
+                Precio de venta US${onSalePrice}
+              </PriceTypography>
+            )}
+            {rentPrice && (
+              <PriceTypography variant='body2' color='textSecondary' component='p'>
+                Precio de alquiler ${rentPrice}
+              </PriceTypography>
+            )}
           </CardContent>
         </StyledCardActionArea>
         <IconsContainer>
@@ -60,13 +67,19 @@ function MediaCard({
 
 MediaCard.propTypes = {
   id: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  onSalePrice: PropTypes.number,
+  rentPrice: PropTypes.number,
   img: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tittle: PropTypes.string.isRequired,
   baths: PropTypes.string.isRequired,
   rooms: PropTypes.string.isRequired,
   m2: PropTypes.string.isRequired
+};
+
+MediaCard.defaultProps = {
+  onSalePrice: null,
+  rentPrice: null
 };
 
 export default MediaCard;

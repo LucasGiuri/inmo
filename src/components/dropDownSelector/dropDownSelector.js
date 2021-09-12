@@ -12,7 +12,7 @@ const DropdownSelector = ({ items = [], selected, setSelected, width }) => {
   const [text, setText] = useState('TODOS');
 
   useEffect(() => {
-  const filtered = items.find((obj) => obj.id === selected);
+    const filtered = items.find((obj) => obj.id === selected);
     setText(filtered ? filtered.value : 'TODOS');
   }, [selected]);
 

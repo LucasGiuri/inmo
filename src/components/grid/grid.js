@@ -12,7 +12,9 @@ export default function GridComponent({
   return (
     <Grid container spacing={3}>
       {data.map((d) => {
-        const { id, title, img, bath, price, m2, rooms, garage, rent } = d;
+        const {
+          id, title, img, bath, price, rent_price, m2, rooms, garage, rent
+        } = d;
 
         return (
           <Grid item xs={numRowsXs} md={numRowsMd} lg={numRowsLg} key={id}>
@@ -25,7 +27,8 @@ export default function GridComponent({
               baths={bath}
               garage={garage}
               description={title}
-              price={`${price.toLocaleString()}`}
+              onSalePrice={`${price && price.toLocaleString()}`}
+              rentPrice={`${rent_price && rent_price.toLocaleString()}`}
               rent={rent}
             />
           </Grid>

@@ -63,15 +63,8 @@ const Properties = ({ id }) => {
     if (properties && properties.length > 0) {
       const filtered = properties[0] && properties[0].filter((p) => {
         const {
-          alquiler,
-          venta,
-          m2,
-          cochera,
-          neighborhood,
-          professional,
-          type_of_property,
-          ambients,
-          price,
+          alquiler, venta, m2, cochera, neighborhood, professional,
+          type_of_property, ambients, price, rent_price
         } = p.data;
 
 

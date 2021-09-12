@@ -88,7 +88,7 @@ export const SearchSection = styled.div`
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  align-items: center;
 
   @media (max-width: 1100px) {
     flex-direction: column;
@@ -99,14 +99,14 @@ export const SearchSection = styled.div`
 
 export const SearchBarButton = styled(Button)`
   height: 100%;
-  width: auto;
-  background-color: #a60321;
-  color: #fff;
-  font-weight: bold;
   display: flex;
   align-self: flex-end;
-  transition: 1.2s;
-  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #a60321;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 10px;
 
   &:hover {
     background-color: red;

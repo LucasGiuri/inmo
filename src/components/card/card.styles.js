@@ -83,5 +83,5 @@ export const PriceContainer = styled.div`
 `
 
 export const PriceTypography = styled(Typography)`
-font-weight: bold;
+  font-weight: bold;
 `;

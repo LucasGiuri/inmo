@@ -22,7 +22,18 @@ export const typeOfProperty = [
   { id: 'OFICINA', value: 'OFICINA' },
   { id: 'TERRENO', value: 'TERRENO' },
   { id: 'COCHERA', value: 'COCHERA' },
-  { id: 'TODOS', value: 'TODOS'}
+  { id: 'TODOS', value: 'TODOS' }
+];
+
+
+export const rentPrices = [
+  { id: 'TODOS', value: 'TODOS' },
+  { id: 10000, value: 10000 }
+];
+
+export const onSalePrices = [
+  { id: 'TODOS', value: 'TODOS' },
+  { id: 10000, value: 10000 }
 ];
 
 export const neighborhoods = [

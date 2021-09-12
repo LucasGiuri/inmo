@@ -2,7 +2,8 @@ import { React, useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import DropdownSelector from "../../components/dropDownSelector/dropDownSelector";
-import { buildUrl, typeOfProperty } from '../../constants';
+import { buildUrl, typeOfProperty, neighborhoods } from '../../constants';
+import Space from '../space/space';
 import {
   HomeSearchWrapper,
   HomeSearchContainer,
@@ -30,6 +31,7 @@ const HomeSearch = () => {
   const [typeOfContract, setTypeOfContract] = useState("rentals");
   const [hasGarage, setHasGarage] = useState(false);
   const [selected, setSelected] = useState({ id: 'TODOS', value: 'TODOS' });
+  const [selectedN, setSelectedN] = useState({ id: 'TODOS', value: 'TODOS' });
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const showSearchInput = isHovered || isFocused;
@@ -48,10 +50,6 @@ const HomeSearch = () => {
       search: buildUrl({ neighborhood: searchValue, type: selected.id, garage: hasGarage })
     });
   };
-
-  useEffect(() => {
-    targetRef.current.value = "";
-  }, [showSearchInput]);
 
   return (
     <Router>
@@ -80,31 +78,29 @@ const HomeSearch = () => {
                 label="Alquilar"
               />
             </SearchBarRadioBtnGrp>
-            <FormControlLabel
+            {/* <FormControlLabel
               value="cochera"
               control={<HomeSwitcher color="secondary" />}
               label="Cochera"
-            />
+            /> */}
           </HomeSearchSelector>
           <HomeSearchInputs>
             <SearchSection>
-            <DropdownSelector
-              items={typeOfProperty}
-              selected={selected.id}
-              setSelected={setSelected}
-              width="75%"
-            />
-              <Container
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
-                hover={showSearchInput}
-              >
-                <SearchInput ref={targetRef} showSearchInput={showSearchInput} value={searchValue} onChange={onChange} />
-                {showSearchInput ? <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton> : <IconMagnifyingGlass />}
-              </Container>
-                <MobileSearchInput ref={targetRef} value={searchValue} onChange={onChange}></MobileSearchInput>
+              <DropdownSelector
+                items={typeOfProperty}
+                selected={selected.id}
+                setSelected={setSelected}
+              />
+              <Space double />
+              <Space double />
+              <DropdownSelector
+                items={neighborhoods}
+                selected={selectedN.id}
+                setSelected={setSelectedN}
+              />
+              <Space double />
+              <Space double />
+              <SearchBarButton onClick={onSearch}>Buscar</SearchBarButton>
             </SearchSection>
           </HomeSearchInputs>
         </HomeSearchContainer>
