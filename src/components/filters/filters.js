@@ -4,7 +4,9 @@ import Space from '../space/space';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import DropdownSelector from '../dropDownSelector/dropDownSelector';
 import { useStateContext } from '../../state';
-import { typeOfProperty, neighborhoods } from '../../constants';
+import {
+  typeOfProperty, neighborhoods, onSalePrices, rentPrices
+} from '../../constants';
 
 import {
   FilterSection, Switchers, FilterTypography, StyledRadio, PriceInput, Button
@@ -99,9 +101,7 @@ const Filters = ({
         setSelected={setTypeSelected}
       />
       <Space vertical double />
-      <FilterTypography varian='h4'>
-        Precio de la propiedad
-      </FilterTypography>
+      <FilterTypography varian='h4'>Precio de la propiedad</FilterTypography>
       <PriceInput
         type='number'
         label='Precio Mínimo'
@@ -116,9 +116,7 @@ const Filters = ({
         onChange={(e) => onChangePrice(e, 'max')}
         placeholder='Precio Máximo'
       />
-      <FilterTypography varian='h4'>
-        M2 de la propiedad
-      </FilterTypography>
+      <FilterTypography varian='h4'>M2 de la propiedad</FilterTypography>
       <PriceInput
         type='number'
         label='M2 Mínimo'

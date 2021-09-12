@@ -25,15 +25,72 @@ export const typeOfProperty = [
   { id: 'TODOS', value: 'TODOS' }
 ];
 
-
 export const rentPrices = [
   { id: 'TODOS', value: 'TODOS' },
-  { id: 10000, value: 10000 }
+  { id: 10000, value: 10000 },
+  { id: 20000, value: 20000 },
+  { id: 10000, value: 30000 },
+  { id: 40000, value: 40000 },
+  { id: 50000, value: 50000 },
+  { id: 60000, value: 60000 },
+  { id: 70000, value: 70000 },
+  { id: 80000, value: 80000 },
+  { id: 90000, value: 90000 },
+  { id: 100000, value: 100000 },
+  { id: 110000, value: 110000 },
+  { id: 120000, value: 120000 },
+  { id: 130000, value: 130000 },
+  { id: 140000, value: 140000 },
+  { id: 150000, value: 150000 },
+  { id: 160000, value: 160000 },
+  { id: 170000, value: 170000 },
+  { id: 180000, value: 180000 },
+  { id: 190000, value: 190000 },
+  { id: 200000, value: 200000 },
+  { id: 210000, value: 210000 },
+  { id: 220000, value: 220000 },
+  { id: 230000, value: 230000 },
+  { id: 240000, value: 240000},
+  { id: 250000, value: 250000 },
+  { id: 260000, value: 260000 },
+  { id: 270000, value: 270000 },
+  { id: 280000, value: 280000 },
+  { id: 290000, value: 290000 },
+  { id: 300000, value: 300000 }
 ];
 
 export const onSalePrices = [
   { id: 'TODOS', value: 'TODOS' },
-  { id: 10000, value: 10000 }
+  { id: 10000, value: 10000 },
+  { id: 20000, value: 20000 },
+  { id: 10000, value: 30000 },
+  { id: 40000, value: 40000 },
+  { id: 50000, value: 50000 },
+  { id: 60000, value: 60000 },
+  { id: 70000, value: 70000 },
+  { id: 80000, value: 80000 },
+  { id: 90000, value: 90000 },
+  { id: 100000, value: 100000 },
+  { id: 110000, value: 110000 },
+  { id: 120000, value: 120000 },
+  { id: 130000, value: 130000 },
+  { id: 140000, value: 140000 },
+  { id: 150000, value: 150000 },
+  { id: 160000, value: 160000 },
+  { id: 170000, value: 170000 },
+  { id: 180000, value: 180000 },
+  { id: 190000, value: 190000 },
+  { id: 200000, value: 200000 },
+  { id: 210000, value: 210000 },
+  { id: 220000, value: 220000 },
+  { id: 230000, value: 230000 },
+  { id: 240000, value: 240000},
+  { id: 250000, value: 250000 },
+  { id: 260000, value: 260000 },
+  { id: 270000, value: 270000 },
+  { id: 280000, value: 280000 },
+  { id: 290000, value: 290000 },
+  { id: 300000, value: 300000 }
 ];
 
 export const neighborhoods = [

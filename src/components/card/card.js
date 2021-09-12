@@ -32,12 +32,12 @@ function MediaCard({
             </PriceContainer>
             {onSalePrice && (
               <PriceTypography variant='body2' color='textSecondary' component='p'>
-                Precio de venta US${onSalePrice}
+                Precio de venta US${onSalePrice.toLocaleString()}
               </PriceTypography>
             )}
             {rentPrice && (
               <PriceTypography variant='body2' color='textSecondary' component='p'>
-                Precio de alquiler ${rentPrice}
+                Precio de alquiler ${rentPrice.toLocaleString()}
               </PriceTypography>
             )}
           </CardContent>

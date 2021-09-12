@@ -27,8 +27,8 @@ export default function GridComponent({
               baths={bath}
               garage={garage}
               description={title}
-              onSalePrice={`${price && price.toLocaleString()}`}
-              rentPrice={`${rent_price && rent_price.toLocaleString()}`}
+              onSalePrice={price}
+              rentPrice={rent_price}
               rent={rent}
             />
           </Grid>
