@@ -13,10 +13,7 @@ import {
 function About() {
   return (
     <Container>
-      <Section
-        title='Desde 1938 brindamos seguridad en sus operaciones inmobiliarias'
-        background="black"
-      >
+      <AboutTypography variant='h3' gutterBottom>Desde 1938 brindamos seguridad en sus operaciones inmobiliarias</AboutTypography>
         <Space vertical double />
         <AboutTypography variant='h5' gutterBottom>
           Herramientas tecnológicas, trato personal y confiabilidad, dan
@@ -31,32 +28,31 @@ function About() {
         <Space vertical double />
         <Space vertical double />
         <StatsContainer>
-          <Stat>
-            <AboutTypography variant='h3' gutterBottom>
+        <Stat>
+            <AboutTypography variant='h4' gutterBottom>
               53
             </AboutTypography>
-            <AboutTypography variant='h5' gutterBottom>
+            <AboutTypography variant='h6' gutterBottom>
               Edificios construídos
             </AboutTypography>
           </Stat>
           <Stat>
-            <AboutTypography variant='h3' gutterBottom>
+            <AboutTypography variant='h4' gutterBottom>
               80
             </AboutTypography>
-            <AboutTypography variant='h5' gutterBottom>
+            <AboutTypography variant='h6' gutterBottom>
               Años de trayectoria
             </AboutTypography>
           </Stat>
           <Stat>
-            <AboutTypography variant='h3' gutterBottom>
+            <AboutTypography variant='h4' gutterBottom>
               +1000
             </AboutTypography>
-            <AboutTypography variant='h5' gutterBottom>
+            <AboutTypography variant='h6' gutterBottom>
               Clientes satisfechos
             </AboutTypography>
           </Stat>
         </StatsContainer>
-      </Section>
     </Container>
   );
 }

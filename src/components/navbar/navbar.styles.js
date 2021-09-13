@@ -38,6 +38,11 @@ export const Li = styled(Link)`
     transform: scale(1.055);
     border-bottom: 1px solid #DA050D;
   }
+
+  @media (max-width: 370px) {
+    font-size: 0.6rem;
+  }
+
 `;
 
 export const IconContainer = styled.div`

@@ -5,7 +5,7 @@ import About from "../about/about";
 import Section from "../../components/section/section";
 import { fetchData } from "../property/property.helpers";
 import HomeSearch from "../../components/homeSearch/homeSearch";
-import { Container, UiButton, BtnLink, HomeTypography } from "./home.styles";
+import { HomeContainer, Container, UiButton, BtnLink, HomeTypography, HighlightProperties, BtnContainer } from "./home.styles";
 
 // import Layout from "../../components/layout/layout";
 
@@ -41,24 +41,30 @@ function Home() {
   }, [properties]);
 
   return (
-    <>
+    <HomeContainer>
       <HomeSearch />
       {data && (
-        <Section
-          title="Propiedades Destacadas"
-          background="black"
-        >
+        <HighlightProperties>
+          <HomeTypography variant="h3">Propiedades Destacadas</HomeTypography>
+        {/* // <Section
+        //   title="Propiedades Destacadas"
+        //   background="black"
+        // > */}
           <Grid numRowsXs={12} numRowsLg={3} data={data} />
-        </Section>
+          </HighlightProperties>
+        // </Section>
       )}
       <Container>
-        <HomeTypography variant="h3">¿Querés vender tu propiedad?</HomeTypography>
+        <HomeTypography variant="h4">¿Querés vender tu propiedad?</HomeTypography>
+        <HomeTypography variant="h5">Sabemos Como hacerlo.</HomeTypography>
+        <BtnContainer>
         <BtnLink href='/contact'>
           <UiButton variant="contained">TASA CON NOSOTROS</UiButton>
         </BtnLink>
+        </BtnContainer>
       </Container>
       <About />
-    </>
+    </HomeContainer>
   );
 }
 

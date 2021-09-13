@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 export const LoadingText = styled.div`
   text-align: center;
-  color: #0095F2;
+  color: red;
 `;
 
 export const SecondLine = styled.p`
@@ -72,7 +72,7 @@ export const SkCircle = styled.div.attrs(({ index }) => {
     margin: 0 auto;
     width: 15%;
     height: 15%;
-    background-color: #0095F2;
+    background-color: red;
     border-radius: 100%;
     animation: ${skCircleFadeDelay} 1.2s infinite ease-in-out both;
     animation-delay: ${(p) => p.delay};

@@ -54,7 +54,7 @@ export const InfoContainer = styled.div`
 
 export const ContactContainer = styled.div`
   color: #fff;
-  width: 25%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,9 +65,10 @@ export const ContactContainer = styled.div`
   font-weight: bold;
   font-size: 13px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 1200px) {
+    /* width: 100%; */
+    height: 100%;
     width: 100%;
-    height: 75%;
   }
 `;
 

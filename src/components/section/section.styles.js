@@ -5,9 +5,10 @@ export const Container = styled.div.attrs(() => ({}))`
  background-image: ${(props) => (props.image || '')};
  background: ${(props) => (props.background || '')};
  height: ${(props) => (props.height || '')};
- width: 100%;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ color: #fff;
+overflow: hidden;
 `;

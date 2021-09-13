@@ -18,7 +18,8 @@ const fadeIn = keyframes`
 `;
 
 export const HomeSearchWrapper = styled.div`
-  margin-top: 95px;
+  position: relative;
+  margin-top: 85px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -33,20 +34,23 @@ export const HomeSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 0 100px;
   margin: 0 auto;
-  width: 1200px;
-  border-radius: 12px;
+  border-radius: 12px 12px 0px 0px;
 
   @media (max-width: 1200px) {
     overflow: hidden;
-    width: 80%;
-    margin: 0 auto;
+    width: 75%;
+    height: 75%;
   }
 
   @media (max-width: 850px) {
-    width: 80%;
-    height: auto;
+    height: 75%;
+  }
+  @media (max-width: 1100px) {
+    height: 75%;
+    padding: 10px;
   }
 `;
 
@@ -76,8 +80,8 @@ export const HomeSearchInputs = styled.div`
   padding: 10px;
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: 1100px) {
     flex-direction: column;
@@ -98,15 +102,14 @@ export const SearchSection = styled.div`
 `;
 
 export const SearchBarButton = styled(Button)`
-  height: 100%;
   display: flex;
-  align-self: flex-end;
   color: #fff;
+  background: #121212;
   font-weight: bold;
   border: 2px solid #a60321;
   border-radius: 4px;
-  background-color: transparent;
-  padding: 10px;
+  padding: 8px;
+  transition: 0.8s;
 
   &:hover {
     background-color: red;
@@ -126,7 +129,7 @@ export const SearchBarTypography = styled(Typography)`
 export const SearchBarSubtitleTypography = styled(Typography)`
   color: #fff;
 
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `;
@@ -146,56 +149,7 @@ export const HomeSwitcher = styled(Switch)`
   color: #a60321;
 `;
 
-export const Container = styled.div`
-  position: relative;
-  width: 50px;
-  height: 50px;
-  margin-left: 5px;
-  box-sizing: border-box;
-  border-radius: 50px;
-  border: 4px solid #a60321;
-  background: #121212;
-  transition: all 0.8s ease-out;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  ${({ hover }) =>
-    hover &&
-    css`
-      width: 50%;
-      border: 4px solid #a60321;
-      background: #121212;
-    `}
-    @media (max-width: 1100px) {
-    display: none;
-  }
-
-`;
-
-export const SearchInput = styled.input`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 42px;
-  line-height: 30px;
-  outline: 0;
-  border: 0;
-  font-size: 1rem;
-  border-radius: 20px;
-  padding: 0 20px;
-  margin: 0;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  color: #fff;
-  background: #121212;
-
-  display: ${(props) => (props.showSearchInput ? "block" : "none")};
-`;
 
 export const MobileSearchInput = styled.input`
   display: none;

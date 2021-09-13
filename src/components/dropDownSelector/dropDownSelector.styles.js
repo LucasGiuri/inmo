@@ -30,16 +30,20 @@ export const CaretDown = styled(FaCaretDown)`
 export const DropdownContent = styled.div`
   position: absolute;
   left: 0;
-  padding: 10px;
+  padding: 10px 20px;
   font-weight: 500;
   color: #fff;
   width: 100%;
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
   background: #121212;
   border-radius: 4px;
   max-height: 500px;
   overflow-y: scroll;
+
+  @media (max-width: 1100px) {
+    position: relative;
+  }
 `;
 
 export const DropdownItem = styled.div`

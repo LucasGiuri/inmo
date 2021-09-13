@@ -1,13 +1,12 @@
-import React from 'react';
-import Prismic from '@prismicio/client';
-import NoPhoto from '../../assets/no-photo.jpeg';
+import React from "react";
+import Prismic from "@prismicio/client";
+import NoPhoto from "../../assets/no-photo.jpeg";
 
-const apiEndpoint = 'https://inmo.cdn.prismic.io/api/v2';
+const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
 const Client = Prismic.client(apiEndpoint);
 
-export const fetchData = async (endpoint) => await Client.query(
-  Prismic.Predicates.at('document.type', endpoint)
-);
+export const fetchData = async (endpoint) =>
+  await Client.query(Prismic.Predicates.at("document.type", endpoint));
 
 export const photoConverter = (img) => {
   if (!img) return;
@@ -41,6 +40,26 @@ export const convertData = (obj) => {
     img8,
     img9,
     img10,
+    img11,
+    img12,
+    img13,
+    img14,
+    img15,
+    img16,
+    img17,
+    img18,
+    img19,
+    img20,
+    img21,
+    img22,
+    img23,
+    img24,
+    img25,
+    img26,
+    img27,
+    img28,
+    img29,
+    img30,
     is_in_usd,
     map,
     m2,
@@ -52,47 +71,80 @@ export const convertData = (obj) => {
     tipo_de_cochera,
     street,
     rooms,
+    description,
   } = obj;
 
   const newTitle = title[0].text;
 
   const allPhotos = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+    img12,
+    img13,
+    img14,
+    img15,
+    img16,
+    img17,
+    img18,
+    img19,
+    img20,
+    img21,
+    img22,
+    img23,
+    img24,
+    img25,
+    img26,
+    img27,
+    img28,
+    img29,
+    img30,
   ];
 
   return {
     title: newTitle,
+    description: description && description.length ? description[0].text : '',
     m2,
     m2Covered: covered_surface,
     orientation,
     between_streets,
     building_side,
     cochera: cochera ? "SI" : "NO",
-    price: is_in_usd ? `U$S ${price.toLocaleString()}` : `$${price.toLocaleString()}`,
+    price: is_in_usd
+      ? `U$S ${price.toLocaleString()}`
+      : `$${price.toLocaleString()}`,
     rent,
     professional: professional ? "SI" : "NO",
     details: [
       [
-        { key: 'Alquiler mensual', value: rent },
-        { key: 'Ambientes', value: ambients },
-        { key: 'Antiguedad', value: `${antiquity} años` },
-        { key: 'Departamentos por piso', value: apartments_per_floor },
-        { key: 'Expensas', value: `$${expenses}` },
-        { key: 'Ascensores', value: elevators }
+        { key: "Alquiler mensual", value: rent },
+        { key: "Ambientes", value: ambients },
+        { key: "Antiguedad", value: `${antiquity} años` },
+        { key: "Departamentos por piso", value: apartments_per_floor },
+        { key: "Expensas", value: `$${expenses}` },
+        { key: "Ascensores", value: elevators },
       ],
       [
-        { key: 'Piso', value: floor },
-        { key: 'Pisos', value: floors },
-        { key: 'Superficie descubierta', value: `${free_backyard}m2` },
-        { key: 'Tipo de calefacción', value: heating },
-        { key: 'Tipo de garaje', value: tipo_de_cochera },
-        { key: 'Apto profesional', value: professional }
-      ]
+        { key: "Piso", value: floor },
+        { key: "Pisos", value: floors },
+        { key: "Superficie descubierta", value: `${free_backyard}m2` },
+        { key: "Tipo de calefacción", value: heating },
+        { key: "Tipo de garaje", value: tipo_de_cochera },
+        { key: "Apto profesional", value: professional },
+      ],
     ],
     photos: allPhotos,
     map,
     baths: bath,
     street,
     rooms,
-  }
+  };
 };

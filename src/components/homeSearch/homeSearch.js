@@ -15,12 +15,7 @@ import {
   SearchBarSubtitleTypography,
   SearchBarRadioBtnGrp,
   StyledRadio,
-  HomeSwitcher,
   SearchSection,
-  Container,
-  IconMagnifyingGlass,
-  SearchInput,
-  MobileSearchInput
 } from "./homeSearch.styles";
 
 
@@ -56,11 +51,11 @@ const HomeSearch = () => {
       <HomeSearchWrapper>
         <HomeSearchContainer>
           <HomeSearchHeader>
-            <SearchBarTypography variant="h3">
+            <SearchBarTypography variant="h4">
               Queremos ayudarte a encontrar tu lugar
             </SearchBarTypography>
-            <SearchBarSubtitleTypography variant="h5">
-              Desde 1938 brindamos seguridad en sus operaciones inmobiliarias{" "}
+            <SearchBarSubtitleTypography variant="h6">
+              Desde 1938 brindamos seguridad en sus operaciones inmobiliarias.{" "}
             </SearchBarSubtitleTypography>
           </HomeSearchHeader>
           <HomeSearchSelector>

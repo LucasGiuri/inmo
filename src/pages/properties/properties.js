@@ -143,7 +143,7 @@ const Properties = ({ id }) => {
         {data ? (
           <Container>
             {data && data.length ? (
-              <Grid numRowsLg={4} data={data} />
+              <Grid numRowsXs={12} numRowsLg={4} data={data} />
             ) : <EmptyState />}
           </Container>
         ): <Loading />}

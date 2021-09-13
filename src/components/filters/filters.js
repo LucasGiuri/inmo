@@ -77,7 +77,7 @@ const Filters = ({
   const onChangePrice = (e, type) => {
     const price = e.target.value;
     if (type === 'min') setMinPriceField(price);
-    if (type === 'max') setMaxPriceField(max);
+    if (type === 'max') setMaxPriceField(price);
   };
 
   const onChangeM2 = (e, type) => {

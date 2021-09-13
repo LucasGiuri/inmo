@@ -29,8 +29,8 @@ import { useParams } from "react-router-dom";
 import { convertData, photoConverter, fetchData } from "./property.helpers";
 
 const subtitle = "Descripcion";
-const description =
-  "Duplex penthouse with 120 square meters distributed over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have";
+// const description =
+  // "Duplex penthouse with 120 square meters di ibuted over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have";
 
 function Property() {
   const { id } = useParams();
@@ -136,7 +136,7 @@ function Property() {
             <Space vertical double />
             <Space vertical double />
             <DescriptionTypography variant="p" color="textSecondary" component="p">
-              {description}
+              {property.description}
             </DescriptionTypography>
             <Space vertical double />
             <Space vertical double />

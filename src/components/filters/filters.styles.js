@@ -33,9 +33,6 @@ export const PropertiesSection = styled.div`
 
 export const IndexContainer = styled.div`
   padding: 15px;
-  color: #fff;
-  margin: 3px;
-  margin-right: 15px;
   background-color: #a60321;
   height: 100%;
   width: 25%;

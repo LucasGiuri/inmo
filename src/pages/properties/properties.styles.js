@@ -57,6 +57,9 @@ export const IndexContainer = styled.div`
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 export const FilterSection = styled.div`

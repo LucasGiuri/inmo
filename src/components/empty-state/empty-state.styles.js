@@ -13,7 +13,7 @@ export const EmptyStateContainer = styled.div`
 `;
 
 export const Message = styled.p`
-  color: #4C5769;
+  color: #fff;
   font-size: 14px;
   font-weight: 400;
   width: 100%;
@@ -26,7 +26,7 @@ export const Message = styled.p`
 
 export const Title = styled.span`
   font-size: 14px;
-  color: #4C5769;
+  color: #fff;
   font-weight: 700;
   padding: 16px 0 8px 0;
 `;

@@ -2,13 +2,18 @@ import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 
+export const HomeContainer = styled.div`
+  width: 100%;
+`
+
 export const Container = styled.div`
+  padding: 50px;
   height: 100%;
   position: relative;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: black;
 `;
@@ -16,7 +21,7 @@ export const Container = styled.div`
 export const UiButton = styled(Button)`
   text-decoration: none;
   cursor: pointer;
-  background-color: #121212;;
+  background-color: #121212;
   color: #fff;
   border-radius: 4px;
   transition: 0.8s;
@@ -28,7 +33,7 @@ export const UiButton = styled(Button)`
 
   &:hover {
     background-color: #a60321;
-    transform: scale(1.055);
+    transform: scale(1.255);
   }
 `;
 
@@ -44,4 +49,20 @@ export const HomeTypography = styled(Typography)`
   color: #fff;
   padding: 50px;
   font-weight: bold;
+`
+
+export const HighlightProperties = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  padding: 25px;
+  width: 100%;
+`
+
+export const BtnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100px;
 `
