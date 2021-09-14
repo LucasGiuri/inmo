@@ -49,6 +49,7 @@ export const HomeTypography = styled(Typography)`
   color: #fff;
   padding: 50px;
   font-weight: bold;
+  text-align: center;
 `
 
 export const HighlightProperties = styled.div`

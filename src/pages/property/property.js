@@ -9,10 +9,12 @@ import Layout from "../../components/layout/layout";
 import { ContactXs } from "../../components/contactXs/contactXs";
 import {
   Aside,
+  PrincipalData,
   Price,
   TitleContainer,
-  IconsAndFormContainer,
+  PriceContainer,
   IconsContainer,
+  IconsAndAdressContainer,
   Icons,
   IconContainer,
   DetailsWrapper,
@@ -21,7 +23,7 @@ import {
   DetailKey,
   DetailValue,
   DescriptionTypography,
-  TitleTypography
+  TitleTypography,
 } from "./property.styles";
 import Space from "../../components/space/space";
 import Icon from "../../components/icon/icon";
@@ -29,10 +31,8 @@ import { useParams } from "react-router-dom";
 import { convertData, photoConverter, fetchData } from "./property.helpers";
 
 const subtitle = "Descripcion";
-// const description =
-  // "Duplex penthouse with 120 square meters di ibuted over 2 floors with parking and storage room. FIRST FLOOR: fully furnished kitchen, complete bathroom, living room furnished with high quality furniture and leather sofa, room (study) with sofa bed and furniture and a glass desk for the computer (I do not have a detailed photo but you can see it in the photos of the living room that has a red sofa bed and sliding glass door and glass square wall), terrace with a table and two chairs and a bench. SECOND FLOOR: furnished room with main bathroom equipped and with hydromassage bathtub, another room also equipped with a bedside table, mattress and bedside table (the mattress and bed base do not appear in the photo but I have";
 
-function Property() {
+function Property(size) {
   const { id } = useParams();
   const [{ properties }, dispatch] = useStateContext();
   const [property, setProperty] = useState(null);
@@ -67,8 +67,6 @@ function Property() {
   };
   const position = [51.505, -0.09];
 
-  console.log("property", property && property["map"]);
-
   return (
     <>
       {property && (
@@ -95,47 +93,97 @@ function Property() {
             </ModalGateway>
             <Space vertical double />
             <Space vertical double />
-            <TitleContainer>
-              <TitleTypography variant="h3" color="textSecondary" component="p">
-                {property.title}
-              </TitleTypography>
-              <Price variant="h4" component="h4">
-                {property.price}
-              </Price>
-            </TitleContainer>
-            <Space vertical double />
-            <Space vertical double />
+            <PrincipalData>
+              <TitleContainer>
+                <TitleTypography variant="h3">{property.title}</TitleTypography>
+              </TitleContainer>
+              <Space vertical double />
+              <Space vertical double />
+              <PriceContainer>
+                {property.price && <Price variant="h5">{property.price}</Price>}
+                <Space vertical double />
+                <Space vertical double />
+                {property.rent_price && (
+                  <Price variant="h5" component="h4">
+                    {property.rent_price}
+                  </Price>
+                )}
+              </PriceContainer>
+            </PrincipalData>
             <Space vertical double />
             <Space vertical double />
             <IconsContainer>
-              <Icons>
-              <IconContainer>
-                <Icon name="bed" />
-                <span>{property.rooms}</span>
-              </IconContainer>
-              <IconContainer>
-                <Icon name="bath" />
-                <span>{property.baths}</span>
-              </IconContainer>
-              <IconContainer>
-                <Icon name="m2" />
-                <span>{property.m2}</span>
-              </IconContainer>
-              <IconContainer>
-                <Icon name="car" />
-                <span>{property.cochera}</span>
-              </IconContainer>
-              </Icons>
+              <IconsAndAdressContainer>
+                <Space vertical double />
+                <TitleTypography variant="h5">
+                  {property.street_name} {property.number}
+                </TitleTypography>
+                <Space vertical double />
+                <Icons>
+                  <IconContainer>
+                    <Icon size="L" name="bed" />
+                    <Space vertical double />
+                    <span>
+                      <TitleTypography
+                        variant="h7"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {property.rooms}
+                      </TitleTypography>
+                    </span>
+                  </IconContainer>
+                  <IconContainer>
+                    <Icon size="L" name="bath" />
+                    <Space vertical double />
+                    <span>
+                      <TitleTypography
+                        variant="h7"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {property.baths}
+                      </TitleTypography>
+                    </span>
+                  </IconContainer>
+                  <IconContainer>
+                    <Icon size="L" name="m2" />
+                    <Space vertical double />
+                    <span>
+                      <TitleTypography
+                        variant="h7"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {property.m2}
+                      </TitleTypography>
+                    </span>
+                  </IconContainer>
+                  <IconContainer>
+                    <Icon size="L" name="car" />
+                    <Space vertical double />
+                    <span>
+                      <TitleTypography
+                        variant="h7"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {property.cochera}
+                      </TitleTypography>
+                    </span>
+                  </IconContainer>
+                </Icons>
+              </IconsAndAdressContainer>
               <ContactXs />
             </IconsContainer>
             <Space vertical double />
             <Space vertical double />
-            <TitleTypography variant="h4" color="textSecondary" component="p">
-              {subtitle}
+            <TitleTypography variant="h3" color="textSecondary" component="p">
+              Descripción
             </TitleTypography>
             <Space vertical double />
             <Space vertical double />
-            <DescriptionTypography variant="p" color="textSecondary" component="p">
+            <DescriptionTypography>
               {property.description}
             </DescriptionTypography>
             <Space vertical double />
@@ -185,6 +233,7 @@ function Property() {
             <Space vertical double />
             <Space vertical double />
             <Space vertical double />
+            {console.log(property.details)}
           </Aside>
         </Layout>
       )}
@@ -212,6 +261,15 @@ Property.defaultProps = {
   height: "",
   vertical: false,
   width: "",
+  title: "",
+  subtitle: "",
+  description: "",
+  detailsTitle: "",
+  rooms: 0,
+  garage: "",
+  m2: 0,
+  bath: 1,
+  price: 0,
 };
 
 export default Property;

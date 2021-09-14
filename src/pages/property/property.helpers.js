@@ -16,6 +16,7 @@ export const photoConverter = (img) => {
 
 export const convertData = (obj) => {
   const {
+    alquiler,
     ambients,
     antiquity,
     apartments_per_floor,
@@ -60,18 +61,19 @@ export const convertData = (obj) => {
     img28,
     img29,
     img30,
-    is_in_usd,
     map,
     m2,
+    number,
     orientation,
     price,
-    rent,
+    rent_price,
     professional,
     title,
     tipo_de_cochera,
-    street,
+    street_name,
     rooms,
     description,
+    venta,
   } = obj;
 
   const newTitle = title[0].text;
@@ -118,33 +120,31 @@ export const convertData = (obj) => {
     between_streets,
     building_side,
     cochera: cochera ? "SI" : "NO",
-    price: is_in_usd
-      ? `U$S ${price.toLocaleString()}`
-      : `$${price.toLocaleString()}`,
-    rent,
-    professional: professional ? "SI" : "NO",
+    price: venta  ? `VENTA U$S ${price.toLocaleString()}` : price,
+    rent_price: alquiler ? `ALQUILER ARS ${rent_price.toLocaleString()}` : rent_price,
     details: [
       [
-        { key: "Alquiler mensual", value: rent },
         { key: "Ambientes", value: ambients },
         { key: "Antiguedad", value: `${antiquity} años` },
         { key: "Departamentos por piso", value: apartments_per_floor },
-        { key: "Expensas", value: `$${expenses}` },
-        { key: "Ascensores", value: elevators },
+        { key: "Expensas", value: expenses === 0 ? 'No tiene' : `${expenses}` },
+        { key: "Ascensores", value: elevators === 0 ? 'No tiene' : `${elevators}` },
+        { key: "Superficie descubierta", value: `${free_backyard}m2` },
       ],
       [
-        { key: "Piso", value: floor },
+        { key: "Piso", value: floor === 0 ? 'PB' : `${floor}` },
         { key: "Pisos", value: floors },
-        { key: "Superficie descubierta", value: `${free_backyard}m2` },
-        { key: "Tipo de calefacción", value: heating },
+        { key: "Tipo de calefacción", value: heating && heating.length ? heating[0].text : '' },
         { key: "Tipo de garaje", value: tipo_de_cochera },
-        { key: "Apto profesional", value: professional },
+        { key: "Apto profesional", value: professional ? "SI" : "NO" },
+        { key: "Disposición", value: building_side ? "Frente" : "Contrafrente" },
       ],
     ],
     photos: allPhotos,
     map,
+    number,
     baths: bath,
-    street,
+    street_name: street_name && street_name.length ? street_name[0].text : '',
     rooms,
   };
 };

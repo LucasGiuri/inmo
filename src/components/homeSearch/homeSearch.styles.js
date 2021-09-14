@@ -38,6 +38,8 @@ export const HomeSearchContainer = styled.div`
   padding: 0 100px;
   margin: 0 auto;
   border-radius: 12px 12px 0px 0px;
+  height: 70%;
+  width: 60%;
 
   @media (max-width: 1200px) {
     overflow: hidden;
@@ -110,6 +112,7 @@ export const SearchBarButton = styled(Button)`
   border-radius: 4px;
   padding: 8px;
   transition: 0.8s;
+  margin: 5px;
 
   &:hover {
     background-color: red;

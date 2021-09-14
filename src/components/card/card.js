@@ -27,7 +27,6 @@ function MediaCard({
   baths,
   m2,
   garage,
-  rent,
 }) {
   return (
     <LinkContainer to={`/property/${id}`}>

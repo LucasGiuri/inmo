@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 export const ToolbarStyled = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
-
   @media (max-width: 850px) {
     flex-direction: column;
+  }
+  @media (max-width: 400px) {
+    height: 75px;
   }
 `;
 

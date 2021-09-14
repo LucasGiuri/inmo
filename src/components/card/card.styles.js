@@ -39,7 +39,7 @@ export const StyledCardMedia = styled(CardMedia)`
   height: 300px;
 
   @media (max-width: 450px) {
-    height: auto;
+    max-height: 250px;
   }
 `;
 

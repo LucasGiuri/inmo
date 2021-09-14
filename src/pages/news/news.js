@@ -74,6 +74,7 @@ const Novedades = () => {
                   <h3>{item.title}</h3>
                   <span
                     style={{ visibility: 'hidden', marginTop: '-150px' }}
+                    key={item.id}
                     id={`news-${item.id}-span`}
                   ></span>
                   <span>
