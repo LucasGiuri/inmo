@@ -82,11 +82,10 @@ const Properties = ({ id }) => {
         }
 
         const propertyType = typeOfProperty.find((obj) => obj.value === type_of_property);
-
         return (
           (id === 'rentals' ? alquiler : venta)
-          && (cochera === hasGarage)
-          && (professional === qpIsProfessional)
+          && (hasGarage ? cochera === hasGarage : id)
+          && (qpIsProfessional ? professional === qpIsProfessional : id)
           && (qp.neighborhood !== 'TODOS' ? qp.neighborhood.toLowerCase().includes(neighborhood.toLowerCase()) : neighborhood)
           && (qp.type !== 'TODOS' ? qp.type === propertyType.id : propertyType.id)
           && (qpMinPrice === 0 || qpMinPrice === qpMaxPrice ? price : (
