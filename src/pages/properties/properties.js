@@ -62,6 +62,7 @@ const Properties = ({ id }) => {
       isProfessional: qpIsProfessional,
       hasGarage: hasGarage
     });
+
     if (properties && properties.length > 0) {
       const filtered = properties[0] && properties[0].filter((p) => {
         const {
@@ -95,6 +96,7 @@ const Properties = ({ id }) => {
           && (qpAmbients === 0 ? ambients : qpAmbients > 4 ? ambients >= qpAmbients : qpAmbients === ambients)
         );
       });
+
       const filteredData = filtered && filtered.map((d) => {
         const { title, hero_image, cochera } = d.data;
         return {

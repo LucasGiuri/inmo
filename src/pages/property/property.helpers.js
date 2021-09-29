@@ -6,7 +6,7 @@ const apiEndpoint = "https://inmo.cdn.prismic.io/api/v2";
 const Client = Prismic.client(apiEndpoint);
 
 export const fetchData = async (endpoint) =>
-  await Client.query(Prismic.Predicates.at("document.type", endpoint));
+  await Client.query(Prismic.Predicates.at("document.type", endpoint ), { pageSize: 1000 } );
 
 export const photoConverter = (img) => {
   if (!img) return;
@@ -120,7 +120,7 @@ export const convertData = (obj) => {
     between_streets,
     building_side,
     cochera: cochera ? "SI" : "NO",
-    price: venta  ? `VENTA U$S ${price.toLocaleString()}` : price,
+    price: venta ? `VENTA U$S ${price.toLocaleString()}` : price,
     rent_price: alquiler ? `ALQUILER ARS ${rent_price.toLocaleString()}` : rent_price,
     details: [
       [
